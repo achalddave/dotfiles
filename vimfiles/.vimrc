@@ -91,9 +91,10 @@ if has("autocmd")
 endif
 
 " Use putty for SCP
+let g:netrw_silent=1
 let g:netrw_cygwin = 0
-let g:netrw_list_cmd = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
-let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch'
+let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
+let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
 let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
 
 " Easy window navigation (credit Samvit)
