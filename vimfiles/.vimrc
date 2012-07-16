@@ -1,8 +1,9 @@
-call pathogen#infect()
-
 if has('win32') || has('win64')
   set runtimepath=$HOME/dotfiles/vimfiles/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after
 endif
+
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 " default: runtimepath=$HOME/vimfiles, $VIM/vimfiles, $VIMRUNTIME, $VIM/vimfiles/after, $HOME/vimfiles/after
 

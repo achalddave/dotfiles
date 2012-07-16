@@ -1,2 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='C:\Windows\system32'
+let g:netrw_dirhist_2='C:\Users\Achal'
+let g:netrw_dirhist_3='C:/Users/Achal/.android'
+let g:netrw_dirhist_4='C:/Users/Achal'
+let g:netrw_dirhist_5='C:\Windows\system32'
