@@ -9,7 +9,7 @@ let s:foreground = "cccccc"
 " Achal: I like the bg a bit darker
 let s:background = "080808"
 let s:selection = "515151"
-let s:line = "393939"
+let s:line = "191919"
 let s:comment = "666666"
 let s:red = "f2777a"
 let s:orange = "f99157"
