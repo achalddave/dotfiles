@@ -97,15 +97,50 @@ let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh
 let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
 let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
 
-" Easy window navigation (credit Samvit)
+""" START Stolen from Samvit """
+
+" Easy window navigation 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+"map cap h and cap l to beg and end of line=more intuitive
+noremap H ^
+noremap L $
+noremap HH H
+noremap LL L
+
+"semicolon as colon
+noremap ; :
+"to keep original semicolon functionality:
+noremap : ;
+
+"escape is hard to reach so map kj to <ESC>
+"noremap kj <ESC>
+inoremap kj <ESC>l
+"nnoremap kj <ESC>
+"vnoremap kj <ESC>
+cnoremap kj <ESC>
+
+"easily escape and save from within insert mode
+inoremap ww <ESC>:w<Return>l
+
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
+""" END Stolen from Samvit """
+
+" don't allow esc in insert mode
+imap <Esc> <Nop>
+
+set timeoutlen=150  
+
 " case search
 set ignorecase
 set smartcase
+
+set smarttab 
 
 set nobackup
 
