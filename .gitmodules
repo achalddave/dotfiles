@@ -4,6 +4,6 @@
 [submodule "vimfiles/.vim/bundle/vim-javascript"]
 	path = vimfiles/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vimfiles/.vim/bundle/nerdtree"]
-	path = vimfiles/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vimfiles/.vim/bundle/ColorV"]
+	path = vimfiles/.vim/bundle/ColorV
+	url = https://github.com/Rykka/colorv.vim.git
