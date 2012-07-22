@@ -1,9 +1,3 @@
-[submodule "vimfiles/.vim/bundle/AutoComplPop"]
-	path = vimfiles/.vim/bundle/AutoComplPop
-	url = https://github.com/vim-scripts/AutoComplPop.git
 [submodule "vimfiles/.vim/bundle/vim-javascript"]
 	path = vimfiles/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vimfiles/.vim/bundle/ColorV"]
-	path = vimfiles/.vim/bundle/ColorV
-	url = https://github.com/Rykka/colorv.vim.git
