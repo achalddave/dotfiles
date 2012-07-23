@@ -105,6 +105,12 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Easy window resizing
+map = <C-w>+
+map - <C-w>-
+map <C-m> <C-w>>
+map <C-n> <C-w><
+
 "map cap h and cap l to beg and end of line=more intuitive
 noremap H ^
 noremap L $
