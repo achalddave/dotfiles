@@ -109,10 +109,11 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Easy window resizing
+" TODO: Figure out some nice ways to do this.
+" <C-m> maps to enter... otherwise <C-m> <C-n> seemed 
+" nice for <C-w>> and <C-w>< 
 map + <C-w>+
 map _ <C-w>-
-map <C-m> <C-w>>
-map <C-n> <C-w><
 
 "map cap h and cap l to beg and end of line=more intuitive
 noremap H ^
