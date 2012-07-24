@@ -83,6 +83,9 @@ if has("autocmd")
 	" Make vim treat ejs as html files
 	au BufRead,BufNewFile *.ejs setfiletype html
 
+	" markdown filetype file
+	au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
+
 	" 2 col tab for web
 	au Filetype html setlocal ts=2 sts=2 sw=2
 	au Filetype javascript setlocal ts=2 sts=2 sw=2
