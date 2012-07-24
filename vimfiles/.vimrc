@@ -106,8 +106,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Easy window resizing
-map = <C-w>+
-map - <C-w>-
+map + <C-w>+
+map _ <C-w>-
 map <C-m> <C-w>>
 map <C-n> <C-w><
 
