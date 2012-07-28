@@ -89,6 +89,7 @@ if has("autocmd")
 	" 2 col tab for web
 	au Filetype html setlocal ts=2 sts=2 sw=2
 	au Filetype javascript setlocal ts=2 sts=2 sw=2
+	au Filetype css setlocal ts=2 sts=2 sw=2
 
 	au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 endif
