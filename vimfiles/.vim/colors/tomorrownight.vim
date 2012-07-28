@@ -7,10 +7,14 @@
 let s:foreground = "cccccc"
 " let s:background = "2d2d2d"
 " Achal: I like the bg a bit darker
-let s:background = "080808"
-let s:selection = "515151"
-let s:line = "191919"
-let s:comment = "666666"
+let s:background = "000000"
+" TODO: Get the original selection, line, and comment colors and keep them
+" here, but commented out. 
+
+" Changed selection, line, and commment colors
+let s:selection = "202020"
+let s:line = "131313"
+let s:comment = "828282"
 let s:red = "f2777a"
 let s:orange = "f99157"
 let s:yellow = "ffcc66"

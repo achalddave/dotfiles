@@ -1,4 +1,11 @@
-:map <C-S-tab> :tabprevious<CR>
-:map <C-tab> :tabnext<CR>
-:map <C-t> :tabnew<CR>
+" Remove gvim's ugly toolbar and menu
+set guioptions-=T
+set guioptions-=m
+
+" Courier New sucks
+set guifont=Consolas
+
+:noremap <C-S-tab> :tabprevious<CR>
+:noremap <C-tab> :tabnext<CR>
+:noremap <C-t> :tabnew<CR>
 colorscheme tomorrownight
