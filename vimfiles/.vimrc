@@ -19,7 +19,7 @@ set nocompatible
 filetype off
 
 set rtp+=$HOME/dotfiles/vimfiles/.vim/bundle/vundle
-call vundle#rc($HOME/dotfiles/vimfiles/.vim/bundle)
+call vundle#rc("$HOME/dotfiles/vimfiles/.vim/bundle")
 
 " let Vundle manage Vundle
 " required! 
@@ -31,6 +31,7 @@ Bundle 'pangloss/vim-javascript'
 " vim-scripts
 Bundle 'sessionman.vim'
 Bundle 'AutoComplPop'
+Bundle 'php.vim-html-enhanced'
 
 filetype plugin indent on     " required!
 "
