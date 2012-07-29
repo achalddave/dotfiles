@@ -30,8 +30,8 @@ Bundle 'pangloss/vim-javascript'
 
 " vim-scripts
 Bundle 'sessionman.vim'
-Bundle 'AutoComplPop'
 Bundle 'php.vim-html-enhanced'
+Bundle 'indenthtml.vim'
 
 filetype plugin indent on     " required!
 "
