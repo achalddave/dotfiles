@@ -1,9 +1,0 @@
-[submodule "vimfiles/.vim/bundle/vim-javascript"]
-	path = vimfiles/.vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vimfiles/.vim/bundle/AutoComplPop"]
-	path = vimfiles/.vim/bundle/AutoComplPop
-	url = https://github.com/vim-scripts/AutoComplPop.git
-[submodule "vimfiles/.vim/bundle/sessionman"]
-	path = vimfiles/.vim/bundle/sessionman
-	url = https://github.com/vim-scripts/sessionman.vim.git

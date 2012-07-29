@@ -8,12 +8,40 @@ if has('win32') || has('win64')
 	" default: runtimepath=$HOME/vimfiles, $VIM/vimfiles, $VIMRUNTIME, $VIM/vimfiles/after, $HOME/vimfiles/after
 endif
 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
 
+"================="
+"  set up vundle  "
+"================="
 
 set nocompatible
-set nocp
+filetype off
+
+set rtp+=$HOME/dotfiles/vimfiles/.vim/bundle/vundle
+call vundle#rc($HOME/dotfiles/vimfiles/.vim/bundle)
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" github repos
+Bundle 'pangloss/vim-javascript'
+
+" vim-scripts
+Bundle 'sessionman.vim'
+Bundle 'AutoComplPop'
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed.. (on the same line, that is)
 
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -57,7 +85,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-if has(" autocmd" )
+if has("autocmd")
 	" Make vim treat ejs as html files
 	au BufRead,BufNewFile *.ejs setfiletype html
 
