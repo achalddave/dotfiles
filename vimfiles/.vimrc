@@ -27,9 +27,9 @@ Bundle 'gmarik/vundle'
 
 " github repos
 Bundle 'pangloss/vim-javascript'
+Bundle 'c9s/gsession.vim.git'
 
 " vim-scripts
-Bundle 'sessionman.vim'
 Bundle 'AutoComplPop'
 Bundle 'php.vim-html-enhanced'
 Bundle 'Tab-Name'
