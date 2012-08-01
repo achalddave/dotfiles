@@ -27,11 +27,12 @@ Bundle 'gmarik/vundle'
 
 " github repos
 Bundle 'pangloss/vim-javascript'
+Bundle 'c9s/gsession.vim.git'
 
 " vim-scripts
-Bundle 'sessionman.vim'
 Bundle 'php.vim-html-enhanced'
 Bundle 'indenthtml.vim'
+Bundle 'Tab-Name'
 
 filetype plugin indent on     " required!
 "
@@ -85,6 +86,7 @@ set incsearch
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab " use spaces
 
 if has("autocmd")
 	" Make vim treat ejs as html files
@@ -97,6 +99,7 @@ if has("autocmd")
 	au Filetype html setlocal ts=2 sts=2 sw=2
 	au Filetype javascript setlocal ts=2 sts=2 sw=2
 	au Filetype css setlocal ts=2 sts=2 sw=2
+	au Filetype php setlocal ts=2 sts=2 sw=2
 
 	" tabs to spaces; 4 col tabs
 	au FileType python setlocal expandtab ts=4 sts=4 sw=4
