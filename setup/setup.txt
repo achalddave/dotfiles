@@ -1,3 +1,2 @@
 Run setup.bat
 git config --global core.excludesfile '%gitfiles/.gitignore_global'
-
