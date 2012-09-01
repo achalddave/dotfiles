@@ -150,6 +150,9 @@ imap <Esc> <Nop>
 " easily escape and save from within insert mode
 inoremap ww <ESC>:w<Return>l
 
+" exchange this word with next word using gw
+noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
+
 " stop highlighting the current line if not active
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
