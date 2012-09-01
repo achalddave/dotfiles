@@ -116,17 +116,18 @@ let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
 let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
 
 " Easy window navigation 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 " Easy window resizing
 " TODO: Figure out some nice ways to do this.
 " <C-m> maps to enter... otherwise <C-m> <C-n> seemed 
 " nice for <C-w>> and <C-w>< 
-map + <C-w>+
-map _ <C-w>-
+" hm maybe use leaders?
+noremap + <C-w>+
+noremap _ <C-w>-
 
 " map cap h and cap l to beg and end of line=more intuitive
 noremap H ^
@@ -141,7 +142,7 @@ noremap : ;
 
 " escape is hard to reach so map kj to <ESC>
 inoremap kj <ESC>l
-cnoremap kj <ESC>
+noremap kj <ESC>
 
 " don't allow esc in insert mode (aka save my wrists)
 imap <Esc> <Nop>
