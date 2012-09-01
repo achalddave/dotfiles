@@ -101,6 +101,9 @@ if has("autocmd")
 	au Filetype css setlocal ts=2 sts=2 sw=2
 	au Filetype php setlocal ts=2 sts=2 sw=2
 
+    " Match tags!
+    au Filetype html,css,js,ejs,xml runtime! macros/matchit.vim
+
 	" tabs to spaces; 4 col tabs
 	au FileType python setlocal expandtab ts=4 sts=4 sw=4
 endif
