@@ -32,6 +32,7 @@ Bundle 'tpope/vim-fugitive.git'
 
 " vim-scripts
 Bundle 'php.vim-html-enhanced'
+Bundle 'indenthtml.vim'
 Bundle 'Tab-Name'
 
 filetype plugin indent on     " required!
