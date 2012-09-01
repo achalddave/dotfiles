@@ -33,6 +33,7 @@ Bundle 'c9s/gsession.vim.git'
 Bundle 'php.vim-html-enhanced'
 Bundle 'indenthtml.vim'
 Bundle 'Tab-Name'
+Bundle 'rdark'
 
 filetype plugin indent on     " required!
 "
