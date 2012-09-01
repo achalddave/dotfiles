@@ -74,7 +74,6 @@ function MyDiff()
 	endif
 	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
-colorscheme python
 
 " make the working directory be the directory of the current file
 set autochdir
