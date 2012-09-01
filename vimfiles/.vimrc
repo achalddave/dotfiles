@@ -35,7 +35,7 @@ Bundle 'indenthtml.vim'
 Bundle 'Tab-Name'
 Bundle 'rdark'
 
-filetype plugin indent on     " required!
+filetype plugin indent on     " required [for vundle]!
 "
 " Brief help
 " :BundleList          - list configured bundles
