@@ -5,6 +5,10 @@
 	diff = auto
 	status = auto
 	branch = auto
+[alias]
+    st = status
+    co = checkout
+    ci = commit
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
