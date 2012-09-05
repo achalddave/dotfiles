@@ -53,9 +53,9 @@ filetype plugin indent on     " required [for vundle]!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed.. (on the same line, that is)
 
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+"source $VIMRUNTIME/vimrc_example.vim
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
 
 set diffexpr=MyDiff()
 function MyDiff()
