@@ -1,10 +1,8 @@
 [user]
 	name = Achal
 	email = achalddave@live.com
-[colors]
-	diff = auto
-	status = auto
-	branch = auto
+[color]
+    ui = always
 [alias]
     st = status
     co = checkout

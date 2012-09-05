@@ -2,6 +2,8 @@
 " If html indent is being weird, try :set nocp; dunno why that works.
 " If .php file and has html, use :set ft=html
 
+set nocompatible
+
 " dotfiles repo hurrah
 if has('win32') || has('win64')
 	set runtimepath=$HOME/dotfiles/vimfiles/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after
@@ -15,7 +17,6 @@ endif
 "  set up vundle  "
 "================="
 
-set nocompatible
 filetype off
 
 set rtp+=$HOME/dotfiles/vimfiles/.vim/bundle/vundle
@@ -88,6 +89,16 @@ let g:netrw_keepdir=0
 set autoindent
 set incsearch
 
+"Fixes for issues with linux
+set backspace=indent,eol,start
+if has('mouse')
+  set mouse=a
+endif
+set t_ku=[A
+set t_kd=[B
+set t_kr=[C
+set t_kl=[D
+
 " 4 col tab generally
 set tabstop=4
 set softtabstop=4
@@ -126,6 +137,9 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" Wrap cursor
+set ww+=<,>,[,]
 
 " Easy window resizing
 " TODO: Figure out some nice ways to do this.
@@ -175,5 +189,3 @@ set smarttab
 " ugly backup files go bye-bye
 set nobackup
 
-set nocompatible
-set nocp
