@@ -30,6 +30,11 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'c9s/gsession.vim.git'
 Bundle 'tpope/vim-fugitive.git'
 
+" THEMES
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'Wombat'
+
 " vim-scripts
 Bundle 'php.vim-html-enhanced'
 Bundle 'indenthtml.vim'
