@@ -19,3 +19,8 @@ for file in ${HOME}/bashrc.d/* ; do [[ -x ${file} ]] && . "${file}"; done
 
 alias ls='ls --color=always'
 alias l='ls'
+
+# OCF config
+if [ -r /opt/ocf/share/environment/.bashrc ]; then
+  source /opt/ocf/share/environment/.bashrc
+fi
