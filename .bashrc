@@ -18,3 +18,4 @@ for file in ${MASTERDIR}/adm/bashrc.d/* ; do [[ -x ${file} ]] && . "${file}"; do
 for file in ${HOME}/bashrc.d/* ; do [[ -x ${file} ]] && . "${file}"; done
 
 alias ls='ls --color=always'
+alias l='ls'
