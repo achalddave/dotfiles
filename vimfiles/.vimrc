@@ -206,8 +206,10 @@ endif
 inoremap kj <ESC>l
 noremap kj <ESC>
 
-" don't allow esc in insert mode
-imap <Esc> <Nop>
+" don't allow esc in insert mode (aka save my wrists)
+" imap <Esc> <Nop>
+" Well, that actually messes everything up... but I'm used to kj now, so it's
+" all good.
 
 " easily escape and save from within insert mode
 inoremap ww <ESC>:w<Return>l
