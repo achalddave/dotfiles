@@ -105,41 +105,43 @@ let g:netrw_keepdir=0
 
 set autoindent
 set incsearch
+set ruler
+set history=100
 
-"Fixes for issues with linux
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+" some terminal issue fixes
 if has('mouse')
   set mouse=a
 endif
-set t_ku=[A
-set t_kd=[B
-set t_kr=[C
-set t_kl=[D
 
 " 4 col tab generally
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab " use spaces
+set ts=4 sts=4 sw=4 expandtab
 
 if has("autocmd")
 	" Make vim treat ejs as html files
 	au BufRead,BufNewFile *.ejs setfiletype html
-
-	" markdown filetype file
-	au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
-
-	" 2 col tab for web
-	au Filetype html setlocal ts=2 sts=2 sw=2
-	au Filetype javascript setlocal ts=2 sts=2 sw=2
-	au Filetype css setlocal ts=2 sts=2 sw=2
-	au Filetype php setlocal ts=2 sts=2 sw=2
-
-    " Match tags!
-    au Filetype html,css,js,ejs,xml runtime! macros/matchit.vim
+    au BufRead,BufNewFile *.tex setfiletype plaintex
 
 	" tabs to spaces; 4 col tabs
 	au FileType python setlocal expandtab ts=4 sts=4 sw=4
+
+    au Filetype html,css,javascript,ejs,xml call SetWebdevOptions()
+
+    function! SetWebdevOptions()
+        " 2 space tabs
+        setlocal expandtab ts=2 sts=2 sw=2
+
+        " Match tags
+        runtime! macros/matchit.vim
+    endfunction
 endif
 
 " Use putty for SCP
