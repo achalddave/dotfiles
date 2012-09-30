@@ -1,17 +1,23 @@
 " Tips in general [Achal]
+" GENERAL
+" =======
+" Overriding plugin mapping: use <buffer> 
+"   (e.g. `:imap <buffer> <BS> <nop>` instead of `:imap <BS> <nop>`)
+"
+" WEBDEV
+" ======
 " If html indent is being weird, try :set nocp; dunno why that works.
 " If .php file and has html, use :set ft=html
+" 
 
 set nocompatible
 
 " dotfiles repo hurrah
 if has('win32') || has('win64')
-	set runtimepath=$HOME/dotfiles/vimfiles/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after
-	" default: runtimepath=$HOME/vimfiles, $VIM/vimfiles, $VIMRUNTIME, $VIM/vimfiles/after, $HOME/vimfiles/after
+    " computer specific settings can be put in the $VIM/vimfiles/after dir, so
+    " dotfiles can be common
+    let &runtimepath='$HOME/dotfiles/vimfiles/.vim,$HOME/dotfiles/vimfiles/.vim/after' . &runtimepath
 endif
-
-" call pathogen#helptags()
-" call pathogen#runtime_append_all_bundles()
 
 "================="
 "  set up vundle  "
