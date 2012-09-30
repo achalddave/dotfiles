@@ -65,20 +65,14 @@ Bundle 'Wombat'
 
 " Options for plugins
 
-filetype plugin indent on     " required [for vundle]!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed.. (on the same line, that is)
+" indent-html.vim:
+let g:html_indent_inctags='p' " add indent on new paragraph
 
-"source $VIMRUNTIME/vimrc_example.vim
-"source $VIMRUNTIME/mswin.vim
-"behave mswin
+" Auto-Close
+if has("autocmd")
+    au FileType tex,plaintex let b:AutoClosePairs=AutoClose#DefaultPairsModified("$$","")
+    au FileType html,php,ejs let b:AutoClosePairs=AutoClose#DefaultPairsModified("<>","")
+endif
 
 set diffexpr=MyDiff()
 function MyDiff()
