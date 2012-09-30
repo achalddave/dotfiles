@@ -179,15 +179,40 @@ noremap ; :
 " to keep original semicolon functionality:
 noremap : ;
 
+" LESS WRIST PAIN
+"=================
+
+" Going to try 'z' for a while (don't use that key much anyway)
+let mapleader="z"
+function! LatexMappings()
+    inoremap <Leader>/ \
+    inoremap <Leader>9 [
+    inoremap <Leader>0 ]
+    inoremap <Leader>99 {
+    inoremap <Leader>00 }
+
+    inoremap <buffer> [ <nop>
+    inoremap <buffer> ] <nop>
+    inoremap <buffer> { <nop>
+    inoremap <buffer> } <nop>
+    inoremap \ <nop>
+endfunction
+
+if has("autocmd")
+    au Filetype latex,tex,plaintex call LatexMappings()
+endif
+
 " escape is hard to reach so map kj to <ESC>
 inoremap kj <ESC>l
 noremap kj <ESC>
 
-" don't allow esc in insert mode (aka save my wrists)
+" don't allow esc in insert mode
 imap <Esc> <Nop>
 
 " easily escape and save from within insert mode
 inoremap ww <ESC>:w<Return>l
+
+
 
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
