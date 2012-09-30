@@ -94,10 +94,10 @@ set backspace=indent,eol,start
 if has('mouse')
   set mouse=a
 endif
-set t_ku=[A
-set t_kd=[B
-set t_kr=[C
-set t_kl=[D
+"set t_ku=[A
+"set t_kd=[B
+"set t_kr=[C
+"set t_kl=[D
 
 " 4 col tab generally
 set tabstop=4
@@ -165,7 +165,9 @@ inoremap kj <ESC>l
 noremap kj <ESC>
 
 " don't allow esc in insert mode (aka save my wrists)
-imap <Esc> <Nop>
+" imap <Esc> <Nop>
+" Well, that actually messes everything up... but I'm used to kj now, so it's
+" all good.
 
 " easily escape and save from within insert mode
 inoremap ww <ESC>:w<Return>l
