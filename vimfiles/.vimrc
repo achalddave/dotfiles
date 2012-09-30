@@ -203,6 +203,17 @@ set smartcase
 
 set smarttab 
 
-" ugly backup files go bye-bye
-set nobackup
-
+set backup
+if has("win32")
+    let mybackupdir = expand($TEMP) . "\\vim-backup"
+    if !isdirectory(mybackupdir)
+        silent exec "!mkdir " mybackupdir
+    endif
+    execute "set backupdir=".mybackupdir.",$TEMP,$TMP"
+elseif has("unix")
+    let mybackupdir = "/tmp/vim-backup"
+    if !isdirectory(mybackupdir)
+        silent exec "!mkdir " mybackupdir
+    endif
+    set backupdir=/tmp/vim-backup
+endif
