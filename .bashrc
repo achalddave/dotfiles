@@ -17,7 +17,11 @@ for file in ${MASTERDIR}/adm/bashrc.d/* ; do [[ -x ${file} ]] && . "${file}"; do
 # Set up local settings
 for file in ${HOME}/bashrc.d/* ; do [[ -x ${file} ]] && . "${file}"; done
 
-alias ls='ls --color=always'
+if [ `uname` == "Linux" ]
+then
+    alias ls='ls --color=always'
+fi
+
 alias l='ls'
 
 # OCF config
