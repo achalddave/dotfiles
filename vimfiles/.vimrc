@@ -28,25 +28,42 @@ filetype off
 set rtp+=$HOME/dotfiles/vimfiles/.vim/bundle/vundle
 call vundle#rc("$HOME/dotfiles/vimfiles/.vim/bundle")
 
+filetype plugin indent on     " required [for vundle]!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed.. (on the same line, that is)
+
 " let Vundle manage Vundle
-" required! 
+" required for vundle! 
 Bundle 'gmarik/vundle'
 
-" github repos
-Bundle 'pangloss/vim-javascript'
 Bundle 'c9s/gsession.vim.git'
+Bundle 'Tab-Name'
 Bundle 'tpope/vim-fugitive.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-ragtag'
+Bundle 'Townk/vim-autoclose.git'
+Bundle 'majutsushi/tagbar'
+
+" language specific
+Bundle 'pangloss/vim-javascript'
+Bundle 'php.vim-html-enhanced'
+Bundle 'closetag.vim'
+Bundle 'indenthtml.vim'
 
 " THEMES
+Bundle 'rdark'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'Wombat'
 
-" vim-scripts
-Bundle 'php.vim-html-enhanced'
-Bundle 'indenthtml.vim'
-Bundle 'Tab-Name'
-Bundle 'rdark'
+" Options for plugins
 
 filetype plugin indent on     " required [for vundle]!
 "
