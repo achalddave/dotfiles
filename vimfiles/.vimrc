@@ -108,6 +108,10 @@ set incsearch
 set ruler
 set history=100
 
+"When moving the cursor up or down just after inserting indent for
+"'autoindent', do not delete the indent.
+set cpoptions+=I
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -145,11 +149,13 @@ if has("autocmd")
 endif
 
 " Use putty for SCP
-let g:netrw_silent=1
-let g:netrw_cygwin = 0
-let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
-let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
-let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+if has("win32")
+    let g:netrw_silent=1
+    let g:netrw_cygwin = 0
+    let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
+    let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
+    let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+endif
 
 " Easy window navigation 
 noremap <C-h> <C-w>h
