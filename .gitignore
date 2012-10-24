@@ -1,3 +1,5 @@
+*.swp
+*.swo
 /vimfiles/.vim/.netrwhist
 /vimfiles/.vim/bundle
 /vimfiles/sessions/*
