@@ -135,6 +135,17 @@ endif
 
 " </tabwars>
 
+" HELPFUL FUNCTIONS
+" =================
+
+function! RunWithoutTimeout(command)
+    let l:origTimeoutlen=&timeoutlen
+    set timeoutlen=0
+    echo &timeoutlen
+    exec a:command
+    exec "set timeoutlen=".l:origTimeoutlen
+endfunction
+
 " Easy window navigation 
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -162,6 +173,23 @@ noremap LL L
 noremap ; :
 " to keep original semicolon functionality:
 noremap : ;
+
+" Page up/page down makes no sense to me
+"
+" <C-d> half page down
+" <C-f> half page up
+" <C-b> page down
+" <C-u> page up
+" Use smooth scroll function from the plugin
+nnoremap <silent> <C-f> :call RunWithoutTimeout("call SmoothScroll(\"u\", 2, 2)")<CR>
+nnoremap <silent> <C-d> :call RunWithoutTimeout("call SmoothScroll(\"d\", 2, 2)")<CR>
+nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)")<CR>
+nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
+
+" toggle highlighting
+nnoremap <silent> <Leader>h :set invhlsearch<CR>
+inoremap <silent> <Leader>h <ESC>:set invhlsearch<CR>i
+
 
 " LESS WRIST PAIN
 "=================
