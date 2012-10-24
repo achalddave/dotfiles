@@ -16,7 +16,9 @@ set nocompatible
 if has('win32') || has('win64')
     " computer specific settings can be put in the $VIM/vimfiles/after dir, so
     " dotfiles can be common
-    let &runtimepath='$HOME/dotfiles/vimfiles/.vim,$HOME/dotfiles/vimfiles/.vim/after' . &runtimepath
+    let &runtimepath='$HOME/dotfiles/vimfiles/.vim,' . &runtimepath
+    "   . ',$HOME/dotfiles/vimfiles/.vim/after'
+"
 endif
 
 "================="
@@ -43,13 +45,16 @@ filetype plugin indent on     " required [for vundle]!
 " required for vundle! 
 Bundle 'gmarik/vundle'
 
-Bundle 'c9s/gsession.vim.git'
 Bundle 'Tab-Name'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-ragtag'
 Bundle 'Townk/vim-autoclose.git'
 Bundle 'majutsushi/tagbar'
+Bundle 'ichizok/Smooth-Scroll'
+Bundle 'ervandew/supertab'
+Bundle 'kien/ctrlp.vim'
+Bundle 'xolox/vim-session'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
@@ -62,6 +67,7 @@ Bundle 'rdark'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'Wombat'
+Bundle 'mnoble/tomorrow-night-vim'
 
 " Options for plugins
 
@@ -74,8 +80,12 @@ if has("autocmd")
     au FileType html,php,ejs let b:AutoClosePairs=AutoClose#DefaultPairsModified("<>","")
 endif
 
+" Session save directory
+let g:session_directory="~/dotfiles/vimfiles/sessions"
+let g:session_command_aliases = 1
+
 set diffexpr=MyDiff()
-function MyDiff()
+function! MyDiff()
 	let opt = '-a --binary '
 	if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
 	if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
@@ -99,28 +109,7 @@ function MyDiff()
 	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-" make the working directory be the directory of the current file
-set autochdir
-let g:netrw_keepdir=0
-
-set autoindent
-set incsearch
-set ruler
-set history=100
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-" some terminal issue fixes
-if has('mouse')
-  set mouse=a
-endif
+" <tabwars>
 
 " 4 col tab generally
 set ts=4 sts=4 sw=4 expandtab
@@ -136,7 +125,7 @@ if has("autocmd")
     " CS 61C conventions
     au FileType c setlocal expandtab ts=2 sts=2 sw=2
 
-    au Filetype html,css,javascript,ejs,xml call SetWebdevOptions()
+    au Filetype html,css,javascript,ejs,xml,xbl call SetWebdevOptions()
 
     function! SetWebdevOptions()
         " 2 space tabs
@@ -147,21 +136,26 @@ if has("autocmd")
     endfunction
 endif
 
-" Use putty for SCP
-let g:netrw_silent=1
-let g:netrw_cygwin = 0
-let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
-let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
-let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+" </tabwars>
 
+" HELPFUL FUNCTIONS
+" =================
+
+function! RunWithoutTimeout(command)
+    let l:origTimeoutlen=&timeoutlen
+    set timeoutlen=0
+    echo &timeoutlen
+    exec a:command
+    exec "set timeoutlen=".l:origTimeoutlen
+endfunction
+
+" INTUITIVE
+" =========
 " Easy window navigation 
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-
-" Wrap cursor
-set ww+=<,>,[,]
 
 " Easy window resizing
 " TODO: Figure out some nice ways to do this.
@@ -182,11 +176,29 @@ noremap ; :
 " to keep original semicolon functionality:
 noremap : ;
 
+" Page up/page down makes no sense to me
+"
+" <C-d> half page down
+" <C-f> half page up
+" <C-b> page down
+" <C-u> page up
+" Use smooth scroll function from the plugin
+nnoremap <silent> <C-f> :call RunWithoutTimeout("call SmoothScroll(\"u\", 2, 2)")<CR>
+nnoremap <silent> <C-d> :call RunWithoutTimeout("call SmoothScroll(\"d\", 2, 2)")<CR>
+nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)")<CR>
+nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
+
+" toggle highlighting
+nnoremap <silent> <Leader>h :set invhlsearch<CR>
+inoremap <silent> <Leader>h <ESC>:set invhlsearch<CR>i
+
+
 " LESS WRIST PAIN
 "=================
 
 " Going to try 'z' for a while (don't use that key much anyway)
-let mapleader="z"
+let mapleader=","
+
 function! LatexMappings()
     inoremap <Leader>/ \
     inoremap <Leader>9 [
@@ -215,12 +227,53 @@ noremap kj <ESC>
 " all good.
 
 " easily escape and save from within insert mode
-inoremap ww <ESC>:w<Return>l
+inoremap wq <ESC>:w<Return>l
 
-
+" EXTRA FUNCTIONALITY
+" ===================
 
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
+
+" ETC SETTINGS
+" ============
+
+" Use putty for SCP
+let g:netrw_silent=1
+let g:netrw_cygwin = 0
+let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
+let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
+let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+
+" make the working directory be the directory of the current file
+set autochdir
+let g:netrw_keepdir=0
+
+set autoindent
+set incsearch
+set ruler
+set history=100
+
+"When moving the cursor up or down just after inserting indent for
+"'autoindent', do not delete the indent.
+set cpoptions+=I
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+" some terminal issue fixes
+if has('mouse')
+  set mouse=a
+endif
+
+" Wrap cursor
+set ww+=<,>,[,]
 
 " stop highlighting the current line if not active
 au WinLeave * set nocursorline

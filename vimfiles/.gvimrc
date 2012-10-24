@@ -11,4 +11,5 @@ set guifont=Consolas
 :inoremap <C-S-tab> <Esc>:tabprevious<CR>a
 :inoremap <C-tab> <Esc>:tabnext<CR>a
 :inoremap <C-t> <Esc>:tabnew<CR>a
-colorscheme tomorrownight
+
+colorscheme tomorrow-night-bright
