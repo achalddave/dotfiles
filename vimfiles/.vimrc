@@ -224,8 +224,7 @@ noremap kj <ESC>
 " all good.
 
 " easily escape and save from within insert mode
-inoremap ww <ESC>:w<Return>l
-
+inoremap wq <ESC>:w<Return>l
 
 " EXTRA FUNCTIONALITY
 " ===================
