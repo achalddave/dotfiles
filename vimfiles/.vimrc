@@ -16,7 +16,9 @@ set nocompatible
 if has('win32') || has('win64')
     " computer specific settings can be put in the $VIM/vimfiles/after dir, so
     " dotfiles can be common
-    let &runtimepath='$HOME/dotfiles/vimfiles/.vim,$HOME/dotfiles/vimfiles/.vim/after' . &runtimepath
+    let &runtimepath='$HOME/dotfiles/vimfiles/.vim,' . &runtimepath
+    "   . ',$HOME/dotfiles/vimfiles/.vim/after'
+"
 endif
 
 "================="
