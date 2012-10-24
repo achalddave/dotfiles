@@ -85,7 +85,7 @@ let g:session_directory="~/dotfiles/vimfiles/sessions"
 let g:session_command_aliases = 1
 
 set diffexpr=MyDiff()
-function MyDiff()
+function! MyDiff()
 	let opt = '-a --binary '
 	if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
 	if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
