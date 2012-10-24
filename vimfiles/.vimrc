@@ -197,7 +197,8 @@ inoremap <silent> <Leader>h <ESC>:set invhlsearch<CR>i
 "=================
 
 " Going to try 'z' for a while (don't use that key much anyway)
-let mapleader="z"
+let mapleader=","
+
 function! LatexMappings()
     inoremap <Leader>/ \
     inoremap <Leader>9 [
