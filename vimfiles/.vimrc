@@ -109,6 +109,7 @@ function! MyDiff()
 	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+" <tabwars>
 
 " 4 col tab generally
 set ts=4 sts=4 sw=4 expandtab
@@ -121,7 +122,7 @@ if has("autocmd")
 	" tabs to spaces; 4 col tabs
 	au FileType python setlocal expandtab ts=4 sts=4 sw=4
 
-    au Filetype html,css,javascript,ejs,xml call SetWebdevOptions()
+    au Filetype html,css,javascript,ejs,xml,xbl call SetWebdevOptions()
 
     function! SetWebdevOptions()
         " 2 space tabs
@@ -140,6 +141,7 @@ if has("win32")
     let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
     let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
 endif
+" </tabwars>
 
 " Easy window navigation 
 noremap <C-h> <C-w>h
