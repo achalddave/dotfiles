@@ -146,6 +146,8 @@ function! RunWithoutTimeout(command)
     exec "set timeoutlen=".l:origTimeoutlen
 endfunction
 
+" INTUITIVE
+" =========
 " Easy window navigation 
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
