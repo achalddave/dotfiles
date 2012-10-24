@@ -43,13 +43,16 @@ filetype plugin indent on     " required [for vundle]!
 " required for vundle! 
 Bundle 'gmarik/vundle'
 
-Bundle 'c9s/gsession.vim.git'
 Bundle 'Tab-Name'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-ragtag'
 Bundle 'Townk/vim-autoclose.git'
 Bundle 'majutsushi/tagbar'
+Bundle 'ichizok/Smooth-Scroll'
+Bundle 'ervandew/supertab'
+Bundle 'kien/ctrlp.vim'
+Bundle 'xolox/vim-session'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
@@ -62,6 +65,7 @@ Bundle 'rdark'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'Wombat'
+Bundle 'mnoble/tomorrow-night-vim'
 
 " Options for plugins
 
@@ -73,6 +77,10 @@ if has("autocmd")
     au FileType tex,plaintex let b:AutoClosePairs=AutoClose#DefaultPairsModified("$$","")
     au FileType html,php,ejs let b:AutoClosePairs=AutoClose#DefaultPairsModified("<>","")
 endif
+
+" Session save directory
+let g:session_directory="~/dotfiles/vimfiles/sessions"
+let g:session_command_aliases = 1
 
 set diffexpr=MyDiff()
 function MyDiff()
