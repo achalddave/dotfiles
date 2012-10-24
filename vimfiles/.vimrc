@@ -109,32 +109,6 @@ function! MyDiff()
 	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-" make the working directory be the directory of the current file
-set autochdir
-let g:netrw_keepdir=0
-
-set autoindent
-set incsearch
-set ruler
-set history=100
-
-"When moving the cursor up or down just after inserting indent for
-"'autoindent', do not delete the indent.
-set cpoptions+=I
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-" some terminal issue fixes
-if has('mouse')
-  set mouse=a
-endif
 
 " 4 col tab generally
 set ts=4 sts=4 sw=4 expandtab
@@ -231,9 +205,51 @@ noremap kj <ESC>
 inoremap ww <ESC>:w<Return>l
 
 
+" EXTRA FUNCTIONALITY
+" ===================
 
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
+
+" ETC SETTINGS
+" ============
+
+" Use putty for SCP
+let g:netrw_silent=1
+let g:netrw_cygwin = 0
+let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
+let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
+let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+
+" make the working directory be the directory of the current file
+set autochdir
+let g:netrw_keepdir=0
+
+set autoindent
+set incsearch
+set ruler
+set history=100
+
+"When moving the cursor up or down just after inserting indent for
+"'autoindent', do not delete the indent.
+set cpoptions+=I
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+" some terminal issue fixes
+if has('mouse')
+  set mouse=a
+endif
+
+" Wrap cursor
+set ww+=<,>,[,]
 
 " stop highlighting the current line if not active
 au WinLeave * set nocursorline
