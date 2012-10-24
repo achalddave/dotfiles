@@ -154,9 +154,6 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" Wrap cursor
-set ww+=<,>,[,]
-
 " Easy window resizing
 " TODO: Figure out some nice ways to do this.
 " <C-m> maps to enter... otherwise <C-m> <C-n> seemed 
