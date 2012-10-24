@@ -16,8 +16,9 @@ fi
 
 # end berkeley settings, start my settings
 alias l='ls'
+alias so='source'
 
-# OCF config
-if [ -r /opt/ocf/share/environment/.bashrc ]; then
-  source /opt/ocf/share/environment/.bashrc
+if [ `uname` == "Linux" ]
+then
+    alias ls='ls --color=always'
 fi

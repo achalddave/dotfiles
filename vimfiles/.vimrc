@@ -133,6 +133,9 @@ if has("autocmd")
 	" tabs to spaces; 4 col tabs
 	au FileType python setlocal expandtab ts=4 sts=4 sw=4
 
+    " CS 61C conventions
+    au FileType c setlocal expandtab ts=2 sts=2 sw=2
+
     au Filetype html,css,javascript,ejs,xml call SetWebdevOptions()
 
     function! SetWebdevOptions()
