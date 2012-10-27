@@ -55,6 +55,7 @@ Bundle 'ichizok/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-session'
+Bundle 'kien/ctrlp.vim'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
