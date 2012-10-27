@@ -190,8 +190,7 @@ nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)"
 nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
 
 " toggle highlighting
-nnoremap <silent> <Leader>h :noh<CR>
-inoremap <silent> <Leader>h <ESC>:noh<CR>i
+nnoremap <silent> <CR> :let @/ = ""<CR><CR>
 
 
 " LESS WRIST PAIN
