@@ -192,6 +192,10 @@ nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)"
 " toggle highlighting
 nnoremap <silent> <CR> :let @/ = ""<CR><CR>
 
+" undo blocks auto created in insert mode 
+" (no more undoing huge blocks accidentally)
+inoremap <CR> <c-g>u<CR>
+inoremap <c-w> <c-g>u<c-w>
 
 " LESS WRIST PAIN
 "=================
