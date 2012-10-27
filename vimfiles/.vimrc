@@ -201,7 +201,7 @@ inoremap <c-w> <c-g>u<c-w>
 "=================
 
 " Going to try 'z' for a while (don't use that key much anyway)
-let mapleader=","
+let mapleader="z"
 
 function! LatexMappings()
     inoremap <Leader>/ \
