@@ -166,7 +166,7 @@ noremap <C-l> <C-w>l
 noremap + <C-w>+
 noremap _ <C-w>-
 
-" map cap h and cap l to beg and end of line=more intuitive
+" map cap h and cap l to beg and end of line
 noremap H ^
 noremap L $
 noremap HH H
