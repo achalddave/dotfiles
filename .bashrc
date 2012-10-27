@@ -15,8 +15,15 @@ if [ -r /opt/ocf/share/environment/.bashrc ]; then
 fi
 
 # end berkeley settings, start my settings
+alias ls='ls --color=always'
 alias l='ls'
+alias la='ls -a'
+
 alias so='source'
+
+alias ssh170='ssh cs170-ed@stella.cs.berkeley.edu'
+alias ssh61c='ssh cs61c-kg@stella.cs.berkeley.edu'
+alias ssh61ch='ssh cs61c-kg@hive5.cs.berkeley.edu'
 
 if [ `uname` == "Linux" ]
 then

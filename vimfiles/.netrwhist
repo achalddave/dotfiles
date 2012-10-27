@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='C:/Users/Achal/Documents/Achal/My Work/Programming/WebDev/Sites/quizbowl/app'
-let g:netrw_dirhist_2='C:/Users/Achal/Documents/Achal/My Work/Programming/WebDev/Sites/quizbowl/app/views'
-let g:netrw_dirhist_3='C:\Users\Achal\Documents\Achal\My Work\Programming\WebDev\Sites\quizbowl\app\views'
-let g:netrw_dirhist_4='C:/Users/Achal/Documents/Achal/My Work/Programming/WebDev/Sites/quizbowl/app/views'
