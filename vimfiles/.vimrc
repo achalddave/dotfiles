@@ -249,14 +249,20 @@ let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
 set autochdir
 let g:netrw_keepdir=0
 
-set autoindent
 set incsearch
 set ruler
 set history=100
 
+" INDENTATION
+set autoindent
+
 "When moving the cursor up or down just after inserting indent for
 "'autoindent', do not delete the indent.
 set cpoptions+=I
+
+" I really don't need vim to put "#" lines in the first column
+set cinkeys-=0#
+set indentkeys-=0#
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
