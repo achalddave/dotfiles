@@ -300,10 +300,11 @@ set smarttab
 
 set backup
 if has("win32")
-    let mybackupdir = expand($TEMP) . "\\vim-backup"
+    let mybackupdir = $TEMP . "\\vim-backup"
     if !isdirectory(mybackupdir)
         silent exec "!mkdir " mybackupdir
     endif
+    echo mybackupdir
     execute "set backupdir=".mybackupdir.",$TEMP,$TMP"
 elseif has("unix")
     let mybackupdir = "/tmp/vim-backup"
