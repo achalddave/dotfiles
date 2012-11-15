@@ -83,7 +83,8 @@ let g:session_directory="~/dotfiles/vimfiles/sessions"
 let g:session_command_aliases = 1
 let g:session_autoload='no'
 
-" <tabwars>
+" TABWARS
+" =======
 
 " 4 col tab generally
 set ts=4 sts=4 sw=4 expandtab
@@ -110,7 +111,6 @@ if has("autocmd")
     endfunction
 endif
 
-" </tabwars>
 
 " HELPFUL FUNCTIONS
 " =================
