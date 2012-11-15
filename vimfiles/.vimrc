@@ -10,16 +10,6 @@
 " If .php file and has html, use :set ft=html
 " 
 
-set nocompatible
-
-" dotfiles repo hurrah
-if has('win32') || has('win64')
-    " computer specific settings can be put in the $VIM/vimfiles/after dir, so
-    " dotfiles can be common
-    let &runtimepath='$HOME/dotfiles/vimfiles/.vim,' . &runtimepath
-    "   . ',$HOME/dotfiles/vimfiles/.vim/after'
-"
-endif
 " basic settings
 set nocompatible "required for vundle
 filetype off "required for vundle
@@ -32,19 +22,19 @@ filetype plugin indent on
 set rtp+=$HOME/dotfiles/vimfiles/.vim/bundle/vundle
 call vundle#rc("$HOME/dotfiles/vimfiles/.vim/bundle")
 
-filetype plugin indent on     " required [for vundle]!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed.. (on the same line, that is)
+" Eventually want something not dependent on path, but if
+" set up is based on symbolic links, then path will get tripped up.
 
-" let Vundle manage Vundle
-" required for vundle! 
+" TODO fix setup so it simply places a vimrc that sources this vimrc
+
+"let mypath = expand("%:p:h")
+"
+"set rtp+=expand(mypath."/.vim/bundle/vundle")
+"call vundle#rc(expand(mypath."/.vim/bundle/"))
+
+" PLUGINS
+" =======
+" let Vundle manage Vundle: required for vundle! 
 Bundle 'gmarik/vundle'
 
 Bundle 'Tab-Name'
