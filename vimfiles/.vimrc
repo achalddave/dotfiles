@@ -122,6 +122,8 @@ function! RunWithoutTimeout(command)
     exec "set timeoutlen=".l:origTimeoutlen
 endfunction
 
+
+
 " INTUITIVE
 " =========
 " Easy window navigation 
@@ -162,7 +164,7 @@ nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)"
 nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
 
 " toggle highlighting
-nnoremap <silent> <CR> :let @/ = ""<CR><CR>
+nnoremap <silent> <space> :noh<CR><space>
 
 " undo blocks auto created in insert mode 
 " (no more undoing huge blocks accidentally)
