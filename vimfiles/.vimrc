@@ -111,9 +111,8 @@ if has("autocmd")
     endfunction
 endif
 
-
-" HELPFUL FUNCTIONS
-" =================
+" HELPER FUNCTIONS
+" ================
 
 function! RunWithoutTimeout(command)
     let l:origTimeoutlen=&timeoutlen
