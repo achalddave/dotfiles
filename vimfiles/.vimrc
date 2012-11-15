@@ -20,12 +20,14 @@ if has('win32') || has('win64')
     "   . ',$HOME/dotfiles/vimfiles/.vim/after'
 "
 endif
+" basic settings
+set nocompatible "required for vundle
+filetype off "required for vundle
+filetype plugin indent on
 
 "================="
 "  set up vundle  "
 "================="
-
-filetype off
 
 set rtp+=$HOME/dotfiles/vimfiles/.vim/bundle/vundle
 call vundle#rc("$HOME/dotfiles/vimfiles/.vim/bundle")
