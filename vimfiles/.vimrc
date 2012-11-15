@@ -63,7 +63,11 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'Wombat'
 Bundle 'mnoble/tomorrow-night-vim'
 
-" Options for plugins
+" Plugin Options
+" --------------
+
+" Super tab (<cr> map messes with my <cr> -> <c-g>u<cr> map)
+let g:SuperTabCrMapping = 0
 
 " indent-html.vim:
 let g:html_indent_inctags='p' " add indent on new paragraph
