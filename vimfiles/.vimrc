@@ -48,12 +48,13 @@ Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-session'
 Bundle 'kien/ctrlp.vim'
+Bundle 'camelcasemotion'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
 Bundle 'php.vim-html-enhanced'
-Bundle 'closetag.vim'
 Bundle 'indenthtml.vim'
+Bundle 'mips.vim'
 
 " THEMES
 Bundle 'rdark'
