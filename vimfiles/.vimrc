@@ -78,9 +78,10 @@ if has("autocmd")
     au FileType html,php,ejs let b:AutoClosePairs=AutoClose#DefaultPairsModified("<>","")
 endif
 
-" Session save directory
+" Session save
 let g:session_directory="~/dotfiles/vimfiles/sessions"
 let g:session_command_aliases = 1
+let g:session_autoload='no'
 
 set diffexpr=MyDiff()
 function! MyDiff()
