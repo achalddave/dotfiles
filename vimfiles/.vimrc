@@ -207,16 +207,11 @@ endif
 inoremap kj <ESC>l
 noremap kj <ESC>
 
-" don't allow esc in insert mode (aka save my wrists)
-" imap <Esc> <Nop>
-" Well, that actually messes everything up... but I'm used to kj now, so it's
-" all good.
-
 " easily escape and save from within insert mode
 inoremap wq <ESC>:w<Return>l
 
-" EXTRA FUNCTIONALITY
-" ===================
+" Make life easier
+" ================
 
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
