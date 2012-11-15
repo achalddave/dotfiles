@@ -49,5 +49,5 @@ function check_submission {
     git pull origin $1;
     read -p "Press [Enter] to continue";
     cd ~;
-    rm -rf ~/tmp_check_submission;
+    #rm -rf ~/tmp_check_submission;
 }
