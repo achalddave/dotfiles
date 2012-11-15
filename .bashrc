@@ -1,3 +1,4 @@
+# test
 # start settings from berkeley computers... need to figure
 # out what these do, but for now, don't mess with them
 [[ -z ${MASTER} ]] && export MASTER=${LOGNAME%-*}
@@ -23,7 +24,16 @@ alias so='source'
 
 alias ssh170='ssh cs170-ed@stella.cs.berkeley.edu'
 alias ssh61c='ssh cs61c-kg@stella.cs.berkeley.edu'
-alias ssh61ch='ssh cs61c-kg@hive5.cs.berkeley.edu'
+#alias ssh61ch='ssh cs61c-kg@hive5.cs.berkeley.edu'
+
+function ssh61ch {
+    if  [ -z "$1" ]; then
+        server=5
+    else
+        server=$1
+    fi
+    `echo "ssh cs61c-kg@hive$server.cs.berkeley.edu"`
+}
 
 if [ `uname` == "Linux" ]
 then
