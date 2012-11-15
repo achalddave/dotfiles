@@ -177,17 +177,26 @@ inoremap <c-w> <c-g>u<c-w>
 let mapleader=","
 
 function! LatexMappings()
-    inoremap <Leader>/ \
-    inoremap <Leader>9 [
-    inoremap <Leader>0 ]
-    inoremap <Leader>99 {
-    inoremap <Leader>00 }
+    inoremap <buffer> z/ \
+    inoremap <buffer> zj {
+    inoremap <buffer> zk }
 
     inoremap <buffer> [ <nop>
     inoremap <buffer> ] <nop>
     inoremap <buffer> { <nop>
     inoremap <buffer> } <nop>
-    inoremap \ <nop>
+    inoremap <buffer> \ <nop>
+
+    inoremap <buffer> <Leader>r \rightarrow
+
+    " compile latex file, then run it (%:r = filename without .tex extensions)
+    if has("win32")
+        nnoremap <silent> <buffer> <f3> :exec("silent ! pdflatex % && start %:r".".pdf")<cr>
+    elseif has("unix")
+        nnoremap <silent> <buffer> <f3> :exec("silent ! pdflatex % ; start %:r".".pdf")<cr>
+    endif
+
+
 endfunction
 
 if has("autocmd")
