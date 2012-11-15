@@ -174,8 +174,7 @@ inoremap <c-w> <c-g>u<c-w>
 " LESS WRIST PAIN
 "=================
 
-" Going to try 'z' for a while (don't use that key much anyway)
-let mapleader="z"
+let mapleader=","
 
 function! LatexMappings()
     inoremap <Leader>/ \
