@@ -22,19 +22,6 @@ alias la='ls -a'
 
 alias so='source'
 
-alias ssh170='ssh cs170-ed@stella.cs.berkeley.edu'
-alias ssh61c='ssh cs61c-kg@stella.cs.berkeley.edu'
-#alias ssh61ch='ssh cs61c-kg@hive5.cs.berkeley.edu'
-
-function ssh61ch {
-    if  [ -z "$1" ]; then
-        server=5
-    else
-        server=$1
-    fi
-    `echo "ssh cs61c-kg@hive$server.cs.berkeley.edu"`
-}
-
 if [ `uname` == "Linux" ]
 then
     alias ls='ls --color=always'
@@ -67,5 +54,3 @@ export PS2='>'
 }
 
 set_prompt
-
-source ./local/.bashrc
