@@ -276,11 +276,9 @@ endif
 set ww+=<,>,[,]
 
 " stop highlighting the current line if not active
-" au WinLeave * set nocursorline
-" au WinEnter * set cursorline
-" set cursorline
-" Don't want a cursor line really
-set nocursorline
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
 
 set timeoutlen=150
 
