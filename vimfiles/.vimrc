@@ -294,7 +294,6 @@ if has("win32")
     if !isdirectory(mybackupdir)
         silent exec "!mkdir " mybackupdir
     endif
-    echo mybackupdir
     execute "set backupdir=".mybackupdir.",$TEMP,$TMP"
 elseif has("unix")
     let mybackupdir = "/tmp/vim-backup"
