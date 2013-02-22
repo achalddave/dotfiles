@@ -54,3 +54,5 @@ export PS2='>'
 }
 
 set_prompt
+
+source ./.bashrc_local
