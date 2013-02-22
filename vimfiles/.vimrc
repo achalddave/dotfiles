@@ -258,6 +258,10 @@ set indentkeys-=0#
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
+  filetype off
+  filetype on
+  " i have no idea:
+  " http://stackoverflow.com/questions/5602767/why-is-vim-not-detecting-my-coffescript-filetype
   set hlsearch
 endif
 
