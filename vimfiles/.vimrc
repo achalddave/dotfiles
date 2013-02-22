@@ -47,7 +47,6 @@ Bundle 'ichizok/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-session'
-Bundle 'kien/ctrlp.vim'
 Bundle 'camelcasemotion'
 Bundle 'groenewege/vim-less'
 
