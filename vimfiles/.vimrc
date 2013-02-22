@@ -69,6 +69,13 @@ Bundle 'jonathanfilip/vim-lucius'
 " Plugin Options
 " --------------
 
+" Easy tagbar
+nnoremap <F2> :TagbarOpen j<CR>
+inoremap <F2> <Esc>:TagbarOpen j<CR>a
+
+nnoremap <S-F2> :TagbarToggle<CR>
+inoremap <S-F2> <Esc>:TagbarToggle<CR>a
+
 " Super tab (<cr> map messes with my <cr> -> <c-g>u<cr> map)
 let g:SuperTabCrMapping = 0
 
