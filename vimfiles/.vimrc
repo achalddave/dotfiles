@@ -127,7 +127,6 @@ endif
 function! RunWithoutTimeout(command)
     let l:origTimeoutlen=&timeoutlen
     set timeoutlen=0
-    echo &timeoutlen
     exec a:command
     exec "set timeoutlen=".l:origTimeoutlen
 endfunction
