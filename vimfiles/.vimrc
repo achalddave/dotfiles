@@ -64,6 +64,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'Wombat'
 Bundle 'mnoble/tomorrow-night-vim'
+Bundle 'jonathanfilip/vim-lucius'
 
 " Plugin Options
 " --------------
