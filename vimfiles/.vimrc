@@ -241,7 +241,7 @@ let g:netrw_keepdir=0
 
 set incsearch
 set ruler
-set history=100
+set history=1000
 
 " INDENTATION
 set autoindent
