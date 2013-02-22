@@ -49,12 +49,14 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-session'
 Bundle 'kien/ctrlp.vim'
 Bundle 'camelcasemotion'
+Bundle 'groenewege/vim-less'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
 Bundle 'php.vim-html-enhanced'
 Bundle 'indenthtml.vim'
 Bundle 'mips.vim'
+Bundle 'othree/html5.vim.git'
 
 " THEMES
 Bundle 'rdark'
