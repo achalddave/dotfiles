@@ -1,18 +1,22 @@
 # end berkeley settings, start my settings
-alias ls='ls --color=always'
 alias l='ls'
 alias la='ls -a'
 alias g='git'
 # maintain git tab completion with g
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
         || complete -o default -o nospace -F _git g
-
 alias so='source'
 
 if [ `uname` == "Linux" ]
 then
     alias ls='ls --color=always'
+else 
+if [ `uname` == "Darwin" ]
+then
+    alias ls='ls -G'
 fi
+fi
+alias grep='grep --color=tty'
 
 set EDITOR=vim
 export EDITOR
