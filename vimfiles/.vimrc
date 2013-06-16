@@ -314,3 +314,9 @@ endif
 
 colorscheme slate
 hi CursorLine ctermbg=none ctermfg=none cterm=none
+
+" if we have enough colors
+if &t_Co >= 256
+    colorscheme tomorrow-night-bright
+endif
+
