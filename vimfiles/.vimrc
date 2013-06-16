@@ -125,13 +125,14 @@ endif
 " HELPER FUNCTIONS
 " ================
 
+" if you want to hit, e.g. k multiple times without vim waiting for j (kj->esc
+" mapping)
 function! RunWithoutTimeout(command)
     let l:origTimeoutlen=&timeoutlen
     set timeoutlen=0
     exec a:command
     exec "set timeoutlen=".l:origTimeoutlen
 endfunction
-
 
 
 " INTUITIVE
@@ -150,7 +151,7 @@ noremap <C-l> <C-w>l
 noremap + <C-w>+
 noremap _ <C-w>-
 
-" map cap h and cap l to beg and end of line
+" map shift h and shift l to beg and end of line
 noremap H ^
 noremap L $
 noremap HH H
