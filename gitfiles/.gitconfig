@@ -4,9 +4,18 @@
 [color]
     ui = always
 [alias]
-    st = status
-    co = checkout
-    ci = commit
+    # lazy
+    br  = branch
+    ci  = commit
+    co  = checkout
+    cpi = cherry-pick
+    df  = diff
+    dfs = diff --cached # staged changed
+    pl  = pull
+    ps  = push
+    st  = status
+
+    pushnotes = push origin refs/notes/*
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
