@@ -58,6 +58,7 @@ Bundle 'indenthtml.vim'
 Bundle 'mips.vim'
 Bundle 'othree/html5.vim.git'
 Bundle 'atdt/vim-mediawiki'
+Bundle 'cscope.vim'
 
 " THEMES
 Bundle 'rdark'
