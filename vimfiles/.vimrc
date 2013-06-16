@@ -285,6 +285,7 @@ set ww+=<,>,[,]
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
 set cursorline
+hi CursorLine guibg=gray
 
 set timeoutlen=150
 
@@ -308,3 +309,6 @@ elseif has("unix")
     endif
     set backupdir=/tmp/vim-backup
 endif
+
+colorscheme slate
+hi CursorLine ctermbg=none ctermfg=none cterm=none
