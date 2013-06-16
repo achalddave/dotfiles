@@ -180,6 +180,12 @@ nnoremap <silent> <space> :noh<CR><space>
 inoremap <CR> <c-g>u<CR>
 inoremap <c-w> <c-g>u<c-w>
 
+" k/j to move through lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap jk k
+
 " LESS WRIST PAIN
 "=================
 
