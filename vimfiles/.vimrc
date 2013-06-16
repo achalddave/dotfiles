@@ -323,3 +323,5 @@ endif
 " no error bells
 set vb t_vb=
 
+" i need line numbers
+set nu
