@@ -320,3 +320,6 @@ if &t_Co >= 256
     colorscheme tomorrow-night-bright
 endif
 
+" no error bells
+set vb t_vb=
+
