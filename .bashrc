@@ -31,6 +31,9 @@ then
     alias ls='ls --color=always'
 fi
 
+set EDITOR=vim
+export EDITOR
+
 function check_submission {
     rm -rf ~/tmp_check_submission;
     mkdir ~/tmp_check_submission;
