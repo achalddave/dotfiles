@@ -57,6 +57,7 @@ Bundle 'php.vim-html-enhanced'
 Bundle 'indenthtml.vim'
 Bundle 'mips.vim'
 Bundle 'othree/html5.vim.git'
+Bundle 'atdt/vim-mediawiki'
 
 " THEMES
 Bundle 'rdark'
