@@ -15,6 +15,19 @@
     ps  = push
     st  = status
 
+    # pretty git log
+    lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    
+    # view changes, body of commits
+    lga = whatchanged --graph \
+--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cr) %C(bold blue)<%an>%Creset\n\
+What changed:\n============='
+
+    # lga + notes
+    lgan = whatchanged --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cr) %C(bold blue)<%an>%Creset\n\
+Notes:\n======\n%N\n\
+What changed:\n============='
+
     pushnotes = push origin refs/notes/*
 [core]
 	editor = vim
