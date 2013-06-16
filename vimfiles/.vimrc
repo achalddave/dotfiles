@@ -110,7 +110,7 @@ if has("autocmd")
 
     au FileType c setlocal expandtab ts=4 sts=4 sw=4
 
-    au Filetype html,css,javascript,ejs,xml,xbl call SetWebdevOptions()
+    au Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
 
     function! SetWebdevOptions()
         " 2 space tabs
