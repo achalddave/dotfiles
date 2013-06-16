@@ -44,7 +44,7 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-scriptease'
 Bundle 'Townk/vim-autoclose.git'
 Bundle 'majutsushi/tagbar'
-Bundle 'ichizok/Smooth-Scroll'
+Bundle 'achalddave/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-session'
@@ -162,15 +162,15 @@ noremap : ;
 
 " Page up/page down makes no sense to me
 "
-" <C-d> half page down
-" <C-f> half page up
-" <C-b> page down
+" <C-f> half page down
+" <C-d> half page up
 " <C-u> page up
+" <C-b> page down
 " Use smooth scroll function from the plugin
-nnoremap <silent> <C-f> :call RunWithoutTimeout("call SmoothScroll(\"u\", 2, 2)")<CR>
-nnoremap <silent> <C-d> :call RunWithoutTimeout("call SmoothScroll(\"d\", 2, 2)")<CR>
-nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)")<CR>
-nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
+nnoremap <silent> <C-f> :call RunWithoutTimeout("call SmoothScroll(\"d\", 2, 2)")<CR>
+nnoremap <silent> <C-d> :call RunWithoutTimeout("call SmoothScroll(\"u\", 2, 2)")<CR>
+nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
+nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)")<CR>
 
 " toggle highlighting
 nnoremap <silent> <space> :noh<CR><space>
