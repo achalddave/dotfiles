@@ -1,6 +1,6 @@
 # end berkeley settings, start my settings
 alias l='ls'
-alias la='ls -a'
+alias la='ls -A'
 alias g='git'
 # maintain git tab completion with g
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
