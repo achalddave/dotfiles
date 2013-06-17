@@ -4,3 +4,5 @@
 /vimfiles/.vim/bundle
 /vimfiles/sessions/*
 local/*
+
+!/vimfiles/.vim/bundle/vundle
