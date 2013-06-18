@@ -1,7 +1,9 @@
+# laziness
 alias l='ls'
 alias la='ls -A'
 alias g='git'
 alias py='python'
+alias ..='cd ..'
 # maintain git tab completion with g
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
         || complete -o default -o nospace -F _git g
