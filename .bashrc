@@ -1,4 +1,3 @@
-# end berkeley settings, start my settings
 alias l='ls'
 alias la='ls -A'
 alias g='git'
