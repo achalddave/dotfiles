@@ -33,7 +33,7 @@ function set_prompt {
   local       WHITE="\[\033[1;37m\]"
   local  LIGHT_GRAY="\[\033[0;37m\]"
 
-export PS1=$LIGHT_GRAY'\w `git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'$LIGHT_RED'~ '$WHITE
+export PS1=$LIGHT_GRAY'\h:\w `git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'$LIGHT_RED'~ '$WHITE
 export PS2='>'
 }
 
