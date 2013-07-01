@@ -32,5 +32,3 @@ What changed:\n============='
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
-[push]
-	default = simple
