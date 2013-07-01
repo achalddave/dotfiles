@@ -2,8 +2,15 @@
 set guioptions-=T
 set guioptions-=m
 
-" Courier New sucks
-set guifont=Consolas
+" Default fonts suck
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Monaco:h10
+    endif
+elseif ihas ("win32")
+    set guifont=Consolas
+endif
 
 :noremap <C-S-tab> :tabprevious<CR>
 :noremap <C-tab> :tabnext<CR>
