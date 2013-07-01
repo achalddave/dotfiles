@@ -47,6 +47,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'achalddave/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
+" vim-misc required for vim-session
+Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session'
 Bundle 'camelcasemotion'
 Bundle 'groenewege/vim-less'
