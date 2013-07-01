@@ -326,3 +326,6 @@ set vb t_vb=
 
 " i need line numbers
 set nu
+
+" let me copy to the system clipboard
+set clipboard+=unnamed
