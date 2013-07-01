@@ -261,10 +261,6 @@ set autoindent
 "'autoindent', do not delete the indent.
 set cpoptions+=I
 
-" I really don't need vim to put "#" lines in the first column
-set cinkeys-=0#
-set indentkeys-=0#
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
