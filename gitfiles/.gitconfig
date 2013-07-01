@@ -9,8 +9,8 @@
     ci  = commit
     co  = checkout
     cpi = cherry-pick
-    df  = diff
-    dfs = diff --cached # staged changed
+    df  = diff --color-words
+    dfs = diff --color-words --cached # staged changed
     pl  = pull
     ps  = push
     st  = status
