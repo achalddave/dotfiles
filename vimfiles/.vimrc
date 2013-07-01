@@ -47,11 +47,10 @@ Bundle 'majutsushi/tagbar'
 Bundle 'achalddave/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
+Bundle 'camelcasemotion'
 " vim-misc required for vim-session
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session'
-Bundle 'camelcasemotion'
-Bundle 'groenewege/vim-less'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
@@ -61,8 +60,9 @@ Bundle 'mips.vim'
 Bundle 'othree/html5.vim.git'
 Bundle 'atdt/vim-mediawiki'
 Bundle 'achalddave/cscope_macros.vim'
+Bundle 'groenewege/vim-less'
 
-" THEMES
+" themes
 Bundle 'rdark'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
