@@ -1,14 +1,14 @@
 " Tips in general [Achal]
 " GENERAL
 " =======
-" Overriding plugin mapping: use <buffer> 
+" Overriding plugin mapping: use <buffer>
 "   (e.g. `:imap <buffer> <BS> <nop>` instead of `:imap <BS> <nop>`)
 "
 " WEBDEV
 " ======
 " If html indent is being weird, try :set nocp; dunno why that works.
 " If .php file and has html, use :set ft=html
-" 
+"
 
 " basic settings
 set nocompatible "required for vundle
@@ -34,7 +34,7 @@ call vundle#rc("$HOME/dotfiles/vimfiles/.vim/bundle")
 
 " PLUGINS
 " =======
-" let Vundle manage Vundle: required for vundle! 
+" let Vundle manage Vundle: required for vundle!
 Bundle 'gmarik/vundle'
 
 Bundle 'Tab-Name'
@@ -137,7 +137,7 @@ endfunction
 
 " INTUITIVE
 " =========
-" Easy window navigation 
+" Easy window navigation
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -145,8 +145,8 @@ noremap <C-l> <C-w>l
 
 " Easy window resizing
 " TODO: Figure out some nice ways to do this.
-" <C-m> maps to enter... otherwise <C-m> <C-n> seemed 
-" nice for <C-w>> and <C-w>< 
+" <C-m> maps to enter... otherwise <C-m> <C-n> seemed
+" nice for <C-w>> and <C-w><
 " hm maybe use leaders?
 noremap + <C-w>+
 noremap _ <C-w>-
@@ -177,7 +177,7 @@ nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)"
 " toggle highlighting
 nnoremap <silent> <space> :noh<CR><space>
 
-" undo blocks auto created in insert mode 
+" undo blocks auto created in insert mode
 " (no more undoing huge blocks accidentally)
 inoremap <CR> <c-g>u<CR>
 inoremap <c-w> <c-g>u<c-w>
@@ -295,7 +295,7 @@ set timeoutlen=150
 set ignorecase
 set smartcase
 
-set smarttab 
+set smarttab
 
 set backup
 if has("win32")

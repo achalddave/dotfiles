@@ -12,7 +12,7 @@ alias so='source'
 if [ `uname` == "Linux" ]
 then
     alias ls='ls --color=always'
-else 
+else
 if [ `uname` == "Darwin" ]
 then
     alias ls='ls -G'
