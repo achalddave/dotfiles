@@ -8,7 +8,7 @@ if has("unix")
     if s:uname == "Darwin\n"
         set guifont=Monaco:h10
     endif
-elseif ihas ("win32")
+elseif has ("win32")
     set guifont=Consolas
 endif
 
