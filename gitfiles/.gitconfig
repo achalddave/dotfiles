@@ -11,6 +11,11 @@
     cpi = cherry-pick
     df  = diff --color-words
     dfs = diff --color-words --cached # staged changed
+    dfp = "!f() { \
+                if [ $# -eq 1 ] ; then git diff --color-words $1 $1~1; \
+                else  echo 'Specify a commit, please.'; \
+                fi; \
+            }; f"
     pl  = pull
     ps  = push
     st  = status
