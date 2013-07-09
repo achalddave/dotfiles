@@ -36,3 +36,5 @@ What changed:\n============='
 	tool = vimdiff
 [merge]
 	tool = vimdiff
+[push]
+	default = current
