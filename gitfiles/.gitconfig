@@ -42,4 +42,4 @@ What changed:\n============='
 [merge]
 	tool = vimdiff
 [push]
-	efault = current
+	default = current
