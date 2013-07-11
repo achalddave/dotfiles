@@ -66,6 +66,10 @@ precmd() { vcs_info }
 setopt prompt_subst
 PS1='%{$FG[245]%}%m:%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 
+if [[ "$TERM" == "screen" ]] ; then
+    export TERM=screen-256color-bce
+fi
+
 # reverse search by default
 bindkey "[A"  history-search-backward
 bindkey "[B"  history-search-forward
