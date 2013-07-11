@@ -1,3 +1,6 @@
+# load scripts (I could loop, but having them be separate lines will make me
+# know which scripts I have, since I'll never actually go to the zsh_scripts
+# folder).
 source ~/.zsh_scripts/spectrum.zsh
 
 # The following lines were added by compinstall
