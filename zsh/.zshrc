@@ -13,6 +13,13 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:
 zstyle :compinstall filename '/Users/achal/.zshrc'
 zstyle ':completion:*' menu select=2
 
+# vim!
+KEYTIMEOUT=0.15
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+bindkey 'kj' vi-cmd-mode
+
 # history
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000
