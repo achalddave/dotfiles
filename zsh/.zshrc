@@ -63,3 +63,5 @@ PS1='%{$FG[245]%}%m:%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{
 
 bindkey "[A"  history-search-backward
 bindkey "[B"  history-search-forward
+
+source ~/.zshrc_local
