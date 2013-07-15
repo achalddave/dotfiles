@@ -17,8 +17,14 @@ zstyle ':completion:*' menu select=2
 KEYTIMEOUT=0.15
 autoload edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+bindkey '^E' edit-command-line
 bindkey 'kj' vi-cmd-mode
+# see http://www.zsh.org/mla/users/2009/msg00812.html
+# Otherwise you can't backspace things you didn't just insert
+bindkey "^W" backward-kill-word    # vi-backward-kill-word
+bindkey "^H" backward-delete-char  # vi-backward-delete-char
+bindkey "^U" kill-line             # vi-kill-line
+bindkey "^?" backward-delete-char  # vi-backward-delete-char
 
 # history
 HISTFILE=~/.zsh_hist
