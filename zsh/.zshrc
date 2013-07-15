@@ -13,6 +13,32 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:
 zstyle :compinstall filename '/Users/achal/.zshrc'
 zstyle ':completion:*' menu select=2
 
+# vim!
+KEYTIMEOUT=0.15
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^E' edit-command-line
+bindkey 'kj' vi-cmd-mode
+# see http://www.zsh.org/mla/users/2009/msg00812.html
+# Otherwise you can't backspace things you didn't just insert
+bindkey "^W" backward-kill-word    # vi-backward-kill-word
+bindkey "^H" backward-delete-char  # vi-backward-delete-char
+bindkey "^U" kill-line             # vi-kill-line
+bindkey "^?" backward-delete-char  # vi-backward-delete-char
+
+# cyan color in vim mode
+function zle-line-init zle-keymap-select {
+    if [[ "$KEYMAP" == 'vicmd' ]] ; then
+        PS1="$PS1%{$fg[cyan]%}"
+    elif [[ "$PS1" =~ ".*$fg\[cyan\]" ]] ; then
+        PS1=${PS1/"$fg[cyan]"/}
+    fi
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # history
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000
