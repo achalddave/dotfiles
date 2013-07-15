@@ -28,6 +28,29 @@ alias g='git'
 alias py='python'
 alias so='source'
 
+# swap two files (not directories!)
+function swap() {
+    if [[ "$#" -lt 2 ]] || [[ ! -f "$1" ]] || [[ ! -f "$2" ]]; then
+        if [[ -d "$1" ]] || [[ -d "$2" ]] ; then
+            echo "You can't swap two directories right now."
+        else
+            echo "swap [file1] [file2]"
+        fi
+        return 1
+    fi
+
+    mydir=$(dirname "$1");
+    if type mktemp > /dev/null ; then
+        tmpfile=$(mktemp "$mydir"/XXXXXX)
+    else
+        tmpfile="/tmp/$mydir"
+    fi
+
+    mv "$1" "$tmpfile"
+    mv "$2" "$1"
+    mv "$tmpfile" "$2"
+}
+
 # Changing/making/removing directory
 setopt autocd extendedglob
 setopt auto_name_dirs
