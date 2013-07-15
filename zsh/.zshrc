@@ -26,6 +26,19 @@ bindkey "^H" backward-delete-char  # vi-backward-delete-char
 bindkey "^U" kill-line             # vi-kill-line
 bindkey "^?" backward-delete-char  # vi-backward-delete-char
 
+# cyan color in vim mode
+function zle-line-init zle-keymap-select {
+    if [[ "$KEYMAP" == 'vicmd' ]] ; then
+        PS1="$PS1%{$fg[cyan]%}"
+    elif [[ "$PS1" =~ ".*$fg\[cyan\]" ]] ; then
+        PS1=${PS1/"$fg[cyan]"/}
+    fi
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # history
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000
