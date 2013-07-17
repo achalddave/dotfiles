@@ -105,6 +105,11 @@ fi
 fi
 alias grep='grep --color=tty'
 
+# safety
+setopt noclobber
+alias cp='cp -i'
+alias mv='mv -i'
+
 # prompt and colors
 autoload -Uz vcs_info
 autoload -U colors && colors
