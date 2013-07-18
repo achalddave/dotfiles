@@ -111,6 +111,11 @@ fi
 fi
 alias grep='grep --color=tty'
 
+# safety
+setopt noclobber
+alias cp='cp -i'
+alias mv='mv -i'
+
 # prompt and colors
 autoload -Uz vcs_info
 autoload -U colors && colors
@@ -128,7 +133,7 @@ if [[ "$TERM" == "screen" ]] ; then
 fi
 
 # reverse search by default
-bindkey "[A"  history-search-backward
-bindkey "[B"  history-search-forward
+bindkey "[A"  history-beginning-search-backward
+bindkey "[B"  history-beginning-search-forward
 
 source ~/.zshrc_local

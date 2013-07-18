@@ -61,6 +61,7 @@ Bundle 'othree/html5.vim.git'
 Bundle 'atdt/vim-mediawiki'
 Bundle 'achalddave/cscope_macros.vim'
 Bundle 'groenewege/vim-less'
+Bundle 'tpope/vim-markdown.git'
 
 " themes
 Bundle 'rdark'
