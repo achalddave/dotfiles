@@ -3,6 +3,9 @@
 # folder).
 source ~/.zsh_scripts/spectrum.zsh
 
+# turn on correction 
+setopt correctall
+
 # Completion
 autoload -Uz compinit
 compinit
