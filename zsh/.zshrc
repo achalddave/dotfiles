@@ -15,6 +15,9 @@ zstyle ':completion:*' max-errors 3
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:|=**' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 zstyle :compinstall filename '/Users/achal/.zshrc'
 zstyle ':completion:*' menu select=2
+# this should do camel case completion, but i don't know if it works
+# http://superuser.com/questions/394824/
+zstyle ':completion:*' matcher-list 'r:[^A-Z0-9]||[A-Z0-9]=** r:|=*' 
 
 # vim!
 KEYTIMEOUT=0.15
