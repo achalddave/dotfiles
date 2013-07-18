@@ -127,7 +127,7 @@ if [[ "$TERM" == "screen" ]] ; then
 fi
 
 # reverse search by default
-bindkey "[A"  history-search-backward
-bindkey "[B"  history-search-forward
+bindkey "[A"  history-beginning-search-backward
+bindkey "[B"  history-beginning-search-forward
 
 source ~/.zshrc_local
