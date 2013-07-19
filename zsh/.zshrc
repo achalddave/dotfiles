@@ -132,8 +132,43 @@ if [[ "$TERM" == "screen" ]] ; then
     export TERM=screen-256color-bce
 fi
 
-# reverse search by default
-bindkey "[A"  history-beginning-search-backward
-bindkey "[B"  history-beginning-search-forward
+# FIX FOR ZSH HISTORY CURSOR 
+# This should work exactly as bash's history-search-[back|for]ward
+#   i.e. if you have an empty line and hit <Up>, your cursor will go to the end of line
+#        if you have some letters and hit <Up>, your cursor will stay where it was and 
+#        zsh will fill the rest of the line with the history search.
+#
+# Much of this function taken from http://www.zsh.org/mla/users/1999/msg00555.html
+function history-search-end {
+    integer ocursor=$CURSOR
+
+    if [[ $LASTWIDGET = history-beginning-search-*-end ]]; then
+      # Last widget called set $hbs_pos.
+      CURSOR=$hbs_pos
+    else
+      hbs_pos=$CURSOR
+    fi
+
+    if zle .${WIDGET%-end}; then
+      # if we started at front, go to end of line
+      if [ $CURSOR -eq 0 ] ; then
+          zle .end-of-line
+      else
+          # otherwise, keep cursor where it was
+          CURSOR=$hbs_pos
+      fi
+    else
+      # failure, restore position
+      CURSOR=$ocursor
+      return 1
+    fi
+}
+autoload -U history-beginning-search-backward-end
+autoload -U history-beginning-search-forward-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+bindkey "[A" history-beginning-search-backward-end
+bindkey "[B" history-beginning-search-forward-end
 
 source ~/.zshrc_local
