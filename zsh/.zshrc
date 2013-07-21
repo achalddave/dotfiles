@@ -100,14 +100,12 @@ alias cd.....='cd ../../../..'
 alias cd/='cd /'
 
 # colors!
-if [[ `uname` == "Linux" ]]
+if [[ `uname` == "Linux" ]] || [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] || [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
     alias ls='ls --color=always'
-else
-if [[ `uname` == "Darwin" ]]
+elif [[ `uname` == "Darwin" ]]
 then
     alias ls='ls -G'
-fi
 fi
 alias grep='grep --color=tty'
 
