@@ -1,11 +1,12 @@
 #!/bin/bash
 
-ln -s ${PWD%/*}/gitfiles/.gitconfig ~/.gitconfig
-ln -s ${PWD%/*}/gitfiles/.gitignore_global ~/.gitignore_global
-ln -s ${PWD%/*}/vimfiles/.vimrc ~/.vimrc
-ln -s ${PWD%/*}/vimfiles/.gvimrc ~/.gvimrc
-ln -s ${PWD%/*}/.bashrc ~/.bashrc
-ln -s ${PWD%/*}/.inputrc ~/.inputrc
+root_dir=${PWD%/*}
+ln -s $root_dir/gitfiles/.gitconfig ~/.gitconfig
+ln -s $root_dir/gitfiles/.gitignore_global ~/.gitignore_global
+ln -s $root_dir/vimfiles/.vimrc ~/.vimrc
+ln -s $root_dir/vimfiles/.gvimrc ~/.gvimrc
+ln -s $root_dir/.bashrc ~/.bashrc
+ln -s $root_dir/.inputrc ~/.inputrc
 
 # create ~/.bashrc_local, otherwise ~/.bashrc will complain when sourcing it
 # if it exists and we touch, we'd change modification time
