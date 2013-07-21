@@ -13,3 +13,8 @@ ln -s $root_dir/.inputrc ~/.inputrc
 if [ ! -e ~/.bashrc_local ] ; then
     touch ~/.bashrc_local
 fi
+
+cd $root_dir
+git submodule init
+git submodule update
+cd -
