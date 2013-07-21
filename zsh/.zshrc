@@ -120,7 +120,7 @@ alias mv='mv -i'
 autoload -Uz vcs_info
 autoload -U colors && colors
 
-zstyle ':vcs_info:*' disable bzr cdv darcs mtn svk tla
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*' formats '(%b) '
 
 precmd() { vcs_info }
