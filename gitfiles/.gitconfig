@@ -43,3 +43,5 @@ What changed:\n============='
 	tool = vimdiff
 [push]
 	default = current
+[diff]
+    algorithm = patience
