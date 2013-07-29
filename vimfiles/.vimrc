@@ -192,7 +192,7 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
-nnoremap jk k
+nnoremap gk k
 
 " LESS WRIST PAIN
 "=================
