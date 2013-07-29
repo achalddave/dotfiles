@@ -177,8 +177,8 @@ noremap : ;
 " Use smooth scroll function from the plugin
 nnoremap <silent> <C-f> :call RunWithoutTimeout("call SmoothScroll(\"d\", 2, 2)")<CR>
 nnoremap <silent> <C-d> :call RunWithoutTimeout("call SmoothScroll(\"u\", 2, 2)")<CR>
-nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
-nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)")<CR>
+nnoremap <silent> <C-b> <C-f>
+nnoremap <silent> <C-u> <C-b>
 
 " toggle highlighting
 nnoremap <silent> <space> :noh<CR><space>
