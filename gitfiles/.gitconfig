@@ -11,11 +11,6 @@
     cpi = cherry-pick
     df  = diff
     dfs = diff --cached # staged changed
-    dfp = "!f() { \
-                if [ $# -eq 1 ] ; then git diff $1~1 $1; \
-                else  echo 'Specify a commit, please.'; \
-                fi; \
-            }; f"
     pl  = pull
     ps  = push
     st  = status
