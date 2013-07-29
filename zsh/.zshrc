@@ -15,6 +15,12 @@ setopt correctall
 autoload -Uz compinit
 compinit
 
+# Git file completion is super slow; this should fix it
+# http://stackoverflow.com/questions/9810327/
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}
+
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' max-errors 3
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:|=**' 'r:[^A-Z0-9]||[A-Z0-9]=** r:|=*' 
