@@ -3,6 +3,11 @@
 # folder).
 source ~/.zsh_scripts/spectrum.zsh
 
+# currently this is giving some errors I couldn't care less about
+# use git's git completion, not zsh's (with zsh, git alias arguments don't get
+# tab completed for some reason)
+source ~/.zsh_scripts/git-completion.zsh 2>/dev/null
+
 # turn on correction 
 setopt correctall
 
