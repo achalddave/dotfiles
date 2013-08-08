@@ -12,6 +12,7 @@
     df  = diff
     dfs = diff --cached # staged changed
     pl  = pull
+    plr = pull --rebase
     ps  = push
     st  = status
 
