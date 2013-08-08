@@ -316,6 +316,8 @@ endif
 
 colorscheme slate
 hi CursorLine ctermbg=none ctermfg=none cterm=none
+" always have status line
+set laststatus=2
 
 " if we have enough colors
 if &t_Co >= 256
