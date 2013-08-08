@@ -52,7 +52,16 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
+# reset cyan on enter
+function zle-line-finish {
+    if [[ "$PS1" =~ ".*$fg\[cyan\]" ]] ; then
+        PS1=${PS1/"$fg[cyan]"/}
+    fi
+    zle reset-prompt
+}
+
 zle -N zle-line-init
+zle -N zle-line-finish
 zle -N zle-keymap-select
 
 # history
