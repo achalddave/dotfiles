@@ -75,6 +75,7 @@ unsetopt beep
 # laziness
 alias l='ls'
 alias la='ls -A'
+alias ll='ls -Al'
 alias g='git'
 alias py='python'
 alias so='source'
@@ -110,7 +111,6 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 # directory laziness
-alias -- -='cd -'
 alias ..='cd ..'
 alias cd..='cd ..'
 alias cd...='cd ../..'
