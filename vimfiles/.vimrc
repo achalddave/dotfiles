@@ -324,6 +324,12 @@ if &t_Co >= 256
     colorscheme tomorrow-night-bright
 endif
 
+if !has("gui_running")
+    " vim can't change the background of a terminal, as far as I can tell
+    " no point changing the background of the text alone
+    hi Normal ctermbg=NONE
+endif
+
 " no error bells
 set vb t_vb=
 
