@@ -323,7 +323,7 @@ set laststatus=2
 
 " if we have enough colors
 if &t_Co >= 256
-    colorscheme tomorrow-night-bright
+    colorscheme Tomorrow-Night-Bright
 endif
 
 if !has("gui_running")
