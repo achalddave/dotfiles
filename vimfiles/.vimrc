@@ -61,15 +61,15 @@ Bundle 'othree/html5.vim.git'
 Bundle 'atdt/vim-mediawiki'
 Bundle 'achalddave/cscope_macros.vim'
 Bundle 'groenewege/vim-less'
-Bundle 'tpope/vim-markdown.git'
+Bundle 'achalddave/vim-pandoc'
 
 " themes
 Bundle 'rdark'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'Wombat'
-Bundle 'mnoble/tomorrow-night-vim'
 Bundle 'jonathanfilip/vim-lucius'
+Bundle 'chriskempson/vim-tomorrow-theme'
 
 " Plugin Options
 " --------------
@@ -177,8 +177,8 @@ noremap : ;
 " Use smooth scroll function from the plugin
 nnoremap <silent> <C-f> :call RunWithoutTimeout("call SmoothScroll(\"d\", 2, 2)")<CR>
 nnoremap <silent> <C-d> :call RunWithoutTimeout("call SmoothScroll(\"u\", 2, 2)")<CR>
-nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"d\", 1, 1)")<CR>
-nnoremap <silent> <C-b> :call RunWithoutTimeout("call SmoothScroll(\"u\", 1, 1)")<CR>
+nnoremap <silent> <C-b> <C-f>
+nnoremap <silent> <C-u> <C-b>
 
 " toggle highlighting
 nnoremap <silent> <space> :noh<CR><space>
@@ -192,7 +192,7 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
-nnoremap jk k
+nnoremap gk k
 
 " LESS WRIST PAIN
 "=================
@@ -243,11 +243,13 @@ noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 " ============
 
 " Use putty for SCP
-let g:netrw_silent=1
-let g:netrw_cygwin = 0
-let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
-let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
-let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+if has("win32")
+    let g:netrw_silent=1
+    let g:netrw_cygwin = 0
+    let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
+    let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
+    let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+endif
 
 " make the working directory be the directory of the current file
 set autochdir
@@ -316,10 +318,18 @@ endif
 
 colorscheme slate
 hi CursorLine ctermbg=none ctermfg=none cterm=none
+" always have status line
+set laststatus=2
 
 " if we have enough colors
 if &t_Co >= 256
     colorscheme tomorrow-night-bright
+endif
+
+if !has("gui_running")
+    " vim can't change the background of a terminal, as far as I can tell
+    " no point changing the background of the text alone
+    hi Normal ctermbg=NONE
 endif
 
 " no error bells

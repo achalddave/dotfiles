@@ -3,12 +3,23 @@
 # folder).
 source ~/.zsh_scripts/spectrum.zsh
 
+# currently this is giving some errors I couldn't care less about
+# use git's git completion, not zsh's (with zsh, git alias arguments don't get
+# tab completed for some reason)
+source ~/.zsh_scripts/git-completion.zsh 2>/dev/null
+
 # turn on correction 
 setopt correctall
 
 # Completion
 autoload -Uz compinit
 compinit
+
+# Git file completion is super slow; this should fix it
+# http://stackoverflow.com/questions/9810327/
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' max-errors 3
@@ -41,7 +52,16 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
+# reset cyan on enter
+function zle-line-finish {
+    if [[ "$PS1" =~ ".*$fg\[cyan\]" ]] ; then
+        PS1=${PS1/"$fg[cyan]"/}
+    fi
+    zle reset-prompt
+}
+
 zle -N zle-line-init
+zle -N zle-line-finish
 zle -N zle-keymap-select
 
 # history
@@ -55,6 +75,7 @@ unsetopt beep
 # laziness
 alias l='ls'
 alias la='ls -A'
+alias ll='ls -Al'
 alias g='git'
 alias py='python'
 alias so='source'
@@ -90,7 +111,6 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 # directory laziness
-alias -- -='cd -'
 alias ..='cd ..'
 alias cd..='cd ..'
 alias cd...='cd ../..'
