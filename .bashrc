@@ -16,9 +16,9 @@ else
 if [ `uname` == "Darwin" ]
 then
     alias ls='ls -G'
+    alias grep='grep --color=tty'
 fi
 fi
-alias grep='grep --color=tty'
 
 set EDITOR=vim
 export EDITOR
