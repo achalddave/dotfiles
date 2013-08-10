@@ -9,7 +9,7 @@ complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
         || complete -o default -o nospace -F _git g
 alias so='source'
 
-if [ `uname` == "Linux" ]
+if [[ `uname` == "Linux" ]] || [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] || [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
     alias ls='ls --color=always'
 else
