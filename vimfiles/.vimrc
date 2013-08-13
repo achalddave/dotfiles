@@ -38,6 +38,9 @@ call vundle#rc("$HOME/dotfiles/vimfiles/.vim/bundle")
 Bundle 'gmarik/vundle'
 
 Bundle 'Tab-Name'
+if has('signs')
+    Bundle 'airblade/vim-gitgutter'
+endif
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-ragtag'
