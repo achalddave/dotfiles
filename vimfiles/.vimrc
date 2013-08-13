@@ -335,6 +335,14 @@ if !has("gui_running")
     hi Normal ctermbg=NONE
 endif
 
+" string like todos
+hi! Todo None
+hi! link Todo String
+
+nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " no error bells
 set vb t_vb=
 
