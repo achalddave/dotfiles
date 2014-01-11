@@ -32,7 +32,6 @@ What changed:\n============='
     pushnotes = push origin refs/notes/*
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore_global
 [diff]
 	tool = vimdiff
 [merge]

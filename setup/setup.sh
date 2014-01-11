@@ -1,20 +1,68 @@
 #!/bin/bash
 
+# Make sure cwd is the setup directory
+olddir=$(pwd)
+cd $(dirname $BASH_SOURCE)
+
+# Get root dir with tilde instead of absolute
 root_dir=${PWD%/*}
-ln -s $root_dir/gitfiles/.gitconfig ~/.gitconfig
-ln -s $root_dir/gitfiles/.gitignore_global ~/.gitignore_global
-ln -s $root_dir/vimfiles/.vimrc ~/.vimrc
-ln -s $root_dir/vimfiles/.gvimrc ~/.gvimrc
-ln -s $root_dir/.bashrc ~/.bashrc
-ln -s $root_dir/.inputrc ~/.inputrc
+# Create root_dir_human, which replaces home path with ~
+[[ "$root_dir" =~ ^"$HOME"(/|$) ]] && root_dir_human="~${root_dir#$HOME}"
 
-# create ~/.bashrc_local, otherwise ~/.bashrc will complain when sourcing it
-# if it exists and we touch, we'd change modification time
-if [ ! -e ~/.bashrc_local ] ; then
-    touch ~/.bashrc_local
-fi
+force=0
+whatif=0
 
-cd $root_dir
+function update {
+    src=$1
+    dst=$2
+    if [ -e $dst -a $force -eq 0 ] ; then
+        echo "$dst file already exists; not updating!"
+    else
+        if [ $whatif -eq 0 ] ; then
+            echo "Copying to $dst"
+            sed s,\$ROOT,$root_dir_human,g $src > $dst
+        else
+            echo "==="
+            echo "Would copy following output to $dst:"
+            echo "---"
+            sed s,\$ROOT,$root_dir_human,g $src
+        fi
+    fi
+}
+
+function usage {
+    echo "Usage: ./setup_bash.sh [-f] [-w] [-h]"
+    echo "-f: Force update files"
+    echo "-w: What if? (Shows what would be updated)"
+    exit 0
+}
+
+while getopts "fhw" opt ; do
+    case $opt in 
+        f)
+            force=1
+            ;;
+        h)
+            usage
+            ;;
+        w)
+            whatif=1
+            ;;
+    esac
+done
+
+update ./helpers/.gitconfig ~/.gitconfig # Also takes care of .gitignore
+update ./helpers/.vimrc     ~/.vimrc
+update ./helpers/.gvimrc    ~/.gvimrc
+update ./helpers/.bashrc    ~/.bashrc    # Also takes care of .inputrc
+update ./helpers/.zshrc     ~/.zshrc
+echo "==="
+
+# Initialize submodule
+cd "$root_dir"
 git submodule init
 git submodule update
 cd -
+
+# Return to correct folder
+cd $olddir

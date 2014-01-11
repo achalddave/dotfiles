@@ -1,12 +1,12 @@
 # load scripts (I could loop, but having them be separate lines will make me
 # know which scripts I have, since I'll never actually go to the zsh_scripts
 # folder).
-source ~/.zsh_scripts/spectrum.zsh
+source .zsh_scripts/spectrum.zsh
 
 # currently this is giving some errors I couldn't care less about
 # use git's git completion, not zsh's (with zsh, git alias arguments don't get
 # tab completed for some reason)
-source ~/.zsh_scripts/git-completion.zsh 2>/dev/null
+source .zsh_scripts/git-completion.zsh
 
 # turn on correction 
 setopt correctall
@@ -187,5 +187,3 @@ zle -N history-beginning-search-forward-end history-search-end
 
 bindkey "[A" history-beginning-search-backward-end
 bindkey "[B" history-beginning-search-forward-end
-
-source ~/.zshrc_local

@@ -1,2 +1,0 @@
-Run setup.bat as admin
-git config --global core.excludesfile '%gitfiles/.gitignore_global'

@@ -42,5 +42,3 @@ set_prompt
 function cd() {
   if [[ $@ == "..l" ]] ; then command cd ..;l ; else command cd "$@" ; fi
 }
-
-source ~/.bashrc_local
