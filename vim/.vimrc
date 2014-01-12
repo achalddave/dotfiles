@@ -19,8 +19,8 @@ filetype plugin indent on
 "  set up vundle  "
 "================="
 
-set rtp+=$HOME/dotfiles/vimfiles/.vim/bundle/vundle
-call vundle#rc("$HOME/dotfiles/vimfiles/.vim/bundle")
+set rtp+=$HOME/dotfiles/vim/.vim/bundle/vundle
+call vundle#rc("$HOME/dotfiles/vim/.vim/bundle")
 
 " Eventually want something not dependent on path, but if
 " set up is based on symbolic links, then path will get tripped up.
