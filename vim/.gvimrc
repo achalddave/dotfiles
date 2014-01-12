@@ -9,7 +9,7 @@ if has("unix")
         set guifont=Monaco:h10
     endif
 elseif has ("win32")
-    set guifont=Consolas
+    set guifont=Consolas:h10
 endif
 
 :noremap <C-S-tab> :tabprevious<CR>

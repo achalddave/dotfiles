@@ -319,6 +319,7 @@ elseif has("unix")
     set backupdir=/tmp/vim-backup
 endif
 
+set gfn=monospace:h10
 colorscheme slate
 hi CursorLine ctermbg=none ctermfg=none cterm=none
 " always have status line
