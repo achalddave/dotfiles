@@ -1,8 +1,8 @@
 *.swp
 *.swo
-/vimfiles/.vim/.netrwhist
-/vimfiles/.vim/bundle
-/vimfiles/sessions/*
+/vim/.vim/.netrwhist
+/vim/.vim/bundle
+/vim/sessions/*
 local/*
 
-!/vimfiles/.vim/bundle/vundle
+!/vim/.vim/bundle/vundle
