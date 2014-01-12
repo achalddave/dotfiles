@@ -1,4 +1,4 @@
-source $ROOT/.bashrc
+source $ROOT/bash/.bashrc
 [ -e ~/.bashrc_local ] && source ~/.bashrc_local
 
-bind -f $ROOT/.inputrc
+bind -f $ROOT/bash/.inputrc

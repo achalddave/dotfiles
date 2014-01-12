@@ -1,5 +1,5 @@
 [include]
-    path = $ROOT/gitfiles/.gitconfig
+    path = $ROOT/git/.gitconfig
 
 [core]
-    excludesfile = $ROOT/gitfiles/.gitignore_global
+    excludesfile = $ROOT/git/.gitignore_global
