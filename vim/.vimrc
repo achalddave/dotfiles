@@ -213,7 +213,7 @@ endif
 " Appearance
 " ==========
 
-" Switch syntax highlighting on, when the terminal has colors 
+" Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
   syntax on
   " have to toggle filetype for issue (Vim not detecting CoffeeScript
