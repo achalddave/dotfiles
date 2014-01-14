@@ -150,9 +150,9 @@ precmd() { vcs_info }
 
 setopt prompt_subst
 if [ "$has_256" -eq 1 ] ; then
-    PS1='%{$FG[245]%}%m:%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+    PS1='%{$FG[245]%}%m:%{$FG[255]%}%%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 else
-    PS1='%m:%{$fg[red]%}~%{$reset_color%} %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}~ '
+    PS1='%{$fg_bold[black]%}%m%{$reset_color%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}%{$fg[red]%}~%{$reset_color%} '
 fi
 
 if [[ "$TERM" == "screen" ]] ; then
