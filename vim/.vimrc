@@ -1,14 +1,7 @@
-" Tips in general [Achal]
-" GENERAL
-" =======
-" Overriding plugin mapping: use <buffer>
+" Tips
+" ====
+" * Overriding plugin mapping: use <buffer>
 "   (e.g. `:imap <buffer> <BS> <nop>` instead of `:imap <BS> <nop>`)
-"
-" WEBDEV
-" ======
-" If html indent is being weird, try :set nocp; dunno why that works.
-" If .php file and has html, use :set ft=html
-"
 
 " basic settings
 set nocompatible "required for vundle
