@@ -1,7 +1,14 @@
+# Available configurations; set from ~/.zshrc_before
+# has_256 (default True)
+has_256=${has_256:-1}
+
 # load scripts (I could load them all at once, but having them be separate
 # lines will make me know which scripts I have, since I'll never actually go to
 # the zsh_scripts folder).
-source .zsh_scripts/spectrum.zsh
+if [ "$has_256" -eq 1 ] ; then
+    # Most Windows terminals don't support 256 colors
+    source scripts/spectrum.zsh
+fi
 
 # Use git's git completion, not zsh's (with zsh, git alias arguments don't get
 # tab completed for some reason)
@@ -142,7 +149,11 @@ zstyle ':vcs_info:git*' formats '(%b) '
 precmd() { vcs_info }
 
 setopt prompt_subst
-PS1='%{$FG[245]%}%m:%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+if [ "$has_256" -eq 1 ] ; then
+    PS1='%{$FG[245]%}%m:%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+else
+    PS1='%m:%{$fg[red]%}~%{$reset_color%} %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}~ '
+fi
 
 if [[ "$TERM" == "screen" ]] ; then
     export TERM=screen-256color-bce
