@@ -187,6 +187,11 @@ inoremap wq <ESC>:w<Return>l
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 
+" Commands
+" ========
+
+command Strip :%s/\s\+$//g
+
 " Backup
 " ======
 
@@ -325,4 +330,3 @@ function! LatexMappings()
     endif
 
 endfunction
-
