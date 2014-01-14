@@ -29,3 +29,6 @@ hi IncSearch guibg=#0000ff
 hi IncSearch guifg=#9999ee
 hi Cursor guibg=#333399
 hi Cursor guifg=#ffffff
+
+" Start off in home directory by default
+cd $HOME
