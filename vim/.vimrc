@@ -3,27 +3,15 @@
 " * Overriding plugin mapping: use <buffer>
 "   (e.g. `:imap <buffer> <BS> <nop>` instead of `:imap <BS> <nop>`)
 
-" basic settings
-set nocompatible "required for vundle
-filetype off "required for vundle
+let vimroot=getcwd()
+set nocompatible
+let &rtp.=','.vimroot."\\.vim\\bundle\\vundle"
+
+" Vundle Setup
+filetype off    " required for vundle
 filetype plugin indent on
 
-"================="
-"  set up vundle  "
-"================="
-
-set rtp+=$HOME/dotfiles/vim/.vim/bundle/vundle
-call vundle#rc("$HOME/dotfiles/vim/.vim/bundle")
-
-" Eventually want something not dependent on path, but if
-" set up is based on symbolic links, then path will get tripped up.
-
-" TODO fix setup so it simply places a vimrc that sources this vimrc
-
-"let mypath = expand("%:p:h")
-"
-"set rtp+=expand(mypath."/.vim/bundle/vundle")
-"call vundle#rc(expand(mypath."/.vim/bundle/"))
+call vundle#rc(vimroot."/.vim/bundle")
 
 " PLUGINS
 " =======
@@ -90,7 +78,7 @@ if has("autocmd")
 endif
 
 " Session save
-let g:session_directory="~/dotfiles/vimfiles/sessions"
+let g:session_directory=vimroot."\\sessions"
 let g:session_command_aliases = 1
 let g:session_autoload='no'
 let g:session_autosave='no'
