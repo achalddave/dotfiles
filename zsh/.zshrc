@@ -12,7 +12,7 @@ fi
 
 # Use git's git completion, not zsh's (with zsh, git alias arguments don't get
 # tab completed for some reason)
-source .zsh_scripts/git-completion.zsh
+source scripts/git-completion.zsh 2>/dev/null
 
 # turn on correction 
 setopt correctall
