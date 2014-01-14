@@ -218,7 +218,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-set gfn=monospace:h10
 colorscheme slate
 " always have status line
 set laststatus=2
