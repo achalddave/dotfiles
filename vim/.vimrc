@@ -3,23 +3,23 @@
 " * Overriding plugin mapping: use <buffer>
 "   (e.g. `:imap <buffer> <BS> <nop>` instead of `:imap <BS> <nop>`)
 
-let vimroot=getcwd()
 set nocompatible
-let &rtp.=','.vimroot."\\.vim\\bundle\\vundle"
 
-" Vundle Setup
-filetype off    " required for vundle
+" Dotfiles can be anywhere, get correct location
+let vimroot=getcwd()
+
+" Vundle + Plugins
+" ================
+filetype off
 filetype plugin indent on
 
+let &rtp.=','.vimroot."\\.vim\\bundle\\vundle"
 call vundle#rc(vimroot."/.vim/bundle")
 
-" PLUGINS
-" =======
-" let Vundle manage Vundle: required for vundle!
 Bundle 'gmarik/vundle'
 
 Bundle 'Tab-Name'
-if has('signs')
+if has('signs') && !has('win32') " Git gutter is slow on Windows
     Bundle 'airblade/vim-gitgutter'
 endif
 Bundle 'tpope/vim-fugitive.git'
@@ -55,8 +55,8 @@ Bundle 'Wombat'
 Bundle 'jonathanfilip/vim-lucius'
 Bundle 'chriskempson/vim-tomorrow-theme'
 
-" Plugin Options
-" --------------
+" Plugin Settings
+" ---------------
 
 " Easy tagbar
 nnoremap <F2> :TagbarOpen j<CR>
@@ -83,8 +83,15 @@ let g:session_command_aliases = 1
 let g:session_autoload='no'
 let g:session_autosave='no'
 
-" TABWARS
-" =======
+" Indentation
+" ===========
+
+set autoindent
+set smarttab
+
+" When moving the cursor up or down just after inserting indent for
+" 'autoindent', do not delete the indent.
+set cpoptions+=I
 
 " 4 col tab generally
 set ts=4 sts=4 sw=4 expandtab
@@ -96,9 +103,7 @@ if has("autocmd")
 
 	" tabs to spaces; 4 col tabs
 	au FileType python setlocal expandtab ts=4 sts=4 sw=4
-
     au FileType c setlocal expandtab ts=4 sts=4 sw=4
-
     au FileType cpp setlocal expandtab ts=2 sts=2 sw=2
 
     au Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
@@ -112,21 +117,12 @@ if has("autocmd")
     endfunction
 endif
 
-" HELPER FUNCTIONS
-" ================
+" Mappings
+" ========
 
-" if you want to hit, e.g. k multiple times without vim waiting for j (kj->esc
-" mapping)
-function! RunWithoutTimeout(command)
-    let l:origTimeoutlen=&timeoutlen
-    set timeoutlen=0
-    exec a:command
-    exec "set timeoutlen=".l:origTimeoutlen
-endfunction
+let mapleader=","
+set timeoutlen=150
 
-
-" INTUITIVE
-" =========
 " Easy window navigation
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -134,10 +130,9 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " Easy window resizing
-" TODO: Figure out some nice ways to do this.
-" <C-m> maps to enter... otherwise <C-m> <C-n> seemed
-" nice for <C-w>> and <C-w><
-" hm maybe use leaders?
+" TODO: Figure out some nice ways to do this.  <C-m> maps to enter...
+" otherwise <C-m> <C-n> seemed nice for <C-w>> and <C-w>< hm maybe use
+" leaders?
 noremap + <C-w>+
 noremap _ <C-w>-
 
@@ -167,8 +162,8 @@ nnoremap <silent> <C-u> <C-b>
 " toggle highlighting
 nnoremap <silent> <space> :noh<CR><space>
 
-" undo blocks auto created in insert mode
-" (no more undoing huge blocks accidentally)
+" undo blocks auto created in insert mode (no more undoing huge blocks
+" accidentally)
 inoremap <CR> <c-g>u<CR>
 inoremap <c-w> <c-g>u<c-w>
 
@@ -178,10 +173,137 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" LESS WRIST PAIN
-"=================
+if has("autocmd")
+    au Filetype latex,tex,plaintex call LatexMappings()
+endif
 
-let mapleader=","
+" escape is hard to reach so map kj to <ESC>
+inoremap kj <ESC>l
+noremap kj <ESC>
+
+" easily escape and save from within insert mode
+inoremap wq <ESC>:w<Return>l
+
+" exchange this word with next word using gw
+noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
+
+" Backup
+" ======
+
+set backup
+if has("win32")
+    let mybackupdir = $TEMP . "\\vim-backup"
+    if !isdirectory(mybackupdir)
+        silent exec "!mkdir " mybackupdir
+    endif
+    execute "set backupdir=".mybackupdir.",$TEMP,$TMP"
+elseif has("unix")
+    let mybackupdir = "/tmp/vim-backup"
+    if !isdirectory(mybackupdir)
+        silent exec "!mkdir " mybackupdir
+    endif
+    set backupdir=/tmp/vim-backup
+endif
+
+" Appearance
+" ==========
+
+" Switch syntax highlighting on, when the terminal has colors 
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  " have to toggle filetype for issue (Vim not detecting CoffeeScript
+  " filetype): http://stackoverflow.com/questions/5602767/
+  filetype off
+  filetype on
+  set hlsearch
+endif
+
+set gfn=monospace:h10
+colorscheme slate
+" always have status line
+set laststatus=2
+set ruler
+
+" if we have enough colors
+if &t_Co >= 256
+    colorscheme Tomorrow-Night-Bright
+endif
+
+if !has("gui_running")
+    " vim can't change the background of a terminal, as far as I can tell
+    " no point changing the background of the text alone
+    hi Normal ctermbg=NONE
+endif
+
+" string like todos
+hi! Todo None
+hi! link Todo String
+
+" Echo the syntax group my cursor is over
+nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" no error bells
+set novb t_vb=
+
+" i need line numbers
+set nu
+
+" Other settings
+" ==============
+
+" Use putty for SCP
+if has("win32")
+    let g:netrw_silent=1
+    let g:netrw_cygwin = 0
+    let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
+    let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
+    let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
+endif
+
+" make the working directory be the directory of the current file
+set autochdir
+let g:netrw_keepdir=0
+
+
+" case search
+set ignorecase
+set smartcase
+set incsearch
+
+set history=1000
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" some terminal issue fixes
+if has('mouse')
+  set mouse=a
+endif
+
+" Wrap cursor
+set ww+=<,>,[,]
+
+" stop highlighting the current line if not active
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
+
+" let me copy to the system clipboard
+set clipboard+=unnamed
+
+" Helper functions
+" ================
+
+" if you want to hit, e.g. k multiple times without vim waiting for j (kj->esc
+" mapping)
+function! RunWithoutTimeout(command)
+    let l:origTimeoutlen=&timeoutlen
+    set timeoutlen=0
+    exec a:command
+    exec "set timeoutlen=".l:origTimeoutlen
+endfunction
 
 function! LatexMappings()
     inoremap <buffer> z/ \
@@ -203,133 +325,5 @@ function! LatexMappings()
         nnoremap <silent> <buffer> <f3> :exec("silent ! pdflatex % ; start %:r".".pdf")<cr>
     endif
 
-
 endfunction
 
-if has("autocmd")
-    au Filetype latex,tex,plaintex call LatexMappings()
-endif
-
-" escape is hard to reach so map kj to <ESC>
-inoremap kj <ESC>l
-noremap kj <ESC>
-
-" easily escape and save from within insert mode
-inoremap wq <ESC>:w<Return>l
-
-" Make life easier
-" ================
-
-" exchange this word with next word using gw
-noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
-
-" ETC SETTINGS
-" ============
-
-" Use putty for SCP
-if has("win32")
-    let g:netrw_silent=1
-    let g:netrw_cygwin = 0
-    let g:netrw_list_cmd  = 'C:\"Program Files (x86)"\PuTTY\plink.exe -T -batch -ssh'
-    let g:netrw_scp_cmd  = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q -batch -scp'
-    let g:netrw_sftp_cmd = 'C:\"Program Files (x86)"\PuTTY\pscp.exe -q'
-endif
-
-" make the working directory be the directory of the current file
-set autochdir
-let g:netrw_keepdir=0
-
-set incsearch
-set ruler
-set history=1000
-
-" INDENTATION
-set autoindent
-
-"When moving the cursor up or down just after inserting indent for
-"'autoindent', do not delete the indent.
-set cpoptions+=I
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  filetype off
-  filetype on
-  " i have no idea:
-  " http://stackoverflow.com/questions/5602767/why-is-vim-not-detecting-my-coffescript-filetype
-  set hlsearch
-endif
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-" some terminal issue fixes
-if has('mouse')
-  set mouse=a
-endif
-
-" Wrap cursor
-set ww+=<,>,[,]
-
-" stop highlighting the current line if not active
-au WinLeave * set nocursorline
-au WinEnter * set cursorline
-set cursorline
-hi CursorLine guibg=gray
-
-set timeoutlen=150
-
-" case search
-set ignorecase
-set smartcase
-
-set smarttab
-
-set backup
-if has("win32")
-    let mybackupdir = $TEMP . "\\vim-backup"
-    if !isdirectory(mybackupdir)
-        silent exec "!mkdir " mybackupdir
-    endif
-    execute "set backupdir=".mybackupdir.",$TEMP,$TMP"
-elseif has("unix")
-    let mybackupdir = "/tmp/vim-backup"
-    if !isdirectory(mybackupdir)
-        silent exec "!mkdir " mybackupdir
-    endif
-    set backupdir=/tmp/vim-backup
-endif
-
-set gfn=monospace:h10
-colorscheme slate
-hi CursorLine ctermbg=none ctermfg=none cterm=none
-" always have status line
-set laststatus=2
-
-" if we have enough colors
-if &t_Co >= 256
-    colorscheme Tomorrow-Night-Bright
-endif
-
-if !has("gui_running")
-    " vim can't change the background of a terminal, as far as I can tell
-    " no point changing the background of the text alone
-    hi Normal ctermbg=NONE
-endif
-
-" string like todos
-hi! Todo None
-hi! link Todo String
-
-nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-" no error bells
-set vb t_vb=
-
-" i need line numbers
-set nu
-
-" let me copy to the system clipboard
-set clipboard+=unnamed
