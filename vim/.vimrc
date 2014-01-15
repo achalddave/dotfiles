@@ -270,6 +270,9 @@ endif
 set autochdir
 let g:netrw_keepdir=0
 
+" Sort netrw case insensitive
+let g:netrw_sort_options=1
+
 
 " case search
 set ignorecase
