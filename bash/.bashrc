@@ -3,11 +3,15 @@ alias l='ls'
 alias la='ls -A'
 alias g='git'
 alias py='python'
-alias ..='cd ..'
-# maintain git tab completion with g
-complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
-        || complete -o default -o nospace -F _git g
 alias so='source'
+
+# directory laziness
+alias ..='cd ..'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd/='cd /'
 
 if [[ `uname` == "Linux" ]] || [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] || [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
@@ -19,6 +23,10 @@ then
     alias grep='grep --color=tty'
 fi
 fi
+
+# maintain git tab completion with g
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
+        || complete -o default -o nospace -F _git g
 
 set EDITOR=vim
 export EDITOR
