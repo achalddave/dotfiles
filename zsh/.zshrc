@@ -78,14 +78,6 @@ SAVEHIST=20000
 # please don't beep
 unsetopt beep
 
-# laziness
-alias l='ls'
-alias la='ls -A'
-alias ll='ls -Al'
-alias g='git'
-alias py='python'
-alias so='source'
-
 # swap two files (not directories!)
 function swap() {
     if [[ "$#" -lt 2 ]] || [[ ! -f "$1" ]] || [[ ! -f "$2" ]]; then
@@ -115,6 +107,15 @@ setopt auto_name_dirs
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
+
+# laziness
+alias l='ls'
+alias la='ls -A'
+alias ll='ls -Al'
+alias g='git'
+alias py='python'
+alias so='source'
+alias sa='eval `ssh-agent` ; ssh-add'
 
 # directory laziness
 alias ..='cd ..'
