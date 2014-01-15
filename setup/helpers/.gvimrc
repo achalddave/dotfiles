@@ -1,7 +1,12 @@
-if filereadable("~/.gvimrc_before")
+if filereadable(expand("~/.gvimrc_before"))
     source ~/.gvimrc_before
 endif
+
+let oldcwd=getcwd()
+cd $ROOT/vim
 source $ROOT/vim/.gvimrc
-if filereadable("~/.gvimrc_after")
+cd `=oldcwd`
+
+if filereadable(expand("~/.gvimrc_after"))
     source ~/.gvimrc_after
 endif
