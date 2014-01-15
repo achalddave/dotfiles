@@ -4,6 +4,7 @@ alias la='ls -A'
 alias g='git'
 alias py='python'
 alias so='source'
+alias sa='eval `ssh-agent` ; ssh-add'
 
 # directory laziness
 alias ..='cd ..'
