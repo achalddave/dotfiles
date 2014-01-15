@@ -190,7 +190,7 @@ noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 " Commands
 " ========
 
-command Strip :%s/\s\+$//g
+command! Strip :%s/\s\+$//g
 
 " Backup
 " ======
