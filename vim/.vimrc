@@ -272,8 +272,7 @@ set autochdir
 let g:netrw_keepdir=0
 
 " Sort netrw case insensitive
-let g:netrw_sort_options=1
-
+let g:netrw_sort_options="i"
 
 " case search
 set ignorecase
