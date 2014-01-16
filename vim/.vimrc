@@ -25,15 +25,12 @@ endif
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-scriptease'
-Bundle 'Townk/vim-autoclose.git'
 Bundle 'majutsushi/tagbar'
 Bundle 'achalddave/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'camelcasemotion'
-" vim-misc required for vim-session
-Bundle 'xolox/vim-misc.git'
+Bundle 'xolox/vim-misc.git' " required for vim-session
 Bundle 'xolox/vim-session'
 
 " language specific
@@ -49,11 +46,11 @@ Bundle 'achalddave/vim-pandoc'
 Bundle 'Windows-PowerShell-Syntax-Plugin'
 
 " themes
-Bundle 'rdark'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'Wombat'
-Bundle 'jonathanfilip/vim-lucius'
+" Bundle 'rdark'
+" Bundle 'altercation/vim-colors-solarized'
+" Bundle 'nanotech/jellybeans.vim'
+" Bundle 'Wombat'
+" Bundle 'jonathanfilip/vim-lucius'
 Bundle 'chriskempson/vim-tomorrow-theme'
 
 " Plugin Settings
