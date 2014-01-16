@@ -331,5 +331,4 @@ function! LatexMappings()
     elseif has("unix")
         nnoremap <silent> <buffer> <f3> :exec("silent ! pdflatex % ; start %:r".".pdf")<cr>
     endif
-
 endfunction
