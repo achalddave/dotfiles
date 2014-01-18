@@ -16,6 +16,7 @@ filetype plugin indent on
 let &rtp.=','.vimroot."\\.vim\\bundle\\vundle"
 call vundle#rc(vimroot."/.vim/bundle")
 
+" NOTE: Comments after Bundle commands are not allowed!
 Bundle 'gmarik/vundle'
 
 Bundle 'Tab-Name'
@@ -30,7 +31,8 @@ Bundle 'achalddave/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'camelcasemotion'
-Bundle 'xolox/vim-misc.git' " required for vim-session
+ " required for vim-session
+Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session'
 
 " language specific
