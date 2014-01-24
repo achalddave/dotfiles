@@ -51,3 +51,6 @@ set_prompt
 function cd() {
   if [[ $@ == "..l" ]] ; then command cd ..;l ; else command cd "$@" ; fi
 }
+
+# load any specific dircolors if necessary
+[[ -e ~/dircolors ]] && eval "$(dircolors ~/dircolors)"

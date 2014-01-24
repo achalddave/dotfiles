@@ -160,6 +160,9 @@ if [[ "$TERM" == "screen" ]] ; then
     export TERM=screen-256color-bce
 fi
 
+# load any specific dircolors if necessary
+[[ -e ~/dircolors ]] && eval "$(dircolors ~/dircolors)"
+
 # FIX FOR ZSH HISTORY CURSOR 
 # This should work exactly as bash's history-search-[back|for]ward
 #   i.e. if you have an empty line and hit <Up>, your cursor will go to the end of line
