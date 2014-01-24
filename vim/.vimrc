@@ -13,7 +13,7 @@ let vimroot=getcwd()
 filetype off
 filetype plugin indent on
 
-let &rtp.=','.vimroot."\\.vim\\bundle\\vundle"
+let &rtp.=','.vimroot."/.vim/bundle/vundle"
 call vundle#rc(vimroot."/.vim/bundle")
 
 " NOTE: Comments after Bundle commands are not allowed!
@@ -78,7 +78,7 @@ if has("autocmd")
 endif
 
 " Session save
-let g:session_directory=vimroot."\\sessions"
+let g:session_directory=vimroot."/sessions"
 let g:session_command_aliases = 1
 let g:session_autoload='no'
 let g:session_autosave='no'
@@ -197,7 +197,7 @@ command! Strip :%s/\s\+$//g
 
 set backup
 if has("win32")
-    let mybackupdir = $TEMP . "\\vim-backup"
+    let mybackupdir = $TEMP . "/vim-backup"
     if !isdirectory(mybackupdir)
         silent exec "!mkdir " mybackupdir
     endif
