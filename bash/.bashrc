@@ -53,4 +53,4 @@ function cd() {
 }
 
 # load any specific dircolors if necessary
-[[ -e ~/dircolors ]] && eval "$(dircolors ~/dircolors)"
+[[ -e ~/.dircolors ]] && eval "$(dircolors ~/.dircolors)"

@@ -161,7 +161,7 @@ if [[ "$TERM" == "screen" ]] ; then
 fi
 
 # load any specific dircolors if necessary
-[[ -e ~/dircolors ]] && eval "$(dircolors ~/dircolors)"
+[[ -e ~/.dircolors ]] && eval "$(dircolors ~/.dircolors)"
 
 # FIX FOR ZSH HISTORY CURSOR 
 # This should work exactly as bash's history-search-[back|for]ward
