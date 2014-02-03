@@ -45,7 +45,7 @@ Bundle 'atdt/vim-mediawiki'
 Bundle 'achalddave/cscope_macros.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'achalddave/vim-pandoc'
-Bundle 'Windows-PowerShell-Syntax-Plugin'
+Bundle 'hoest/Windows-PowerShell-Syntax-Plugin'
 
 " themes
 " Bundle 'rdark'
