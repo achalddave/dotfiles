@@ -99,6 +99,10 @@ set cpoptions+=I
 " 4 col tab generally
 set ts=4 sts=4 sw=4 expandtab
 
+" Highlight tabs instead of spaces
+set list
+set listchars=tab:>~,trail:·
+
 if has("autocmd")
 	" Make vim treat ejs as html files
 	au BufRead,BufNewFile *.ejs setfiletype html
