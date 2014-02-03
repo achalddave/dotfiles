@@ -72,10 +72,10 @@ let g:SuperTabCrMapping = 0
 let g:html_indent_inctags='p' " add indent on new paragraph
 
 " Auto-Close
-if has("autocmd")
-    au FileType tex,plaintex let b:AutoClosePairs=AutoClose#DefaultPairsModified("$$","")
-    au FileType html,php,ejs let b:AutoClosePairs=AutoClose#DefaultPairsModified("<>","")
-endif
+" if has("autocmd")
+"     au FileType tex,plaintex let b:AutoClosePairs=AutoClose#DefaultPairsModified("$$","")
+"     au FileType html,php,ejs let b:AutoClosePairs=AutoClose#DefaultPairsModified("<>","")
+" endif
 
 " Session save
 let g:session_directory=vimroot."/sessions"
