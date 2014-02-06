@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get --yes install python-software-properties
 
 # Add repo for latest Ubuntu Git version
-sudo add-apt-repository ppa:git-core/ppak
+sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 
 sudo apt-get --yes install git
