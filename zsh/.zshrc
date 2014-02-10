@@ -153,7 +153,7 @@ setopt prompt_subst
 if [ "$has_256" -eq 1 ] ; then
     PS1='%{$FG[245]%}%m:%{$FG[255]%}%%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 else
-    PS1='%{$fg_bold[black]%}%m%{$reset_color%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}%{$fg[red]%}~%{$reset_color%} '
+    PS1='%{$fg_bold[black]%}%m%{$fg_bold[white]%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
 fi
 
 if [[ "$TERM" == "screen" ]] ; then
