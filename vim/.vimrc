@@ -204,6 +204,12 @@ noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 
 command! Strip :%s/\s\+$//g
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
+if has("unix")
+    cmap w!! w !sudo tee > /dev/null %
+endif
+
 " Backup
 " ======
 
