@@ -60,7 +60,7 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 
 " Plugin Settings
-" ---------------
+" ===============
 
 " Easy tagbar
 nnoremap <F2> :TagbarOpen j<CR>
