@@ -209,18 +209,18 @@ command! Strip :%s/\s\+$//g
 
 set backup
 if has("win32")
-    let mybackupdir = $TEMP . "\\vim-backup"
-    let myswpdir = $TEMP . "\\vim-swp"
+    let mybackupdir = $TEMP . "/vim-backup"
+    let myswpdir = $TEMP . "/vim-swp"
 elseif has("unix")
     let mybackupdir = "/tmp/vim-backup"
     let myswpdir = "/tmp/vim-swp"
 endif
 
 if !isdirectory(mybackupdir)
-    silent exec "!mkdir " mybackupdir
+    call mkdir(mybackupdir)
 endif
 if !isdirectory(myswpdir)
-    silent exec "!mkdir " myswpdir
+    call mkdir(myswpdir)
 endif
 execute "set backupdir=".mybackupdir
 execute "set directory=".myswpdir
