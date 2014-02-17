@@ -40,3 +40,5 @@ What changed:\n============='
 	default = current
 [diff]
     algorithm = patience
+[github]
+    user = achalddave
