@@ -34,6 +34,8 @@ Bundle 'camelcasemotion'
  " required for vim-session
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
