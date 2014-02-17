@@ -54,7 +54,7 @@ Bundle 'achalddave/guifontpp.vim'
 " themes
 " Bundle 'rdark'
 " Bundle 'altercation/vim-colors-solarized'
-" Bundle 'nanotech/jellybeans.vim'
+Bundle 'nanotech/jellybeans.vim'
 " Bundle 'Wombat'
 " Bundle 'jonathanfilip/vim-lucius'
 Bundle 'chriskempson/vim-tomorrow-theme'
