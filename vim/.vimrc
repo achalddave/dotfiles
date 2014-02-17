@@ -36,6 +36,7 @@ Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'gregsexton/gitv'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
