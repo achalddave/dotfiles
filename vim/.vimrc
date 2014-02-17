@@ -349,9 +349,9 @@ function! RunWithoutTimeout(command)
 endfunction
 
 function! LatexMappings()
-    inoremap <buffer> z/ \
-    inoremap <buffer> zj {
-    inoremap <buffer> zk }
+    inoremap <buffer> f/ \
+    inoremap <buffer> fj {
+    inoremap <buffer> fk }
 
     inoremap <buffer> [ <nop>
     inoremap <buffer> ] <nop>
