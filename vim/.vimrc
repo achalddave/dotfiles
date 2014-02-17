@@ -353,8 +353,6 @@ function! LatexMappings()
     inoremap <buffer> fj {
     inoremap <buffer> fk }
 
-    inoremap <buffer> [ <nop>
-    inoremap <buffer> ] <nop>
     inoremap <buffer> { <nop>
     inoremap <buffer> } <nop>
     inoremap <buffer> \ <nop>
