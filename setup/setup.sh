@@ -55,6 +55,8 @@ update ./helpers/.gitconfig ~/.gitconfig # Also takes care of .gitignore
 update ./helpers/.vimrc     ~/.vimrc
 update ./helpers/.gvimrc    ~/.gvimrc
 update ./helpers/.bashrc    ~/.bashrc    # Also takes care of .inputrc
+update ./helpers/.profile   ~/.profile
+update ./helpers/.zprofile   ~/.zprofile
 update ./helpers/.zshrc     ~/.zshrc
 echo "==="
 
