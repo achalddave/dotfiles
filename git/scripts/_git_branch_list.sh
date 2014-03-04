@@ -28,7 +28,7 @@ function echo_emph {
 function one_remote_branch {
     echo_emph "Branches on "`get_friendly_name $1`
     for branch in $(git for-each-ref $1 --format='%(refname:short)') ; do
-        echo $branch
+        echo "* $branch"
     done
 }
 
@@ -40,7 +40,7 @@ function two_remote_branches {
         branch=${branch#*/}
         git show-ref --verify --quiet $2/$branch
         if [[ $? != 0 ]] ; then
-            echo -e "\t$branch"
+            echo "* $branch"
         fi
     done
 
@@ -49,7 +49,7 @@ function two_remote_branches {
         branch=${branch#*/}
         git show-ref --verify --quiet $1/$branch
         if [[ $? != 0 ]] ; then
-            echo -e "\t$branch"
+            echo "* $branch"
         fi
     done
 }
