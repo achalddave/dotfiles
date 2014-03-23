@@ -77,6 +77,12 @@ let g:SuperTabCrMapping = 0
 
 " indent-html.vim:
 let g:html_indent_inctags='p' " add indent on new paragraph
+" Looks like vim-ragtag sets these as of
+" https://github.com/tpope/vim-ragtag/commit/7c7b2464731a5e10016595db4d6aa1428b828efe
+" but this is to make it explicit (I don't understand why vim-ragtag would set
+" things for me from indenthtml.vim...)
+let g:html_indent_style1='inc'   " auto indent css after <style>
+let g:html_indent_script1='inc'  " auto indent js after <script>
 
 " Auto-Close
 " if has("autocmd")
