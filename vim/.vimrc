@@ -125,12 +125,12 @@ set list
 set listchars=tab:>~,trail:·
 
 if has("autocmd")
-	" Make vim treat ejs as html files
-	au BufRead,BufNewFile *.ejs setfiletype html
+    " Make vim treat ejs as html files
+    au BufRead,BufNewFile *.ejs setfiletype html
     au BufRead,BufNewFile *.tex setfiletype plaintex
 
-	" tabs to spaces; 4 col tabs
-	au FileType python setlocal expandtab ts=4 sts=4 sw=4
+    " tabs to spaces; 4 col tabs
+    au FileType python setlocal expandtab ts=4 sts=4 sw=4
     au FileType c setlocal expandtab ts=4 sts=4 sw=4
     au FileType cpp setlocal expandtab ts=2 sts=2 sw=2
 
