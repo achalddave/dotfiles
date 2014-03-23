@@ -158,12 +158,11 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " Easy window resizing
-" Removed: using +/- for font size for now
 " TODO: Figure out some nice ways to do this.  <C-m> maps to enter...
 " otherwise <C-m> <C-n> seemed nice for <C-w>> and <C-w>< hm maybe use
 " leaders?
-" noremap + <C-w>+
-" noremap _ <C-w>-
+noremap + <C-w>+
+noremap _ <C-w>-
 
 " map shift h and shift l to beg and end of line
 noremap H ^
