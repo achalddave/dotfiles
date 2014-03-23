@@ -219,6 +219,8 @@ noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 " ========
 
 command! Strip :%s/\s\+$//g
+command! E :Explore
+command! Ex :Extradite
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
