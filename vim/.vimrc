@@ -99,6 +99,11 @@ let g:session_autosave='no'
 " Ctrl p
 let g:ctrlp_max_files = 100000 " Set to 0 if no limit, but this should be enough.
 
+" Guifontpp
+let guifontpp_smaller_font_map="<Leader>-"
+let guifontpp_larger_font_map="<Leader>="
+let guifontpp_original_font_map="<>"
+
 " Indentation
 " ===========
 
