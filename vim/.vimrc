@@ -360,6 +360,9 @@ set cursorline
 " let me copy to the system clipboard
 set clipboard+=unnamed
 
+" Ask instead of erroring.
+set confirm
+
 " Helper functions
 " ================
 
