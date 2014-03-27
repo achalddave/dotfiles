@@ -10,7 +10,7 @@
     co  = checkout
     cpi = cherry-pick
     df  = diff
-    dfs = diff --cached # staged changed
+    dfs = diff --cached # staged changes
     pl  = pull
     plr = pull --rebase
     ps  = push
