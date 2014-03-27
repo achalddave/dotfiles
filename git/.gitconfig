@@ -31,6 +31,8 @@ What changed:\n============='
 
     pushnotes = push origin refs/notes/*
 
+    # easy way to view which branches exist on one remote but not another and
+    # vice versa
     brlist = !sh -c '_git_branch_list.sh "$@"' -
 [core]
     editor = vim
