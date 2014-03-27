@@ -1,14 +1,26 @@
-" Tips
+" Notes                                                                       {
+" vim set foldmarker={,} foldmethod=marker
+"
+" Folding method lifted from spf13.vim
+"
+" }
+
+" Tips                                                                        {
 " ====
 " * Overriding plugin mapping: use <buffer>
 "   (e.g. `:imap <buffer> <BS> <nop>` instead of `:imap <BS> <nop>`)
+"                                                                             }
 
+" Basic                                                                       {
+" I just don't want to deal with moving this right now to a proper section
 set nocompatible
 
 " Dotfiles can be anywhere, get correct location
 let vimroot=getcwd()
 
-" Vundle + Plugins
+"                                                                             }
+
+" Vundle + Plugins                                                            {
 " ================
 filetype off
 filetype plugin indent on
@@ -62,7 +74,9 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
 
-" Plugin Settings
+"                                                                             }
+
+" Plugin Settings                                                             {
 " ===============
 
 " Easy tagbar
@@ -107,7 +121,9 @@ let guifontpp_original_font_map="<>"
 " Gitv
 let g:Gitv_OpenPreviewOnLaunch=1
 
-" Indentation
+"                                                                             }
+
+" Indentation                                                                 {
 " ===========
 
 set autoindent
@@ -145,7 +161,9 @@ if has("autocmd")
     endfunction
 endif
 
-" Mappings
+"                                                                             }
+
+" Mappings                                                                    {
 " ========
 
 let mapleader=","
@@ -215,7 +233,9 @@ inoremap wq <ESC>:w<Return>l
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 
-" Commands
+"                                                                             }
+
+" Commands                                                                    {
 " ========
 
 command! Strip :%s/\s\+$//g
@@ -228,7 +248,9 @@ if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
 
-" Backup
+"                                                                             }
+
+" Backup                                                                      {
 " ======
 
 set backup
@@ -249,7 +271,9 @@ endif
 execute "set backupdir=".mybackupdir
 execute "set directory=".myswpdir
 
-" Appearance
+"                                                                             }
+
+" Appearance                                                                  {
 " ==========
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -310,12 +334,14 @@ nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " no error bells
-set novb t_vb=
+set vb t_vb=
 
 " i need line numbers
 set nu
 
-" Other settings
+"                                                                             }
+
+" Other settings                                                              {
 " ==============
 
 " Use putty for SCP
@@ -363,7 +389,9 @@ set clipboard+=unnamed
 " Ask instead of erroring.
 set confirm
 
-" Helper functions
+"                                                                             }
+
+" Helper functions                                                            {
 " ================
 
 " if you want to hit, e.g. k multiple times without vim waiting for j (kj->esc
