@@ -1,6 +1,6 @@
 [user]
-	name = Achal Dave
-	email = achalddave@live.com
+    name = Achal Dave
+    email = achalddave@live.com
 [color]
     ui = auto
 [alias]
@@ -33,13 +33,13 @@ What changed:\n============='
 
     brlist = !sh -c '_git_branch_list.sh "$@"' -
 [core]
-	editor = vim
+    editor = vim
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [push]
-	default = current
+    default = current
 [diff]
     algorithm = patience
 [github]
