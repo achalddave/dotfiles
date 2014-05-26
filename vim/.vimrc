@@ -38,6 +38,7 @@ endif
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-repeat'
 Bundle 'majutsushi/tagbar'
 Bundle 'achalddave/Smooth-Scroll'
 Bundle 'ervandew/supertab'
