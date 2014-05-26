@@ -387,6 +387,10 @@ set cursorline
 " Ask instead of erroring.
 set confirm
 
+" Use unix line endings by default
+set fileformat=unix
+set fileformats=unix,dos
+
 "                                                                             }
 
 " Helper functions                                                            {
