@@ -109,7 +109,7 @@ let g:html_indent_script1='inc'  " auto indent js after <script>
 let g:session_directory=vimroot."/sessions"
 let g:session_command_aliases = 1
 let g:session_autoload='no'
-let g:session_autosave='no'
+let g:session_autosave='prompt'
 
 " Ctrl p
 let g:ctrlp_max_files = 100000 " Set to 0 if no limit, but this should be enough.
