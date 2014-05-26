@@ -391,6 +391,9 @@ set confirm
 set fileformat=unix
 set fileformats=unix,dos
 
+" Highlight at 80 char by default.
+set colorcolumn=80
+
 "                                                                             }
 
 " Helper functions                                                            {
