@@ -1,5 +1,5 @@
 " Notes                                                                       {
-" vim set foldmarker={,} foldmethod=marker
+" vim: set foldmarker={,} foldmethod=marker:
 "
 " Folding method lifted from spf13.vim
 "
