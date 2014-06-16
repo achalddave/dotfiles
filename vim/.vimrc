@@ -394,6 +394,15 @@ set fileformats=unix,dos
 " Highlight at 80 char by default.
 set colorcolumn=80
 
+" On Linux, suspending Vim removes copied text from the clipboard; this is a
+" workaround as suggested by
+" http://stackoverflow.com/questions/6453595/
+" TODO: check if this works (or is necessary on OSX)
+if has("unix")
+    autocmd VimLeave * call system("xsel -ib", getreg("+"))
+    nnoremap <silent> <C-z> :call system("xsel -ib", getreg("+"))<CR><C-z>
+end
+
 "                                                                             }
 
 " Helper functions                                                            {
