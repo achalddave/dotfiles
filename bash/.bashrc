@@ -12,7 +12,6 @@ alias cd..='cd ..'
 alias cd...='cd ../..'
 alias cd....='cd ../../..'
 alias cd.....='cd ../../../..'
-alias cd/='cd /'
 
 if [[ `uname` == "Linux" ]] || [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] || [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
