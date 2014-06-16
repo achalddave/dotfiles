@@ -52,6 +52,7 @@ Bundle 'mattn/gist-vim'
 Bundle 'int3/vim-extradite'
 Bundle 'gregsexton/gitv'
 Bundle 'TagHighlight'
+Bundle 'docunext/closetag.vim'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
