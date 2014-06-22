@@ -111,7 +111,7 @@ setopt pushdminus
 # laziness
 alias l='ls'
 alias la='ls -A'
-alias ll='ls -Al'
+alias ll='ls -Alh'
 alias g='git'
 alias py='python'
 alias so='source'
