@@ -163,6 +163,8 @@ if has("autocmd")
     endfunction
 endif
 
+set formatoptions+=ro " Automatically insert comment leader after <Enter>/o/O
+
 "                                                                             }
 
 " Mappings                                                                    {
