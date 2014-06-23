@@ -51,5 +51,11 @@ function cd() {
   if [[ $@ == "..l" ]] ; then command cd ..;l ; else command cd "$@" ; fi
 }
 
+# better diff (TODO: share this with zsh)
+function df() {
+    diff -u "$@" | \
+        sed 's/^-/\x1b[31m-/;s/^+/\x1b[32m+/;s/^@/\x1b[34m@/;s/$/\x1b[0m/'
+}
+
 # load any specific dircolors if necessary
 [[ -e ~/.dircolors ]] && eval "$(dircolors ~/.dircolors)"

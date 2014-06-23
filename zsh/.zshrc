@@ -199,6 +199,12 @@ autoload -U history-beginning-search-forward-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
+# better diff (TODO: share this with bash)
+function df() {
+    diff -u "$@" | \
+        sed 's/^-/\x1b[31m-/;s/^+/\x1b[32m+/;s/^@/\x1b[34m@/;s/$/\x1b[0m/'
+}
+
 bindkey "[A" history-beginning-search-backward-end
 bindkey "[B" history-beginning-search-forward-end
 bindkey -M vicmd 'k' history-beginning-search-backward-end
