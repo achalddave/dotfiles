@@ -47,8 +47,14 @@ export PS2='>'
 
 set_prompt
 
+# I tend to cd ..l<CR> instead of cd ..<CR>l<CR>. This tries to fix it.
 function cd() {
-  if [[ $@ == "..l" ]] ; then command cd ..;l ; else command cd "$@" ; fi
+  if [[ $@ == "..l" ]] ; then
+      command cd ..;
+      ls
+  else
+      command cd "$@"
+  fi
 }
 
 # better diff (TODO: share this with zsh)
