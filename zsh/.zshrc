@@ -201,3 +201,5 @@ zle -N history-beginning-search-forward-end history-search-end
 
 bindkey "[A" history-beginning-search-backward-end
 bindkey "[B" history-beginning-search-forward-end
+bindkey -M vicmd 'k' history-beginning-search-backward-end
+bindkey -M vicmd 'j' history-beginning-search-forward-end
