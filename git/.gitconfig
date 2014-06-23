@@ -34,6 +34,7 @@ What changed:\n============='
     # easy way to view which branches exist on one remote but not another and
     # vice versa
     brlist = !sh -c '_git_branch_list.sh "$@"' -
+    stashgrep = !sh -c '_git_stash_grep.sh "$@"' -
 [core]
     editor = vim
 [diff]
