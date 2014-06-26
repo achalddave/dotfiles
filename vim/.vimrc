@@ -226,6 +226,8 @@ if has("autocmd")
 endif
 
 " escape is hard to reach so map kj to <ESC>
+" Also, if I'm in insert mode, hit kj, and hit <i>, I want to be in the same
+" position; hence the extra <l>.
 inoremap kj <ESC>l
 noremap kj <ESC>
 
