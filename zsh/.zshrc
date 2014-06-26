@@ -58,6 +58,11 @@ bindkey "^H" backward-delete-char  # vi-backward-delete-char
 bindkey "^U" kill-line             # vi-kill-line
 bindkey "^?" backward-delete-char  # vi-backward-delete-char
 
+bindkey "[A" history-beginning-search-backward-end
+bindkey "[B" history-beginning-search-forward-end
+bindkey -M vicmd 'k' history-beginning-search-backward-end
+bindkey -M vicmd 'j' history-beginning-search-forward-end
+
 # cyan color in vim mode
 function zle-line-init zle-keymap-select {
     if [[ "$KEYMAP" == 'vicmd' ]] ; then
@@ -214,8 +219,3 @@ function df() {
     diff -u "$@" | \
         sed 's/^-/\x1b[31m-/;s/^+/\x1b[32m+/;s/^@/\x1b[34m@/;s/$/\x1b[0m/'
 }
-
-bindkey "[A" history-beginning-search-backward-end
-bindkey "[B" history-beginning-search-forward-end
-bindkey -M vicmd 'k' history-beginning-search-backward-end
-bindkey -M vicmd 'j' history-beginning-search-forward-end
