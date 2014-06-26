@@ -35,14 +35,24 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:
 zstyle :compinstall filename '/Users/achal/.zshrc'
 zstyle ':completion:*' menu select=2
 
-# vim!
+# Key mappings
+
+# Vim
+# When I hit <kj>, I want to stay at my current position (that is, if I hit
+# <i> right after, I want to be at the same place). By default, Vim would
+# move you one to the left. This does the same thing as:
+#   nnoremap kj <Esc>l
+function vi-cmd-mode-forward-fn { zle vi-cmd-mode ; zle vi-forward-char }
+zle -N vi-cmd-mode-forward vi-cmd-mode-forward-fn
+
 KEYTIMEOUT=0.15
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^E' edit-command-line
-bindkey 'kj' vi-cmd-mode
-# see http://www.zsh.org/mla/users/2009/msg00812.html
-# Otherwise you can't backspace things you didn't just insert
+bindkey 'kj' vi-cmd-mode-forward # See comment above vi-cmd-mode-forward-fn.
+
+# See http://www.zsh.org/mla/users/2009/msg00812.html.
+# Otherwise you can't backspace things you didn't just insert.
 bindkey "^W" backward-kill-word    # vi-backward-kill-word
 bindkey "^H" backward-delete-char  # vi-backward-delete-char
 bindkey "^U" kill-line             # vi-kill-line
