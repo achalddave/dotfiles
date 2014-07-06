@@ -67,6 +67,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'achalddave/vim-pandoc'
 Bundle 'rdark/Windows-PowerShell-Syntax-Plugin'
 Bundle 'achalddave/guifontpp.vim'
+Bundle 'MatlabFilesEdition'
 
 " themes
 " Bundle 'rdark'
