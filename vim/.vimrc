@@ -35,6 +35,7 @@ Bundle 'Tab-Name'
 if has('signs') && !has('win32') " Git gutter is slow on Windows
     Bundle 'airblade/vim-gitgutter'
 endif
+Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-ragtag'
