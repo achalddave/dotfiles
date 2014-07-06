@@ -166,6 +166,7 @@ if has("autocmd")
 endif
 
 set formatoptions+=ro " Automatically insert comment leader after <Enter>/o/O.
+set formatoptions-=t  " Don't auto wrap based on text width.
 
 "                                                                             }
 
