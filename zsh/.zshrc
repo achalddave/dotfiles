@@ -130,7 +130,17 @@ alias ll='ls -Alh'
 alias g='git'
 alias py='python'
 alias so='source'
-alias sa='eval `ssh-agent` ; ssh-add'
+function sa () {
+    if [[ "$#" < 1 || "$1" != "-f" || "$1" != "--force" ]] ; then
+        if [ -n "$SSH_AUTH_SOCK" ] ; then
+            echo "You already seem to have an SSH agent running."
+            echo "Pass [-f|--force] to override this."
+            return 1
+        fi
+    fi
+    eval `ssh-agent`
+    ssh-add
+}
 
 # directory laziness
 alias ..='cd ..'
