@@ -154,7 +154,9 @@ alias cd/='cd /'
 if [[ `uname` == "Darwin" ]]
 then
     alias ls='ls -G'
-elif [[ `uname` == "Linux" ]] || [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] || [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
+elif [[ `uname` == "Linux" ]] ||
+     [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
+     [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
     alias ls='ls --color=always'
 fi
