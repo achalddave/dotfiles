@@ -207,8 +207,8 @@ noremap : ;
 " <C-b> one page up
 " <C-u> half page up
 " Use smooth scroll function from the plugin
-nnoremap <silent> <C-d> :call RunWithoutTimeout("call SmoothScroll(\"d\", 2, 2)")<CR>
-nnoremap <silent> <C-u> :call RunWithoutTimeout("call SmoothScroll(\"u\", 2, 2)")<CR>
+nnoremap <silent> <C-d> :call SmoothScroll("d", 2, 2)<CR>
+nnoremap <silent> <C-u> :call SmoothScroll("u", 2, 2)<CR>
 
 " toggle highlighting
 nnoremap <silent> <space> :noh<CR><space>
@@ -413,15 +413,6 @@ end
 
 " Helper functions                                                            {
 " ================
-
-" if you want to hit, e.g. k multiple times without vim waiting for j (kj->esc
-" mapping)
-function! RunWithoutTimeout(command)
-    let l:origTimeoutlen=&timeoutlen
-    set timeoutlen=0
-    exec a:command
-    exec "set timeoutlen=".l:origTimeoutlen
-endfunction
 
 function! LatexMappings()
     inoremap <buffer> f/ \
