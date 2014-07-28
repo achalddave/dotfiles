@@ -170,6 +170,7 @@ set formatoptions-=t  " Don't auto wrap based on text width.
 
 au BufRead,BufNewFile *.ejs setfiletype html
 au BufRead,BufNewFile *.tex setfiletype plaintex
+au BufRead,BufNewFile *.xaml setfiletype xml
 
 "                                                                             }
 
