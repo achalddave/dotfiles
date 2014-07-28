@@ -204,6 +204,10 @@ noremap ; :
 " to keep original semicolon functionality:
 noremap : ;
 
+" Add lines in normal mode.
+nnoremap <leader>o o<Esc>
+nnoremap <leader>O O<Esc>
+
 " Page up/page down makes no sense to me
 "
 " <C-f> one page down
