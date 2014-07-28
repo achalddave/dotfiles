@@ -145,10 +145,6 @@ set list
 set listchars=tab:>~,trail:·
 
 if has("autocmd")
-    " Make vim treat ejs as html files
-    au BufRead,BufNewFile *.ejs setfiletype html
-    au BufRead,BufNewFile *.tex setfiletype plaintex
-
     " tabs to spaces; 4 col tabs
     au FileType python setlocal expandtab ts=4 sts=4 sw=4
     au FileType c setlocal expandtab ts=4 sts=4 sw=4
@@ -167,6 +163,13 @@ endif
 
 set formatoptions+=ro " Automatically insert comment leader after <Enter>/o/O.
 set formatoptions-=t  " Don't auto wrap based on text width.
+
+"                                                                             }
+
+" Filetype associations                                                       {
+
+au BufRead,BufNewFile *.ejs setfiletype html
+au BufRead,BufNewFile *.tex setfiletype plaintex
 
 "                                                                             }
 
