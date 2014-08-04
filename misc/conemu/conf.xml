@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2014-01-13 23:25:23" build="131225">
+		<key name=".Vanilla" modified="2014-08-04 11:08:56" build="140723">
 			<value name="ColorTable00" type="dword" data="00000000"/>
-			<value name="ColorTable01" type="dword" data="00800000"/>
+			<value name="ColorTable01" type="dword" data="00ff4040"/>
 			<value name="ColorTable02" type="dword" data="00008000"/>
 			<value name="ColorTable03" type="dword" data="00808000"/>
-			<value name="ColorTable04" type="dword" data="00000080"/>
+			<value name="ColorTable04" type="dword" data="003737ff"/>
 			<value name="ColorTable05" type="dword" data="00800080"/>
 			<value name="ColorTable06" type="dword" data="00008080"/>
 			<value name="ColorTable07" type="dword" data="00c0c0c0"/>
@@ -65,17 +65,21 @@
 			<value name="SetDefaultTerminal" type="hex" data="00"/>
 			<value name="SetDefaultTerminalStartup" type="hex" data="00"/>
 			<value name="SetDefaultTerminalStartupTSA" type="hex" data="01"/>
+			<value name="DefaultTerminalAgressive" type="hex" data="01"/>
 			<value name="DefaultTerminalNoInjects" type="hex" data="00"/>
+			<value name="DefaultTerminalNewWindow" type="hex" data="00"/>
 			<value name="DefaultTerminalConfirm" type="hex" data="01"/>
 			<value name="DefaultTerminalApps" type="string" data="explorer.exe"/>
 			<value name="ProcessAnsi" type="hex" data="01"/>
+			<value name="AnsiLog" type="hex" data="00"/>
+			<value name="AnsiLogPath" type="string" data="%ConEmuDir%\Logs\"/>
 			<value name="ProcessNewConArg" type="hex" data="01"/>
 			<value name="ConsoleExceptionHandler" type="hex" data="00"/>
 			<value name="UseClink" type="hex" data="01"/>
-			<value name="StartType" type="hex" data="00"/>
+			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
-			<value name="StartTasksName" type="string" data=""/>
+			<value name="StartTasksName" type="string" data="{Cygwin}"/>
 			<value name="StartFarFolders" type="hex" data="00"/>
 			<value name="StartFarEditors" type="hex" data="00"/>
 			<value name="StoreTaskbarkTasks" type="hex" data="00"/>
@@ -90,6 +94,8 @@
 			<value name="Multi.CloseConfirm" type="hex" data="00"/>
 			<value name="Multi.CloseEditViewConfirm" type="hex" data="00"/>
 			<value name="Multi.NewConfirm" type="hex" data="00"/>
+			<value name="Multi.DupConfirm" type="hex" data="01"/>
+			<value name="Multi.DetachConfirm" type="hex" data="01"/>
 			<value name="Multi.UseArrows" type="hex" data="00"/>
 			<value name="Multi.UseNumbers" type="hex" data="01"/>
 			<value name="Multi.UseWinTab" type="hex" data="00"/>
@@ -128,11 +134,11 @@
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
 			<value name="WindowMode" type="dword" data="00000520"/>
-			<value name="ConWnd Width" type="dword" data="00000050"/>
-			<value name="ConWnd Height" type="dword" data="00000019"/>
+			<value name="ConWnd Width" type="dword" data="00000064"/>
+			<value name="ConWnd Height" type="dword" data="00000033"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="dword" data="0000007c"/>
-			<value name="ConWnd Y" type="dword" data="00000000"/>
+			<value name="ConWnd X" type="dword" data="000004e9"/>
+			<value name="ConWnd Y" type="dword" data="000000e6"/>
 			<value name="16bit Height" type="dword" data="00000000"/>
 			<value name="AutoSaveSizePos" type="hex" data="00"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -159,7 +165,8 @@
 			<value name="ComSpec.EnvAddExePath" type="hex" data="01"/>
 			<value name="ComSpec.UncPaths" type="hex" data="00"/>
 			<value name="ComSpec.Path" type="string" data=""/>
-			<value name="ConsoleTextSelection" type="hex" data="01"/>
+			<value name="CTS.Intelligent" type="hex" data="01"/>
+			<value name="CTS.IntelligentExceptions" type="string" data="far|vim.exe"/>
 			<value name="CTS.AutoCopy" type="hex" data="00"/>
 			<value name="CTS.IBeam" type="hex" data="01"/>
 			<value name="CTS.EndOnTyping" type="hex" data="00"/>
@@ -169,7 +176,7 @@
 			<value name="CTS.SelectText" type="hex" data="01"/>
 			<value name="CTS.HtmlFormat" type="hex" data="00"/>
 			<value name="CTS.ActMode" type="hex" data="02"/>
-			<value name="CTS.RBtnAction" type="hex" data="03"/>
+			<value name="CTS.RBtnAction" type="hex" data="01"/>
 			<value name="CTS.MBtnAction" type="hex" data="00"/>
 			<value name="CTS.ColorIndex" type="hex" data="e0"/>
 			<value name="ClipboardConfirmEnter" type="hex" data="01"/>
@@ -256,6 +263,7 @@
 			<value name="StatusBar.Hide.Sync" type="hex" data="00"/>
 			<value name="StatusBar.Hide.Proc" type="hex" data="00"/>
 			<value name="StatusBar.Hide.Title" type="hex" data="01"/>
+			<value name="StatusBar.Hide.Time" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Resize" type="hex" data="00"/>
 			<value name="Tabs" type="hex" data="01"/>
 			<value name="TabsLocation" type="hex" data="00"/>
@@ -269,6 +277,7 @@
 			<value name="TabBtnDblClick" type="dword" data="00000000"/>
 			<value name="TabsOnTaskBar" type="hex" data="00"/>
 			<value name="TaskBarOverlay" type="hex" data="01"/>
+			<value name="TaskbarProgress" type="hex" data="01"/>
 			<value name="TabCloseMacro" type="string" data=""/>
 			<value name="TabFontFace" type="string" data="Segoe UI"/>
 			<value name="TabFontCharSet" type="dword" data="00000000"/>
@@ -301,6 +310,7 @@
 			<value name="SnapToDesktopEdges" type="hex" data="00"/>
 			<value name="AlwaysOnTop" type="hex" data="00"/>
 			<value name="SleepInBackground" type="hex" data="00"/>
+			<value name="RetardInactivePanes" type="hex" data="00"/>
 			<value name="MinimizeOnLoseFocus" type="hex" data="00"/>
 			<value name="DisableFarFlashing" type="hex" data="00"/>
 			<value name="DisableAllFlashing" type="hex" data="00"/>
@@ -338,7 +348,7 @@
 			<value name="PanView.UsePicView2" type="hex" data="01"/>
 			<value name="PanView.RestoreOnStartup" type="hex" data="00"/>
 			<value name="Update.VerLocation" type="string" data=""/>
-			<value name="Update.CheckOnStartup" type="hex" data="00"/>
+			<value name="Update.CheckOnStartup" type="hex" data="01"/>
 			<value name="Update.CheckHourly" type="hex" data="00"/>
 			<value name="Update.ConfirmDownload" type="hex" data="01"/>
 			<value name="Update.UseBuilds" type="hex" data="02"/>
@@ -354,7 +364,7 @@
 			<value name="Multi.Modifier" type="dword" data="00000012"/>
 			<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
 			<value name="KeyMacroVersion" type="hex" data="02"/>
-			<value name="MinimizeRestore" type="dword" data="000011c0"/>
+			<value name="MinimizeRestore" type="dword" data="80808000"/>
 			<value name="MinimizeRestore2" type="dword" data="00000000"/>
 			<value name="GlobalRestore" type="dword" data="00000000"/>
 			<value name="ForcedFullScreen" type="dword" data="12115b0d"/>
@@ -407,8 +417,8 @@
 			<value name="HighlightMouseSwitch" type="dword" data="00005d4c"/>
 			<value name="Multi.ShowTabsList" type="dword" data="00000000"/>
 			<value name="Multi.ShowTabsList2" type="dword" data="00005d7b"/>
-			<value name="ClipboardVkAllLines" type="dword" data="0000102d"/>
-			<value name="ClipboardVkFirstLine" type="dword" data="00001156"/>
+			<value name="ClipboardVkAllLines" type="dword" data="00101156"/>
+			<value name="ClipboardVkFirstLine" type="dword" data="80808000"/>
 			<value name="DeleteWordToLeft" type="dword" data="00001108"/>
 			<value name="FindTextKey" type="dword" data="00005d46"/>
 			<value name="ScreenshotKey" type="dword" data="00005b48"/>
@@ -515,9 +525,9 @@
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
 			<value name="WndDragKey" type="dword" data="00121101"/>
-				<key name="Tasks" modified="2014-01-13 23:25:23" build="131225">
+				<key name="Tasks" modified="2014-08-04 11:08:56" build="140723">
 				<value name="Count" type="dword" data="00000006"/>
-						<key name="Task1" modified="2014-01-13 23:25:23" build="131225">
+						<key name="Task1" modified="2014-08-04 11:08:56" build="140723">
 					<value name="Name" type="string" data="{Cygwin}"/>
 					<value name="Hotkey" type="dword" data="00001270"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -525,7 +535,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task2" modified="2014-01-13 23:25:23" build="131225">
+						<key name="Task2" modified="2014-08-04 11:08:56" build="140723">
 					<value name="Name" type="string" data="{PowerShell}"/>
 					<value name="Hotkey" type="dword" data="00001271"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -533,7 +543,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task3" modified="2014-01-13 23:25:24" build="131225">
+						<key name="Task3" modified="2014-08-04 11:08:56" build="140723">
 					<value name="Name" type="string" data="{cmd}"/>
 					<value name="Hotkey" type="dword" data="00001272"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -541,7 +551,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task4" modified="2014-01-13 23:25:24" build="131225">
+						<key name="Task4" modified="2014-08-04 11:08:56" build="140723">
 					<value name="Name" type="string" data="{Git bash}"/>
 					<value name="Hotkey" type="dword" data="00001273"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -549,7 +559,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task5" modified="2014-01-13 23:25:24" build="131225">
+						<key name="Task5" modified="2014-08-04 11:08:56" build="140723">
 					<value name="Name" type="string" data="{cmd (Admin)}"/>
 					<value name="Hotkey" type="dword" data="00001274"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -557,7 +567,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-						<key name="Task6" modified="2014-01-13 23:25:24" build="131225">
+						<key name="Task6" modified="2014-08-04 11:08:56" build="140723">
 					<value name="Name" type="string" data="{PowerShell (Admin)}"/>
 					<value name="Hotkey" type="dword" data="00001275"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -566,10 +576,10 @@
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
 			</key>
-				<key name="Apps" modified="2014-01-13 23:25:24" build="131225">
+				<key name="Apps" modified="2014-08-04 11:08:56" build="140723">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-				<key name="Colors" modified="2014-01-13 23:25:24" build="131225">
+				<key name="Colors" modified="2014-08-04 11:08:56" build="140723">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
 		</key>
