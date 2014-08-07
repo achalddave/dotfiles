@@ -37,15 +37,19 @@ What changed:\n============='
     # vice versa
     brlist = !sh -c '_git_branch_list.sh "$@"' -
     stashgrep = !sh -c '_git_stash_grep.sh "$@"' -
+
 [core]
     editor = vim
+
 [diff]
     tool = vimdiff
+    algorithm = patience
+
 [merge]
     tool = vimdiff
+
 [push]
     default = current
-[diff]
-    algorithm = patience
+
 [github]
     user = achalddave
