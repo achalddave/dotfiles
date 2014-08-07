@@ -1,8 +1,10 @@
 [user]
     name = Achal Dave
     email = achalddave@live.com
+
 [color]
     ui = auto
+
 [alias]
     # lazy
     br  = branch
