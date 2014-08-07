@@ -54,6 +54,7 @@ Bundle 'int3/vim-extradite'
 Bundle 'gregsexton/gitv'
 Bundle 'TagHighlight'
 Bundle 'docunext/closetag.vim'
+Bundle 'mbbill/undotree'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
@@ -89,6 +90,10 @@ inoremap <F2> <Esc>:TagbarOpen j<CR>a
 
 nnoremap <S-F2> :TagbarToggle<CR>
 inoremap <S-F2> <Esc>:TagbarToggle<CR>a
+
+" Undo tree
+nnoremap <F5> :UndotreeToggle<CR>
+inoremap <F5> <Esc>:UndotreeToggle<CR>a
 
 " Super tab (<cr> map messes with my <cr> -> <c-g>u<cr> map)
 let g:SuperTabCrMapping = 0
