@@ -1,0 +1,13 @@
+# Status bar (show window, highlight current window)
+caption always "%{-b ..}%-w%{+b ..}[[%n%f*%t]]%{-}%+w"
+
+# For 256 colors
+term screen-256color
+attrcolor b ".I"
+defbce "on"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Don't keep vim/less output
+altscreen on
+
+defscrollback 10000
