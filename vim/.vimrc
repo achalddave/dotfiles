@@ -171,14 +171,6 @@ set formatoptions-=t  " Don't auto wrap based on text width.
 
 "                                                                             }
 
-" Filetype associations                                                       {
-
-au BufRead,BufNewFile *.ejs setfiletype html
-au BufRead,BufNewFile *.tex setfiletype plaintex
-au BufRead,BufNewFile *.xaml setfiletype xml
-
-"                                                                             }
-
 " Mappings                                                                    {
 " ========
 
@@ -432,6 +424,9 @@ end
 if has("autocmd")
     au Filetype latex,tex,plaintex call LatexMappings()
     au Filetype matlab call MatlabSettings()
+    au BufRead,BufNewFile *.ejs setfiletype html
+    au BufRead,BufNewFile *.tex setfiletype plaintex
+    au BufRead,BufNewFile *.xaml setfiletype xml
 endif
 
 "                                                                             }
