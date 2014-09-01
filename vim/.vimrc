@@ -237,10 +237,6 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-if has("autocmd")
-    au Filetype latex,tex,plaintex call LatexMappings()
-endif
-
 " escape is hard to reach so map kj to <ESC>
 " Also, if I'm in insert mode, hit kj, and hit <i>, I want to be in the same
 " position; hence the extra <l>.
@@ -428,11 +424,21 @@ if has("unix")
     autocmd VimLeave * call system("xsel -ib", getreg("+"))
     nnoremap <silent> <C-z> :call system("xsel -ib", getreg("+"))<CR><C-z>
 end
+" Filetype specific                                                           {
+
+if has("autocmd")
+    au Filetype latex,tex,plaintex call LatexMappings()
+    au Filetype matlab call MatlabSettings()
+endif
 
 "                                                                             }
 
 " Helper functions                                                            {
 " ================
+
+function! MatlabSettings()
+    nnoremap <buffer> <leader>m :exec(":e " . expand("<cword>") . ".m")<CR>
+endfunction
 
 function! LatexMappings()
     inoremap <buffer> f/ \
