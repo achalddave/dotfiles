@@ -424,6 +424,9 @@ if has("unix")
     autocmd VimLeave * call system("xsel -ib", getreg("+"))
     nnoremap <silent> <C-z> :call system("xsel -ib", getreg("+"))<CR><C-z>
 end
+
+"                                                                             }
+
 " Filetype specific                                                           {
 
 if has("autocmd")
