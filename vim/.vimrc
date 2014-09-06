@@ -440,6 +440,7 @@ endfunction
 
 function! LatexMappings()
     inoremap <buffer> f/ \
+    inoremap <buffer> fl \
     inoremap <buffer> fj {
     inoremap <buffer> fk }
 
