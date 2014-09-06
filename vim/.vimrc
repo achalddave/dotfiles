@@ -44,6 +44,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'achalddave/Smooth-Scroll'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
+" For Ctrl-p command line searching
+Bundle 'suy/vim-ctrlp-commandline'
 Bundle 'camelcasemotion'
  " required for vim-session
 Bundle 'xolox/vim-misc.git'
@@ -121,6 +123,8 @@ let g:session_autosave='no'
 
 " Ctrl p
 let g:ctrlp_max_files = 100000 " Set to 0 if no limit, but this should be enough.
+let g:ctrlp_extensions = ['commandline'] " CtrlP through search history
+cnoremap <silent> <C-f> <C-c>:call ctrlp#init(ctrlp#commandline#id())<CR>
 
 " Guifontpp
 let guifontpp_smaller_font_map="<Leader>-"
