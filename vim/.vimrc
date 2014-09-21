@@ -124,7 +124,12 @@ let g:session_autosave='no'
 " Ctrl p
 let g:ctrlp_max_files = 100000 " Set to 0 if no limit, but this should be enough.
 let g:ctrlp_extensions = ['commandline'] " CtrlP through search history
-cnoremap <silent> <C-f> <C-c>:call ctrlp#init(ctrlp#commandline#id())<CR>
+" Remove <C-h> to left mapping
+let g:ctrlp_prompt_mappings = {
+            \ 'PrtCurLeft()': ['<left>', '<c-^>'],
+            \ 'PrtBS()': ['<c-h>', '<BS>']
+            \ }
+cnoremap <silent> <C-g> <C-c>:call ctrlp#init(ctrlp#commandline#id())<CR>
 
 " Guifontpp
 let guifontpp_smaller_font_map="<Leader>-"
