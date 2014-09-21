@@ -318,6 +318,10 @@ set ruler
 " if we have enough colors
 if &t_Co >= 256 || has("gui_running")
     colorscheme Tomorrow-Night-Bright
+    if has("autocmd")
+        " Tomorrow doesn't highlight tex properly.
+        au FileType tex set syntax=plaintex
+    end
 
     " slight blue color
     hi CursorLine guibg=#121129
@@ -434,9 +438,11 @@ if has("autocmd")
     au Filetype latex,tex,plaintex call LatexMappings()
     au Filetype matlab call MatlabSettings()
     au BufRead,BufNewFile *.ejs setfiletype html
-    au BufRead,BufNewFile *.tex setfiletype plaintex
     au BufRead,BufNewFile *.xaml setfiletype xml
 endif
+
+" Use LaTeX flavor
+let g:tex_flavor="latex"
 
 "                                                                             }
 
