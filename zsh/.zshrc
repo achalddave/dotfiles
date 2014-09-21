@@ -131,7 +131,7 @@ alias g='git'
 alias py='python'
 alias so='source'
 function sa () {
-    if [[ "$#" < 1 || "$1" != "-f" || "$1" != "--force" ]] ; then
+    if [[ "$#" < 1 || ("$1" != "-f" && "$1" != "--force" ) ]] ; then
         if [ -n "$SSH_AUTH_SOCK" ] ; then
             echo "You already seem to have an SSH agent running."
             echo "Pass [-f|--force] to override this."
