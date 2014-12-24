@@ -22,9 +22,8 @@
     lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
     # view changes, body of commits
-    lga = whatchanged --graph \
---pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cr) %C(bold blue)<%an>%Creset\n\
-What changed:\n============='
+    lga = log --stat --graph \
+--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
     # lga + notes
     lgan = whatchanged --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cr) %C(bold blue)<%an>%Creset\n\
@@ -40,10 +39,14 @@ What changed:\n============='
 
 [core]
     editor = vim
+    attributesfile = ~/.gitattributes
 
 [diff]
     tool = vimdiff
     algorithm = patience
+
+[diff "astextplain"]
+    textconv = astextplain
 
 [merge]
     tool = vimdiff
