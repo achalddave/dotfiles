@@ -142,6 +142,16 @@ function sa () {
     ssh-add
 }
 
+function sockd () {
+    echo $SSH_AUTH_SOCK > "/tmp/achal-ssh-sock-$(date +%3N)"
+    echo $DISPLAY > "/tmp/achal-display-$(date +%3N)"
+}
+
+function socku () {
+    export SSH_AUTH_SOCK=$(cat $(ls --color=never -dt /tmp/achal-ssh-sock-* | head -1))
+    export DISPLAY=$(cat $(ls --color=never -dt /tmp/achal-display-* | head -1))
+}
+
 # directory laziness
 alias ..='cd ..'
 alias cd..='cd ..'
