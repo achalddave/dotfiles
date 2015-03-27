@@ -124,9 +124,9 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 # laziness
-alias l='ls'
-alias la='ls -A'
-alias ll='ls -Alh'
+alias l='ls -pk'
+alias la='ls -Ap'
+alias ll='ls -Alhp'
 alias g='git'
 alias py='python'
 alias so='source'
