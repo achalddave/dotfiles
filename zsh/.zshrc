@@ -66,17 +66,17 @@ bindkey -M vicmd 'j' history-beginning-search-forward-end
 # cyan color in vim mode
 function zle-line-init zle-keymap-select {
     if [[ "$KEYMAP" == 'vicmd' ]] ; then
-        PS1="$PS1%{$fg[cyan]%}"
-    elif [[ "$PS1" =~ ".*$fg\[cyan\]" ]] ; then
-        PS1=${PS1/"$fg[cyan]"/}
+        PROMPT="$PROMPT%{$fg[cyan]%}"
+    elif [[ "$PROMPT" =~ ".*$fg\[cyan\]" ]] ; then
+        PROMPT=${PROMPT/"$fg[cyan]"/}
     fi
     zle reset-prompt
 }
 
 # reset cyan on enter
 function zle-line-finish {
-    if [[ "$PS1" =~ ".*$fg\[cyan\]" ]] ; then
-        PS1=${PS1/"$fg[cyan]"/}
+    if [[ "$PROMPT" =~ ".*$fg\[cyan\]" ]] ; then
+        PROMPT=${PROMPT/"$fg[cyan]"/}
     fi
     zle reset-prompt
 }
@@ -188,9 +188,9 @@ precmd() { vcs_info }
 
 setopt prompt_subst
 if [ "$has_256" -eq 1 ] ; then
-    PS1='%{$FG[245]%}%m:%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+    PROMPT=$'\n''%{$FG[240]%}%* | %m'$'\n''%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 else
-    PS1='%{$fg_bold[black]%}%m%{$fg_bold[white]%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
+    PROMPT='%{$fg_bold[black]%}%m%{$fg_bold[white]%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
 fi
 
 if [[ "$TERM" == "screen" ]] ; then
