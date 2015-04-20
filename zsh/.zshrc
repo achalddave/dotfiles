@@ -75,6 +75,7 @@ function zle-line-init zle-keymap-select {
         PROMPT=${PROMPT/"$fg[cyan]"/}
     fi
     zle reset-prompt
+    zle -R
 }
 
 # reset cyan on enter
@@ -83,6 +84,7 @@ function zle-line-finish {
         PROMPT=${PROMPT/"$fg[cyan]"/}
     fi
     zle reset-prompt
+    zle -R
 }
 
 zle -N zle-line-init
