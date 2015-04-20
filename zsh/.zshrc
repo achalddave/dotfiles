@@ -49,7 +49,11 @@ KEYTIMEOUT=0.15
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^E' edit-command-line
-bindkey 'kj' vi-cmd-mode-forward # See comment above vi-cmd-mode-forward-fn.
+bindkey -M viins 'kj' vi-cmd-mode-forward # See comment above vi-cmd-mode-forward-fn.
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd 'u' undo
+bindkey -M vicmd '^R' redo
+
 
 # See http://www.zsh.org/mla/users/2009/msg00812.html.
 # Otherwise you can't backspace things you didn't just insert.
