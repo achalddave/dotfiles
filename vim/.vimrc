@@ -139,6 +139,9 @@ let guifontpp_original_font_map="<>"
 " Gitv
 let g:Gitv_OpenPreviewOnLaunch=1
 
+" MATLAB Files Edition
+autocmd BufEnter *.m    compiler mlint
+
 "                                                                             }
 
 " Indentation                                                                 {
