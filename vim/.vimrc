@@ -78,7 +78,7 @@ Bundle 'MatlabFilesEdition'
 Bundle 'nanotech/jellybeans.vim'
 " Bundle 'Wombat'
 " Bundle 'jonathanfilip/vim-lucius'
-Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'achalddave/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
 
 "                                                                             }
