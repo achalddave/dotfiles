@@ -42,6 +42,7 @@ zstyle ':completion:*' menu select=2
 # <i> right after, I want to be at the same place). By default, Vim would
 # move you one to the left. This does the same thing as:
 #   nnoremap kj <Esc>l
+# This function takes care of doing this, and 'kj' is later bound to it.
 function vi-cmd-mode-forward-fn { zle vi-cmd-mode ; zle vi-forward-char }
 zle -N vi-cmd-mode-forward vi-cmd-mode-forward-fn
 
