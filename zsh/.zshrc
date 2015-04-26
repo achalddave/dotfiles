@@ -244,5 +244,5 @@ zle -N history-beginning-search-forward-end history-search-end
 # better diff (TODO: share this with bash)
 function dff() {
     diff -u "$@" | \
-        sed 's/^-/\x1b[31m-/;s/^+/\x1b[32m+/;s/^@/\x1b[34m@/;s/$/\x1b[0m/'
+        sed 's/^-/\x1b[31m-/;s/^+/\x1b[32m+/;s/^@/\x1b[34m@/;s/$/\x1b[0m/' | less -R
 }
