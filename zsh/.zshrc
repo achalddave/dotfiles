@@ -71,8 +71,8 @@ bindkey -M vicmd 'j' history-beginning-search-forward-end
 function zle-line-init zle-keymap-select {
     if [[ "$KEYMAP" == 'vicmd' ]] ; then
         PROMPT="$PROMPT%{$fg[cyan]%}"
-    elif [[ "$PROMPT" =~ ".*$fg\[cyan\]" ]] ; then
-        PROMPT=${PROMPT/"$fg[cyan]"/}
+    else
+        PROMPT=${PROMPT%%"%{$fg[cyan]%}"}
     fi
     zle reset-prompt
     zle -R
@@ -80,9 +80,7 @@ function zle-line-init zle-keymap-select {
 
 # reset cyan on enter
 function zle-line-finish {
-    if [[ "$PROMPT" =~ ".*$fg\[cyan\]" ]] ; then
-        PROMPT=${PROMPT/"$fg[cyan]"/}
-    fi
+    PROMPT=${PROMPT%%"%{$fg[cyan]%}"}
     zle reset-prompt
     zle -R
 }
