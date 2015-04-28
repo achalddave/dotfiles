@@ -21,6 +21,12 @@ setopt correctall
 autoload -Uz compinit
 compinit
 
+# Bash style word selection
+#   e.g. ctrl-w should kill backwards up to a slash
+autoload -U select-word-style
+select-word-style bash
+
+
 # Git file completion is super slow; this should fix it
 # http://stackoverflow.com/questions/9810327/
 __git_files () { 
