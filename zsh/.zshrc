@@ -52,6 +52,7 @@ zstyle ':completion:*' menu select=2
 function vi-cmd-mode-forward-fn { zle vi-cmd-mode ; zle vi-forward-char }
 zle -N vi-cmd-mode-forward vi-cmd-mode-forward-fn
 
+bindkey -v
 KEYTIMEOUT=15
 autoload edit-command-line
 zle -N edit-command-line
