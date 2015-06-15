@@ -58,6 +58,7 @@ Bundle 'TagHighlight'
 Bundle 'docunext/closetag.vim'
 Bundle 'mbbill/undotree'
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'SirVer/ultisnips'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
@@ -142,6 +143,21 @@ let g:Gitv_OpenPreviewOnLaunch=1
 
 " MATLAB Files Edition
 autocmd BufEnter *.m    compiler mlint
+
+" Ultisnips
+" From https://github.com/SirVer/ultisnips/issues/376#issuecomment-69033351
+let g:UltiSnipsExpandTrigger = "<nop>"
+
+let g:ulti_expand_or_jump_res = 0
+function! ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "<C-R>=DoUndoCr()<CR>"
+    endif
+endfunction
+inoremap <expr> <cr> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "<C-R>=DoUndoCr()<CR>"
 
 "                                                                             }
 
@@ -233,7 +249,9 @@ nnoremap <silent> <space> :noh<CR><space>
 
 " undo blocks auto created in insert mode (no more undoing huge blocks
 " accidentally)
-inoremap <CR> <c-g>u<CR>
+function! DoUndoCr() " Used by ultisnips <CR> mapping above.
+    return "\<c-g>u\<cr>"
+endfunction
 inoremap <c-w> <c-g>u<c-w>
 
 " k/j to move through lines
