@@ -130,7 +130,9 @@ function swap() {
 
 # Changing/making/removing directory
 setopt autocd extendedglob
-setopt auto_name_dirs
+# Removing because of issue with autojump:
+#   https://github.com/joelthelion/autojump/issues/312
+# setopt auto_name_dirs
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
