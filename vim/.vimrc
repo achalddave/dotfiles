@@ -419,12 +419,22 @@ set cursorline
 " Ask instead of erroring.
 set confirm
 
-" Use unix line endings by default
+" Use unix line endings by default.
 set fileformat=unix
 set fileformats=unix,dos
 
 " Highlight at 80 char by default.
 set colorcolumn=80
+
+" Show (partial) command in status line (e.g. the 23 in "23k" before you press
+" k).
+set showcmd
+
+" Round indent to nearest shiftwidth.
+set shiftround
+
+" Text width 80, not 79 (which is the default).
+set tw=80
 
 "                                                                             }
 
