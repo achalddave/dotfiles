@@ -58,6 +58,7 @@ Bundle 'TagHighlight'
 Bundle 'docunext/closetag.vim'
 Bundle 'mbbill/undotree'
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'navicore/vissort.vim'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
