@@ -328,11 +328,6 @@ if &t_Co >= 256 || has("gui_running")
         au FileType tex set syntax=plaintex
     end
 
-    " slight blue color
-    hi CursorLine guibg=#121129
-    hi Visual guibg=#232249
-    hi Search guibg=#9999ee
-
     " so apparently bg/fg are reversed for inc search
     hi IncSearch guibg=#0000ff
     hi IncSearch guifg=#9999ee
