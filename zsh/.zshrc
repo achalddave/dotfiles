@@ -136,6 +136,18 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 # laziness
+# colors!
+if [[ `uname` == "Darwin" ]]
+then
+    alias ls='ls -G'
+elif [[ `uname` == "Linux" ]] ||
+     [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
+     [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
+then
+    alias ls='ls --color=always -p'
+fi
+
+alias grep='grep --color=tty'
 alias l='ls -pk'
 alias la='ls -Ap'
 alias ll='ls -Alhp'
@@ -171,18 +183,6 @@ alias cd...='cd ../..'
 alias cd....='cd ../../..'
 alias cd.....='cd ../../../..'
 alias cd/='cd /'
-
-# colors!
-if [[ `uname` == "Darwin" ]]
-then
-    alias ls='ls -G'
-elif [[ `uname` == "Linux" ]] ||
-     [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
-     [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
-then
-    alias ls='ls --color=always'
-fi
-alias grep='grep --color=tty'
 
 # safety
 setopt noclobber
