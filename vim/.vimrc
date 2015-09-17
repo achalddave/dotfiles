@@ -32,7 +32,8 @@ call vundle#rc(vimroot."/.vim/bundle")
 Bundle 'gmarik/vundle'
 
 Bundle 'Tab-Name'
-if has('signs') && !has('win32') " Git gutter is slow on Windows
+if has('signs') && !has('win32') && !has('win32unix')
+    " Git gutter is slow on Windows
     Bundle 'airblade/vim-gitgutter'
 endif
 Bundle 'tpope/vim-git'
