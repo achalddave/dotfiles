@@ -74,6 +74,9 @@ Bundle 'achalddave/vim-pandoc'
 Bundle 'rdark/Windows-PowerShell-Syntax-Plugin'
 Bundle 'achalddave/guifontpp.vim'
 Bundle 'MatlabFilesEdition'
+Bundle 'JuliaLang/julia-vim'
+Bundle 'briancollins/vim-jst'
+Bundle 'rust-lang/rust.vim'
 
 " themes
 " Bundle 'rdark'
