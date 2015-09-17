@@ -467,7 +467,10 @@ function! LatexMappings()
     inoremap <buffer> } <nop>
     inoremap <buffer> \ <nop>
 
-    inoremap <buffer> <Leader>r \rightarrow
+    inoremap <buffer> <Leader>f \frac{}{}<Left><Left><Left>
+
+    inoremap <buffer> <Leader>l \left
+    inoremap <buffer> <Leader>r \right
 
     " compile latex file, then run it (%:r = filename without .tex extensions)
     if has("win32")
