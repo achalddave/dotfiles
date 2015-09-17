@@ -432,6 +432,8 @@ set shiftround
 " Text width 80, not 79 (which is the default).
 set tw=80
 
+set encoding=utf-8
+
 "                                                                             }
 
 " Filetype specific                                                           {
