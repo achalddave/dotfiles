@@ -60,6 +60,8 @@ Bundle 'docunext/closetag.vim'
 Bundle 'mbbill/undotree'
 Bundle 'jlanzarotta/bufexplorer'
 Bundle 'navicore/vissort.vim'
+Bundle 'junegunn/goyo.vim'
+Bundle 'reedes/vim-pencil'
 
 " language specific
 Bundle 'pangloss/vim-javascript'
