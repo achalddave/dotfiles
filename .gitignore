@@ -1,7 +1,7 @@
 *.swp
 *.swo
 /vim/.vim/.netrwhist
-/vim/.vim/bundle
+/vim/.vim/plugged
 /vim/sessions/*
 local/*
 

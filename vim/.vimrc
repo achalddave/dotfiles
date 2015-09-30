@@ -19,75 +19,73 @@ set nocompatible
 let vimroot=getcwd()
 
 "                                                                             }
+let &rtp.=','.vimroot."/.vim"
 
-" Vundle + Plugins                                                            {
+" vim-plug + Plugins                                                            {
 " ================
-filetype off
-filetype plugin indent on
+call plug#begin(vimroot."/.vim/plugged")
 
-let &rtp.=','.vimroot."/.vim/bundle/vundle"
-call vundle#rc(vimroot."/.vim/bundle")
+" NOTE: Comments after Plug commands are not allowed!
 
-" NOTE: Comments after Bundle commands are not allowed!
-Bundle 'gmarik/vundle'
-
-Bundle 'Tab-Name'
+Plug 'Tab-Name'
 if has('signs') && !has('win32') && !has('win32unix')
     " Git gutter is slow on Windows
-    Bundle 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-gitgutter'
 endif
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-repeat'
-Bundle 'majutsushi/tagbar'
-Bundle 'achalddave/Smooth-Scroll'
-Bundle 'ervandew/supertab'
-Bundle 'kien/ctrlp.vim'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-repeat'
+Plug 'majutsushi/tagbar'
+Plug 'achalddave/Smooth-Scroll'
+Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
 " For Ctrl-p command line searching
-Bundle 'suy/vim-ctrlp-commandline'
-Bundle 'camelcasemotion'
+Plug 'suy/vim-ctrlp-commandline'
+Plug 'camelcasemotion'
  " required for vim-session
-Bundle 'xolox/vim-misc.git'
-Bundle 'xolox/vim-session'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'int3/vim-extradite'
-Bundle 'gregsexton/gitv'
-Bundle 'TagHighlight'
-Bundle 'docunext/closetag.vim'
-Bundle 'mbbill/undotree'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'navicore/vissort.vim'
-Bundle 'junegunn/goyo.vim'
-Bundle 'reedes/vim-pencil'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'int3/vim-extradite'
+Plug 'gregsexton/gitv'
+Plug 'TagHighlight'
+Plug 'docunext/closetag.vim'
+Plug 'mbbill/undotree'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'navicore/vissort.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
 
 " language specific
-Bundle 'pangloss/vim-javascript'
-Bundle 'php.vim-html-enhanced'
-Bundle 'indenthtml.vim'
-Bundle 'mips.vim'
-Bundle 'othree/html5.vim.git'
-Bundle 'atdt/vim-mediawiki'
-Bundle 'achalddave/cscope_macros.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'achalddave/vim-pandoc'
-Bundle 'rdark/Windows-PowerShell-Syntax-Plugin'
-Bundle 'achalddave/guifontpp.vim'
-Bundle 'MatlabFilesEdition'
-Bundle 'JuliaLang/julia-vim'
-Bundle 'briancollins/vim-jst'
-Bundle 'rust-lang/rust.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'php.vim-html-enhanced'
+Plug 'indenthtml.vim'
+Plug 'mips.vim'
+Plug 'othree/html5.vim'
+Plug 'atdt/vim-mediawiki'
+Plug 'achalddave/cscope_macros.vim'
+Plug 'groenewege/vim-less'
+Plug 'achalddave/vim-pandoc'
+Plug 'rdark/Windows-PowerShell-Syntax-Plugin'
+Plug 'achalddave/guifontpp.vim'
+Plug 'MatlabFilesEdition'
+Plug 'JuliaLang/julia-vim'
+Plug 'briancollins/vim-jst'
+Plug 'rust-lang/rust.vim'
 
-" themes
-" Bundle 'rdark'
-" Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
-" Bundle 'Wombat'
-" Bundle 'jonathanfilip/vim-lucius'
-Bundle 'achalddave/vim-tomorrow-theme'
-Bundle 'altercation/vim-colors-solarized'
+" Themes
+" Plug 'rdark'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'nanotech/jellybeans.vim'
+" Plug 'Wombat'
+" Plug 'jonathanfilip/vim-lucius'
+Plug 'achalddave/vim-tomorrow-theme'
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
 
 "                                                                             }
 
