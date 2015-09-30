@@ -150,6 +150,13 @@ let g:Gitv_OpenPreviewOnLaunch=1
 " MATLAB Files Edition
 autocmd BufEnter *.m    compiler mlint
 
+" Pencil for markdown and text
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
 "                                                                             }
 
 " Indentation                                                                 {
