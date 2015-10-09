@@ -122,8 +122,30 @@ install_zsh() {
     make install
 }
 
+install_vim() {
+    cd ${SCRATCH_DIR}
+    mkdir -p vim
+    cd vim
+
+    git clone https://github.com/vim/vim.git
+    cd vim
+    ./configure --with-features=huge \
+        --enable-multibyte \
+        --enable-rubyinterp \
+        --enable-pythoninterp \
+        --with-python-config-dir=/usr/lib/python2.4/config \
+        --enable-perlinterp \
+        --enable-luainterp \
+        --enable-cscope --prefix=${LOCAL_INSTALL_DIR}
+    make -j4
+    make install
+
+    cd ${SCRATCH_DIR}
+}
+
 install_wget
 install_git
 install_tmux
 install_autoconf
 install_zsh
+install_vim
