@@ -149,3 +149,11 @@ install_tmux
 install_autoconf
 install_zsh
 install_vim
+
+echo "You should add the following lines to your .zshrc: "
+echo 'PATH="'${LOCAL_INSTALL_DIR}'/bin:${PATH}"'
+echo 'fpath=('
+echo ${LOCAL_INSTALL_DIR}/share/zsh/site-functions/
+echo ${LOCAL_INSTALL_DIR}/share/zsh/5.1.1/functions/
+echo '"${fpath[@]}"'
+echo ')'
