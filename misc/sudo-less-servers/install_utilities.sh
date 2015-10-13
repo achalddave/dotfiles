@@ -53,7 +53,7 @@ install_wget() {
     cd wget
 
     wget "http://ftp.gnu.org/gnu/wget/wget-${WGET_VERSION}.tar.gz"
-    untar_to_dir "wget-${WGET_VERSION}tar.gz" "wget-${WGET_VERSION}"
+    untar_to_dir "wget-${WGET_VERSION}.tar.gz" "wget-${WGET_VERSION}"
     cd "wget-${WGET_VERSION}"
 
     ./configure --prefix=${LOCAL_INSTALL_DIR} --with-ssl=openssl
@@ -67,9 +67,9 @@ install_git() {
     mkdir -p git
     cd git
 
-    wget "https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz"
+    wget "https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz" -O v${GIT_VERSION}.tar.gz
     untar_to_dir "v${GIT_VERSION}.tar.gz" "git-${GIT_VERSION}"
-    cd "git-${VERSION}"
+    cd "git-${GIT_VERSION}"
 
     make configure
     ./configure --prefix="${LOCAL_INSTALL_DIR}"
