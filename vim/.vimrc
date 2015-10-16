@@ -115,12 +115,6 @@ let g:html_indent_inctags='p' " add indent on new paragraph
 let g:html_indent_style1='inc'   " auto indent css after <style>
 let g:html_indent_script1='inc'  " auto indent js after <script>
 
-" Auto-Close
-" if has("autocmd")
-"     au FileType tex,plaintex let b:AutoClosePairs=AutoClose#DefaultPairsModified("$$","")
-"     au FileType html,php,ejs let b:AutoClosePairs=AutoClose#DefaultPairsModified("<>","")
-" endif
-
 " Session save
 let g:session_directory=vimroot."/sessions"
 let g:session_command_aliases = 1
