@@ -485,14 +485,14 @@ function! LatexMappings()
 
     " compile latex file, then run it (%:r = filename without .tex extensions)
     if has("win32")
-        nnoremap <silent> <buffer> <f3> :exec("silent ! pdflatex % && start %:r".".pdf")<cr>:redraw!<cr>
+        nnoremap <silent> <buffer> <f3> :exec("silent ! latexmk -pdf % && start %:r".".pdf")<cr>:redraw!<cr>
         nnoremap <silent> <buffer> <f4> :exec("silent ! make %:r".".pdf && start %:r".".pdf")<cr>:redraw!<cr>
     elseif has("unix")
         if system('uname') =~ 'Darwin'
-            nnoremap <silent> <buffer> <f3> :exec("silent ! pdflatex % ; open %:r".".pdf")<cr>:redraw!<cr>
+            nnoremap <silent> <buffer> <f3> :exec("silent ! latexmk -pdf % ; open %:r".".pdf")<cr>:redraw!<cr>
             nnoremap <silent> <buffer> <f4> :exec("silent ! make %:r".".pdf ; open %:r".".pdf")<cr>:redraw!<cr>
         else
-            nnoremap <silent> <buffer> <f3> :exec("silent ! pdflatex % ; xdg-open %:r".".pdf")<cr>:redraw!<cr>
+            nnoremap <silent> <buffer> <f3> :exec("silent ! latexmk -pdf % ; xdg-open %:r".".pdf")<cr>:redraw!<cr>
             nnoremap <silent> <buffer> <f4> :exec("silent ! make %:r".".pdf ; xdg-open %:r".".pdf")<cr>:redraw!<cr>
         endif
     endif
