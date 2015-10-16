@@ -415,7 +415,7 @@ if has('mouse')
 endif
 
 " Wrap cursor
-set ww+=<,>,[,]
+set ww+=[,]
 
 " stop highlighting the current line if not active
 au WinLeave * set nocursorline
