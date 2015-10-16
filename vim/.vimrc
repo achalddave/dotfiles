@@ -170,7 +170,7 @@ set listchars=tab:>~,trail:·
 
 if has("autocmd")
     " tabs to spaces; 4 col tabs
-    au FileType python,c,cpp setlocal expandtab ts=4 sts=4 sw=4
+    au FileType bibtex,python,c,cpp setlocal expandtab ts=4 sts=4 sw=4
 
     au Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
 
