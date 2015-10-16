@@ -174,8 +174,8 @@ function sockd () {
 }
 
 function socku () {
-    export SSH_AUTH_SOCK=$(cat $(ls --color=never -dt /tmp/achal-ssh-sock-* | head -1))
-    export DISPLAY=$(cat $(ls --color=never -dt /tmp/achal-display-* | head -1))
+    export SSH_AUTH_SOCK=$(cat $(/bin/ls -dt /tmp/achal-ssh-sock-* | head -1))
+    export DISPLAY=$(cat $(/bin/ls -dt /tmp/achal-display-* | head -1))
 }
 
 # directory laziness
