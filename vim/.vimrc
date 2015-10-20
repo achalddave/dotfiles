@@ -27,6 +27,7 @@ call plug#begin(vimroot."/.vim/plugged")
 
 " Helper plugins
 Plug 'xolox/vim-misc' " Required for vim-session
+Plug 'google/maktaba' " Required for Google plugins
 
 Plug 'Tab-Name'
 if has('signs') && !has('win32') && !has('win32unix')
@@ -57,6 +58,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'navicore/vissort.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
+Plug 'google/vim-codefmt'
 
 " language specific
 Plug 'pangloss/vim-javascript'
