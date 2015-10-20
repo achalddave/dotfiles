@@ -25,7 +25,8 @@ let &rtp.=','.vimroot."/.vim"
 " ================
 call plug#begin(vimroot."/.vim/plugged")
 
-" NOTE: Comments after Plug commands are not allowed!
+" Helper plugins
+Plug 'xolox/vim-misc' " Required for vim-session
 
 Plug 'Tab-Name'
 if has('signs') && !has('win32') && !has('win32unix')
@@ -44,8 +45,6 @@ Plug 'kien/ctrlp.vim'
 " For Ctrl-p command line searching
 Plug 'suy/vim-ctrlp-commandline'
 Plug 'camelcasemotion'
- " required for vim-session
-Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
