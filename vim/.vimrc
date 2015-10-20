@@ -460,8 +460,11 @@ function! LatexMappings()
     inoremap <buffer> } <nop>
     inoremap <buffer> \ <nop>
 
+    inoremap <buffer> <Leader>tf \tfrac{}{}<Left><Left><Left>
     inoremap <buffer> <Leader>f \frac{}{}<Left><Left><Left>
     inoremap <buffer> <Leader>a \abs{}<Left>
+    inoremap <buffer> <Leader>b \begin{}<Left>
+    inoremap <buffer> <Leader>ba \begin{align*}<CR>\end{align*}<C-o>O
 
     inoremap <buffer> <Leader>l \left
     inoremap <buffer> <Leader>r \right
