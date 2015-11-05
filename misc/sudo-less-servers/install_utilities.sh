@@ -165,9 +165,9 @@ install_vim() {
 }
 
 install_wget
+install_autoconf
 install_git
 install_tmux
-install_autoconf
 install_zsh
 install_vim
 install_python2
