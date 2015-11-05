@@ -22,7 +22,7 @@ WGET_VERSION="1.16.3"
 GIT_VERSION="2.6.1"
 TMUX_VERSION="2.0"
 AUTOCONF_VERSION="latest" # Can be "latest"
-ZSH_VERSION="latest" # Can be "latest"
+ZSH_VERSION="5.1.1"
 PYTHON_VERSION="2.7.10"
 
 # E.g. 2.7.10 -> python2.7
