@@ -82,7 +82,7 @@ install_git() {
 
     make configure
     ./configure --prefix="${LOCAL_INSTALL_DIR}"
-    make -j4 all info
+    make -j4 all
     make install
 }
 
