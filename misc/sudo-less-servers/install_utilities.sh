@@ -34,6 +34,9 @@ set -e
 mkdir -p ${SCRATCH_DIR}
 mkdir -p ${LOCAL_INSTALL_DIR}
 
+echo "You should add the following line to your .zshrc/.bashrc before continuing!"
+echo 'PATH="'${LOCAL_INSTALL_DIR}'/bin:${PATH}"'
+
 # Usage: untar_to_dir <tar_file> <output_directory>
 # Untars to a specified directory, instead of using the "root" directory
 # specified in the tar file. Useful for cd'ing.
@@ -171,6 +174,3 @@ install_tmux
 install_zsh
 install_vim
 install_python2
-
-echo "You should add the following line to your .zshrc/.bashrc"
-echo 'PATH="'${LOCAL_INSTALL_DIR}'/bin:${PATH}"'
