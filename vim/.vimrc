@@ -30,6 +30,7 @@ Plug 'xolox/vim-misc' " Required for vim-session
 Plug 'google/maktaba' " Required for Google plugins
 Plug 'google/glaive' " Required for Google plugins
 
+Plug 'lervag/vimtex'
 Plug 'Tab-Name'
 if has('signs') && !has('win32') && !has('win32unix')
     " Git gutter is slow on Windows
