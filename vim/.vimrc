@@ -28,6 +28,7 @@ call plug#begin(vimroot."/.vim/plugged")
 " Helper plugins
 Plug 'xolox/vim-misc' " Required for vim-session
 Plug 'google/maktaba' " Required for Google plugins
+Plug 'google/glaive' " Required for Google plugins
 
 Plug 'Tab-Name'
 if has('signs') && !has('win32') && !has('win32unix')
