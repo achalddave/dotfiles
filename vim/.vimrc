@@ -463,13 +463,14 @@ endif
 " Use LaTeX flavor
 let g:tex_flavor="latex"
 
+
 "                                                                             }
 
 " Helper functions                                                            {
 " ================
 
 function! MatlabSettings()
-    nnoremap <buffer> <leader>m :exec(":e " . expand("<cword>") . ".m")<CR>
+    nnoremap <buffer> <LocalLeader>m :exec(":e " . expand("<cword>") . ".m")<CR>
 endfunction
 
 function! LatexMappings()
@@ -483,14 +484,15 @@ function! LatexMappings()
     inoremap <buffer> } <nop>
     inoremap <buffer> \ <nop>
 
-    inoremap <buffer> <Leader>tf \tfrac{}{}<Left><Left><Left>
-    inoremap <buffer> <Leader>f \frac{}{}<Left><Left><Left>
-    inoremap <buffer> <Leader>a \abs{}<Left>
-    inoremap <buffer> <Leader>b \begin{}<Left>
-    inoremap <buffer> <Leader>ba \begin{align*}<CR>\end{align*}<C-o>O
+    inoremap <buffer> <LocalLeader>tf \tfrac{
+    inoremap <buffer> <LocalLeader>f \frac{
+    inoremap <buffer> <LocalLeader>a \abs{}<Left>
+    inoremap <buffer> <LocalLeader>b \begin{}<CR>\end{}<Esc>k$i
+    inoremap <buffer> <LocalLeader>ba \begin{align*}<CR>\end{align*}<C-o>O
+    inoremap <buffer> <LocalLeader>be \begin{enumerate}<CR>\end{enumerate}<C-o>O
 
-    inoremap <buffer> <Leader>l \left
-    inoremap <buffer> <Leader>r \right
+    inoremap <buffer> <LocalLeader>l \left
+    inoremap <buffer> <LocalLeader>r \right
 
     " compile latex file, then run it (%:r = filename without .tex extensions)
     if has("win32")
