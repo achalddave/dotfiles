@@ -55,6 +55,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'navicore/vissort.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'google/vim-codefmt'
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " language specific
 Plug 'pangloss/vim-javascript'
