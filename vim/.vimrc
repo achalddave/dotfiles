@@ -78,6 +78,7 @@ Plug 'achalddave/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
+call glaive#Install() " Initialize Google plugins
 
 "                                                                             }
 
