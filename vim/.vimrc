@@ -66,7 +66,7 @@ Plug 'achalddave/cscope_macros.vim'
 Plug 'groenewege/vim-less'
 Plug 'achalddave/vim-pandoc'
 Plug 'rdark/Windows-PowerShell-Syntax-Plugin'
-Plug 'achalddave/guifontpp.vim'
+Plug 'achalddave/guifontpp.vim', { 'on': [] } " Only load if gui running
 Plug 'vim-scripts/MatlabFilesEdition'
 Plug 'JuliaLang/julia-vim'
 Plug 'briancollins/vim-jst'
@@ -122,11 +122,6 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()': ['<c-h>', '<BS>']
             \ }
 cnoremap <silent> <C-g> <C-c>:call ctrlp#init(ctrlp#commandline#id())<CR>
-
-" Guifontpp
-let guifontpp_smaller_font_map="<Leader>-"
-let guifontpp_larger_font_map="<Leader>="
-let guifontpp_original_font_map="<>"
 
 " Gitv
 let g:Gitv_OpenPreviewOnLaunch=1
