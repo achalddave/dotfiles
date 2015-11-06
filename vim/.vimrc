@@ -242,8 +242,12 @@ inoremap <c-w> <c-g>u<c-w>
 " k/j to move through lines
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 nnoremap gj j
 nnoremap gk k
+vnoremap gj j
+vnoremap gk k
 
 " escape is hard to reach so map kj to <ESC>
 " Also, if I'm in insert mode, hit kj, and hit <i>, I want to be in the same
