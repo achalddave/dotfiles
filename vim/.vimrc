@@ -441,12 +441,20 @@ set tw=80
 
 set encoding=utf-8
 
+let g:tex_conceal='admgs'
+set conceallevel=2
+
 "                                                                             }
 
 " Filetype specific                                                           {
 
 if has("autocmd")
+    let maplocalleader=","
     au Filetype latex,tex,plaintex call LatexMappings()
+    " Turn off indentexpr for LaTeX, as it is extremely frustrating.
+    " See, for example, the issue raised here (in 2008!)
+    " <http://sourceforge.net/p/vim-latex/mailman/message/19080857/>
+    au Filetype latex,tex,plaintex set indentexpr=
     au Filetype matlab call MatlabSettings()
     au BufRead,BufNewFile *.ejs setfiletype html
     au BufRead,BufNewFile *.xaml setfiletype xml
