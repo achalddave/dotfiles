@@ -130,6 +130,24 @@ let g:Gitv_OpenPreviewOnLaunch=1
 " MATLAB Files Edition
 autocmd BufEnter *.m    compiler mlint
 
+" Codefmt
+Glaive codefmt plugin[mappings]
+
+function! s:AddCodefmtEqualMapping() abort
+    " Replace all the various ={motion} keys to codefmt
+    nnoremap <buffer> = :set opfunc=codefmt#FormatMap<CR>g@
+    nnoremap <buffer> == :FormatLines<CR>
+    vnoremap <buffer> = :FormatLines<CR>
+endfunction
+
+autocmd FileType python,cpp,proto call s:AddCodefmtEqualMapping()
+autocmd FileType python let b:codefmt_formatter = 'yapf'
+
+if system("uname") == "Darwin"
+    let g:vimtex_view_general_viewer = "open -a Skim"
+end
+
+
 "                                                                             }
 
 " Indentation                                                                 {
