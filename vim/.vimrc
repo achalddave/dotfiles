@@ -32,10 +32,6 @@ Plug 'google/glaive' " Required for Google plugins
 
 Plug 'lervag/vimtex'
 Plug 'Tab-Name'
-if has('signs') && !has('win32') && !has('win32unix')
-    " Git gutter is slow on Windows
-    Plug 'airblade/vim-gitgutter'
-endif
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
