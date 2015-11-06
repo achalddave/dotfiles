@@ -59,8 +59,6 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 
 " language specific
 Plug 'pangloss/vim-javascript'
-Plug 'vim-scripts/php.vim-html-enhanced'
-Plug 'vim-scripts/indenthtml.vim'
 Plug 'vim-scripts/mips.vim'
 Plug 'othree/html5.vim'
 Plug 'atdt/vim-mediawiki'
