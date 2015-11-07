@@ -345,6 +345,8 @@ if &t_Co >= 256 || has("gui_running")
 endif
 
 if has("gui_running")
+    call plug##load('guifontpp')
+
     " Default fonts suck
     if has("unix")
         let s:uname = system("uname")
