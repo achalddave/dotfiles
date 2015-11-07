@@ -349,8 +349,7 @@ if has("gui_running")
 
     " Default fonts suck
     if has("unix")
-        let s:uname = system("uname")
-        if s:uname == "Darwin\n"
+        if system('uname') =~ 'Darwin'
             set guifont=Monaco:h10
         endif
     elseif has ("win32")
