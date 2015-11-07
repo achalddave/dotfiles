@@ -377,6 +377,9 @@ set vb t_vb=
 " i need line numbers
 set nu
 
+" Show as much as possible of last line on screen instead of `@'
+set display=lastline
+
 "                                                                             }
 
 " Other settings                                                              {
