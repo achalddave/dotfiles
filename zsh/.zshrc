@@ -128,6 +128,20 @@ function swap() {
     mv "$tmpfile" "$2"
 }
 
+# Go up k times
+function up() {
+    if [[ "$#" -lt 1 ]] ; then
+        echo "Usage: up [num_directories]"
+        return 1
+    fi
+    # We could cd .. multiple times, but this pollutes the directory stack.
+    dir_path=''
+    for i in $(seq $1) ; do
+        dir_path="../${dir_path}"
+    done
+    cd $dir_path
+}
+
 # Changing/making/removing directory
 setopt autocd extendedglob
 # Removing because of issue with autojump:
