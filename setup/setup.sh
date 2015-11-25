@@ -10,7 +10,7 @@ root_dir=${PWD%/*}
 [[ "$root_dir" =~ ^"$HOME"(/|$) ]] && root_dir_human="~${root_dir#$HOME}"
 
 force=0
-whatif=0
+dryrun=0
 
 function update {
     src=$1
@@ -18,7 +18,7 @@ function update {
     if [ -e $dst -a $force -eq 0 ] ; then
         echo "$dst file already exists; not updating!"
     else
-        if [ $whatif -eq 0 ] ; then
+        if [ $dryrun -eq 0 ] ; then
             echo "Copying to $dst"
             sed s,\$ROOT,$root_dir_human,g $src > $dst
         else
@@ -33,7 +33,7 @@ function update {
 function usage {
     echo "Usage: ./setup_bash.sh [-f] [-w] [-h]"
     echo "-f: Force update files"
-    echo "-w: What if? (Shows what would be updated)"
+    echo "-n: Dry run (Shows what would be updated)"
     exit 0
 }
 
@@ -45,8 +45,8 @@ while getopts "fhw" opt ; do
         h)
             usage
             ;;
-        w)
-            whatif=1
+        n)
+            dryrun=1
             ;;
     esac
 done
