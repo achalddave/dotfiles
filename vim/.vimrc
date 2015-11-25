@@ -140,7 +140,7 @@ function! s:AddCodefmtEqualMapping() abort
     vnoremap <buffer> = :FormatLines<CR>
 endfunction
 
-autocmd FileType python,cpp,proto call s:AddCodefmtEqualMapping()
+autocmd FileType python,cpp,proto,javascript call s:AddCodefmtEqualMapping()
 autocmd FileType python let b:codefmt_formatter = 'yapf'
 
 if system("uname") == "Darwin"
