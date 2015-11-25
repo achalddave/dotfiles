@@ -147,6 +147,11 @@ if system("uname") == "Darwin"
     let g:vimtex_view_general_viewer = "open -a Skim"
 end
 
+function! VimtexMappingUpdates()
+    silent! unmap <buffer> {
+    silent! unmap <buffer> }
+endfunction
+au Filetype latex,tex,plaintex call VimtexMappingUpdates()
 
 "                                                                             }
 
