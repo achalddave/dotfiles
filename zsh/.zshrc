@@ -163,6 +163,7 @@ then
     alias ls='ls --color=always -p'
 fi
 
+alias c='cd'
 alias grep='grep --color=tty'
 alias l='ls -pk'
 alias la='ls -Ap'
