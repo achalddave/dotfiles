@@ -424,8 +424,8 @@ endif
 set ww+=<,>,[,]
 
 " stop highlighting the current line if not active
-au WinLeave * set nocursorline
-au WinEnter * set cursorline
+autocmd WinLeave * set nocursorline
+autocmd WinEnter * if !&diff | set cursorline | endif
 set cursorline
 
 " Ask instead of erroring.
