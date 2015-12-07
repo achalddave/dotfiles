@@ -71,6 +71,8 @@ Plug 'vim-scripts/MatlabFilesEdition'
 Plug 'JuliaLang/julia-vim'
 Plug 'briancollins/vim-jst'
 Plug 'rust-lang/rust.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
@@ -152,6 +154,12 @@ function! VimtexMappingUpdates()
     silent! unmap <buffer> }
 endfunction
 au Filetype latex,tex,plaintex call VimtexMappingUpdates()
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 
 "                                                                             }
 
