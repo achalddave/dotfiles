@@ -464,9 +464,6 @@ set tw=80
 
 set encoding=utf-8
 
-let g:tex_conceal='admgs'
-set conceallevel=2
-
 "                                                                             }
 
 " Filetype specific                                                           {
