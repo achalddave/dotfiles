@@ -1,0 +1,21 @@
+priority -50
+
+extends tex
+
+snippet argparse "Argument Parsing" b
+parser = argparse.ArgumentParser(
+	description=__doc__,
+	formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument('argument1')
+parser.add_argument('argument2', help='Argument 2')
+parser.add_argument('--argument3',
+					type=int,
+					default=50,
+					help='argument3',
+					required=True)
+
+args = parser.parse_args()
+
+endsnippet
+
+# vim:ft=snippets:

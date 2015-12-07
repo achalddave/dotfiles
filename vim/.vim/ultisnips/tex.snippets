@@ -1,0 +1,43 @@
+priority -50
+
+extends tex
+
+snippet beam "Beamer" b
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+	\usetheme{CambridgeUS}      % or try Darmstadt, Madrid, Warsaw, ...
+	\usecolortheme{dove} % or try albatross, beaver, crane, ...
+	\usefonttheme{default}  % or try serif, structurebold, ...
+	\setbeamertemplate{navigation symbols}{}
+
+\title[]{}
+\author{}
+\date{}
+	\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+
+\section[]{Background: The Kernel Matrix}
+
+\begin{frame}{\secname}
+\end{frame}
+\end{document}
+endsnippet
+
+# vim:ft=snippets:
