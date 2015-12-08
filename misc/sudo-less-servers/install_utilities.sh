@@ -15,7 +15,7 @@
 # an old version of autoconf).
 
 # Where your software will be installed.
-LOCAL_INSTALL_DIR="${HOME}/local"
+LOCAL_INSTALL_DIR="${HOME}/.local"
 # Temporary scratch directory for downloading/unpacking/compiling tools.
 SCRATCH_DIR="${HOME}/scratch_for_setup"
 
