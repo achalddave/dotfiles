@@ -152,7 +152,6 @@ install_pip() {
 }
 
 install_vim() {
-    echo "Note: Installing vim requires that install_python2 has already been run!"
     scratch_init vim
 
     git clone https://github.com/vim/vim.git
@@ -174,5 +173,5 @@ install_autoconf
 install_git
 install_tmux
 install_zsh
-install_vim
 install_python2
+install_vim
