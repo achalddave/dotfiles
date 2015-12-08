@@ -304,12 +304,14 @@ endif
 " ======
 
 set backup
+" Adding "//" at the end asks Vim to use the absolute path of the file to avoid
+" filename collisions.
 if has("win32")
-    let mybackupdir = $TEMP . "/vim-backup"
-    let myswpdir = $TEMP . "/vim-swp"
+    let mybackupdir = $TEMP . "/vim-backup//"
+    let myswpdir = $TEMP . "/vim-swp//"
 elseif has("unix")
-    let mybackupdir = "/tmp/vim-backup"
-    let myswpdir = "/tmp/vim-swp"
+    let mybackupdir = $HOME . "/.vim-backup//"
+    let myswpdir = $HOME . "/.vim-swp//"
 endif
 
 if !isdirectory(mybackupdir)
