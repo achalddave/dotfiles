@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # Helper utility for installing various tools locally when you don't have sudo
 # and work in a controlled environment with old software.
 #
