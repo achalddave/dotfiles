@@ -12,14 +12,15 @@ snippet beam "Beamer" b
 %
 \mode<presentation>
 {
-	\usetheme{CambridgeUS}      % or try Darmstadt, Madrid, Warsaw, ...
-	\usecolortheme{dove} % or try albatross, beaver, crane, ...
-	\usefonttheme{default}  % or try serif, structurebold, ...
-	\setbeamertemplate{navigation symbols}{}
+	\usetheme{CambridgeUS}
+	\usecolortheme{dove}
+	\usefonttheme{default}
+	\setbeamertemplate{headline}{} % Hide section titles
+	\setbeamertemplate{navigation symbols}{} % Hide navigation symbols
 
-\title[]{}
-\author{}
-\date{}
+\title{$1}
+\author{$2}
+\date{$3}
 	\setbeamertemplate{caption}{\raggedright\insertcaption\par}
 }
 
