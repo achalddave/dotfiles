@@ -135,7 +135,7 @@ install_zsh() {
 install_python2() {
     scratch_init python2
 
-    wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
+    wget "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz"
     untar_to_dir "Python-${PYTHON_VERSION}.tgz" "python-${PYTHON_VERSION}"
 
     cd "python-${PYTHON_VERSION}"
