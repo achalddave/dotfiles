@@ -145,8 +145,11 @@ endfunction
 autocmd FileType python,cpp,proto,javascript call s:AddCodefmtEqualMapping()
 autocmd FileType python let b:codefmt_formatter = 'yapf'
 
-if system("uname") == "Darwin"
-    let g:vimtex_view_general_viewer = "open -a Skim"
+" vimtex
+if system("uname") =~ "Darwin"
+    let g:vimtex_view_general_viewer
+      \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+    let g:vimtex_view_general_options = '@line @pdf @tex'
 end
 
 function! VimtexMappingUpdates()
