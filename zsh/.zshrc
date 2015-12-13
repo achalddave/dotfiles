@@ -165,7 +165,7 @@ fi
 
 alias c='cd'
 alias grep='grep --color=tty'
-alias l='ls -pk'
+alias l='ls -p'
 alias la='ls -Ap'
 alias ll='ls -Alhp'
 alias g='git'
