@@ -56,6 +56,8 @@ Plug 'navicore/vissort.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'google/vim-codefmt'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " language specific
 Plug 'pangloss/vim-javascript'
@@ -71,8 +73,6 @@ Plug 'vim-scripts/MatlabFilesEdition'
 Plug 'JuliaLang/julia-vim'
 Plug 'briancollins/vim-jst'
 Plug 'rust-lang/rust.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
