@@ -274,3 +274,9 @@ function up() {
     done
     cd $dir_path
 }
+
+# Usage:
+#   echo -n "1\n2" | sum
+sum() {
+    paste -sd+ - | bc
+}
