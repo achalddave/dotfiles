@@ -105,43 +105,6 @@ SAVEHIST=20000
 # please don't beep
 unsetopt beep
 
-# swap two files (not directories!)
-function swap() {
-    if [[ "$#" -lt 2 ]] || [[ ! -f "$1" ]] || [[ ! -f "$2" ]]; then
-        if [[ -d "$1" ]] || [[ -d "$2" ]] ; then
-            echo "You can't swap two directories right now."
-        else
-            echo "swap [file1] [file2]"
-        fi
-        return 1
-    fi
-
-    mydir=$(dirname "$1");
-    if type mktemp > /dev/null ; then
-        tmpfile=$(mktemp "$mydir"/XXXXXX)
-    else
-        tmpfile="/tmp/$mydir"
-    fi
-
-    mv -f "$1" "$tmpfile"
-    mv "$2" "$1"
-    mv "$tmpfile" "$2"
-}
-
-# Go up k times
-function up() {
-    if [[ "$#" -lt 1 ]] ; then
-        echo "Usage: up [num_directories]"
-        return 1
-    fi
-    # We could cd .. multiple times, but this pollutes the directory stack.
-    dir_path=''
-    for i in $(seq $1) ; do
-        dir_path="../${dir_path}"
-    done
-    cd $dir_path
-}
-
 # Changing/making/removing directory
 setopt autocd extendedglob
 # Removing because of issue with autojump:
@@ -272,3 +235,42 @@ function dff() {
 }
 
 [[ -d ~/.zsh/functions ]] && fpath=( ~/.zsh/functions $fpath)
+
+# Useful functions
+
+# swap two files (not directories!)
+function swap() {
+    if [[ "$#" -lt 2 ]] || [[ ! -f "$1" ]] || [[ ! -f "$2" ]]; then
+        if [[ -d "$1" ]] || [[ -d "$2" ]] ; then
+            echo "You can't swap two directories right now."
+        else
+            echo "swap [file1] [file2]"
+        fi
+        return 1
+    fi
+
+    mydir=$(dirname "$1");
+    if type mktemp > /dev/null ; then
+        tmpfile=$(mktemp "$mydir"/XXXXXX)
+    else
+        tmpfile="/tmp/$mydir"
+    fi
+
+    mv -f "$1" "$tmpfile"
+    mv "$2" "$1"
+    mv "$tmpfile" "$2"
+}
+
+# Go up k times
+function up() {
+    if [[ "$#" -lt 1 ]] ; then
+        echo "Usage: up [num_directories]"
+        return 1
+    fi
+    # We could cd .. multiple times, but this pollutes the directory stack.
+    dir_path=''
+    for i in $(seq $1) ; do
+        dir_path="../${dir_path}"
+    done
+    cd $dir_path
+}
