@@ -123,7 +123,7 @@ function swap() {
         tmpfile="/tmp/$mydir"
     fi
 
-    mv "$1" "$tmpfile"
+    mv -f "$1" "$tmpfile"
     mv "$2" "$1"
     mv "$tmpfile" "$2"
 }
