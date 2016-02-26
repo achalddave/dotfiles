@@ -116,10 +116,11 @@ setopt pushdminus
 
 # laziness
 # colors!
-if [[ `uname` == "Darwin" ]]
+if [[ `uname` == "Darwin" ]] && ! ls --version | grep -q 'GNU'
 then
     alias ls='ls -G'
-elif [[ `uname` == "Linux" ]] ||
+elif [[ `uname` == "Darwin" ]] || # Darwin with GNU ls
+     [[ `uname` == "Linux" ]] ||
      [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
      [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
