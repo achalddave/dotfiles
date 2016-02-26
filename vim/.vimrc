@@ -395,9 +395,7 @@ set vb t_vb=
 set nu
 
 if has("autocmd")
-    " Pandoc sets syntax and filetype to pandoc, which doesn't do syntax
-    " highlighting properly (e.g. _italicized_ words don't look special)
-    au BufRead,BufNewFile *.md set syntax=markdown
+    au BufRead,BufNewFile *.md set fo+=t
 end
 
 " Show as much as possible of last line on screen instead of `@'
