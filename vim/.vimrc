@@ -278,9 +278,6 @@ vnoremap gk k
 inoremap kj <ESC>l
 noremap kj <ESC>
 
-" easily escape and save from within insert mode
-inoremap wq <ESC>:w<Return>l
-
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 
