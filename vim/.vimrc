@@ -58,6 +58,7 @@ Plug 'google/vim-codefmt'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 
 " language specific
 Plug 'pangloss/vim-javascript'
