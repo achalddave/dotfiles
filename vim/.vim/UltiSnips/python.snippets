@@ -15,7 +15,12 @@ parser.add_argument('--argument3',
 					required=True)
 
 args = parser.parse_args()
+endsnippet
 
+snippet logging "Logging" b
+logging.getLogger().setLevel(logging.INFO)
+logging.basicConfig(format='%(asctime)s.%(msecs).03d: %(message)s',
+					datefmt='%H:%M:%S')
 endsnippet
 
 # vim:ft=snippets:
