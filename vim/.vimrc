@@ -59,6 +59,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'achalddave/guifontpp.vim', { 'on': [] } " Only load if gui running
 
 " language specific
 Plug 'pangloss/vim-javascript'
@@ -69,7 +70,6 @@ Plug 'achalddave/cscope_macros.vim'
 Plug 'groenewege/vim-less'
 Plug 'achalddave/vim-pandoc'
 Plug 'rdark/Windows-PowerShell-Syntax-Plugin'
-Plug 'achalddave/guifontpp.vim', { 'on': [] } " Only load if gui running
 Plug 'vim-scripts/MatlabFilesEdition'
 Plug 'JuliaLang/julia-vim'
 Plug 'briancollins/vim-jst'
