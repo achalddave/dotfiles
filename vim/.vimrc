@@ -249,12 +249,7 @@ noremap : ;
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
 
-" Page up/page down makes no sense to me
-"
-" <C-f> one page down
-" <C-d> half page down
-" <C-b> one page up
-" <C-u> half page up
+
 " Use smooth scroll function from the plugin
 nnoremap <silent> <C-d> :call SmoothScroll("d", 2, 2)<CR>
 nnoremap <silent> <C-u> :call SmoothScroll("u", 2, 2)<CR>
