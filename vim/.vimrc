@@ -75,6 +75,7 @@ Plug 'vim-scripts/MatlabFilesEdition'
 Plug 'JuliaLang/julia-vim'
 Plug 'briancollins/vim-jst'
 Plug 'rust-lang/rust.vim'
+Plug 'uarun/vim-protobuf'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
@@ -144,6 +145,7 @@ function! s:AddCodefmtEqualMapping() abort
     vnoremap <buffer> = :FormatLines<CR>
 endfunction
 
+autocmd BufEnter *.prototxt set syntax=proto
 autocmd FileType python,cpp,proto,javascript call s:AddCodefmtEqualMapping()
 autocmd FileType python let b:codefmt_formatter = 'yapf'
 
