@@ -60,6 +60,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 Plug 'achalddave/guifontpp.vim', { 'on': [] } " Only load if gui running
+Plug 'scrooloose/syntastic'
 
 " language specific
 Plug 'pangloss/vim-javascript'
@@ -164,6 +165,15 @@ let g:UltiSnipsExpandTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" Syntastic
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode="passive"
+let g:syntastic_enable_signs=0
+nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
 
 "                                                                             }
 
