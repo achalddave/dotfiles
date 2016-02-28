@@ -14,6 +14,9 @@ fi
 # tab completed for some reason)
 source scripts/git-completion.zsh 2>/dev/null
 
+# Helper for working with json
+source scripts/pyjson.zsh
+
 # turn on correction 
 setopt correctall
 
