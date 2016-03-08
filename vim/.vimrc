@@ -148,6 +148,8 @@ endfunction
 autocmd BufEnter *.prototxt set syntax=proto
 autocmd FileType python,cpp,proto,javascript call s:AddCodefmtEqualMapping()
 autocmd FileType python let b:codefmt_formatter = 'yapf'
+" Python style guide recommends 79 characters, not 80.
+autocmd FileType python set colorcolumn=79 textwidth=79
 
 " vimtex
 if system("uname") =~ "Darwin"
@@ -467,7 +469,7 @@ set showcmd
 set shiftround
 
 " Text width 80, not 79 (which is the default).
-set tw=80
+set textwidth=80
 
 set encoding=utf-8
 
