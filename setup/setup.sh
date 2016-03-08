@@ -70,7 +70,7 @@ cd - >/dev/null
 echo -n "Installing vim-plug..."
 curl --silent -fLo $root_dir/vim/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim >/dev/null
-if [ "$#" -eq 0 ] ; then echo " Done!" ; else echo " Failed..." ; fi
+if [ "$?" -eq 0 ] ; then echo " Done!" ; else echo " Failed..." ; fi
 
 # Return to correct folder
 cd $olddir
