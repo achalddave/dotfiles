@@ -137,6 +137,7 @@ alias la='ls -Ap'
 alias ll='ls -Alhp'
 alias g='git'
 alias py='python'
+alias ipy='ipython'
 alias so='source'
 function sa () {
     if [[ "$#" < 1 || ("$1" != "-f" && "$1" != "--force" ) ]] ; then
