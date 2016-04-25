@@ -145,7 +145,7 @@ function! s:AddCodefmtEqualMapping() abort
     vnoremap <buffer> = :FormatLines<CR>
 endfunction
 
-autocmd BufEnter *.prototxt set syntax=proto
+autocmd BufEnter *.prototxt set syntax=yaml
 autocmd FileType python,cpp,proto,javascript call s:AddCodefmtEqualMapping()
 autocmd FileType python let b:codefmt_formatter = 'yapf'
 " Python style guide recommends 79 characters, not 80.
