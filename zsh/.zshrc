@@ -64,6 +64,8 @@ bindkey -M viins 'kj' vi-cmd-mode-forward # See comment above vi-cmd-mode-forwar
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd 'u' undo
 bindkey -M vicmd '^R' redo
+bindkey -M vicmd ':' vi-repeat-find
+bindkey -M vicmd ';' execute-named-cmd
 
 
 # See http://www.zsh.org/mla/users/2009/msg00812.html.
