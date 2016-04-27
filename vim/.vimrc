@@ -69,7 +69,7 @@ Plug 'othree/html5.vim'
 Plug 'atdt/vim-mediawiki'
 Plug 'achalddave/cscope_macros.vim'
 Plug 'groenewege/vim-less'
-Plug 'achalddave/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'rdark/Windows-PowerShell-Syntax-Plugin'
 Plug 'vim-scripts/MatlabFilesEdition'
 Plug 'JuliaLang/julia-vim'
@@ -181,6 +181,8 @@ let g:syntastic_mode_map = {
     \ "passive_filetypes": [] }
 nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
 
+" Pandoc
+let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python"]
 "                                                                             }
 
 " Indentation                                                                 {
@@ -404,7 +406,8 @@ set vb t_vb=
 set nu
 
 if has("autocmd")
-    au BufRead,BufNewFile *.md set fo+=t
+    au BufRead,BufNewFile *.md set formatoptions+=t
+    au BufRead,BufNewFile *.md set filetype=pandoc
 end
 
 " Show as much as possible of last line on screen instead of `@'
