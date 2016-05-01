@@ -84,26 +84,20 @@ bindkey "[B" history-beginning-search-forward-end
 bindkey -M vicmd 'k' history-beginning-search-backward-end
 bindkey -M vicmd 'j' history-beginning-search-forward-end
 
-# cyan color in vim mode
+# Show "[Normal]" vim mode indicator on the right side of the screen.
 function zle-line-init zle-keymap-select {
+    SUFFIX="%{$fg[cyan]%}[Normal]"
     if [[ "$KEYMAP" == 'vicmd' ]] ; then
-        PROMPT="$PROMPT%{$fg[cyan]%}"
+        RPROMPT="${RPS1}${SUFFIX}"
     else
-        PROMPT=${PROMPT%%"%{$fg[cyan]%}"}
+        # Remove suffix from end of line.
+        RPS1=${RPS1%%${SUFFIX}}
     fi
     zle reset-prompt
     zle -R
 }
 
-# reset cyan on enter
-function zle-line-finish {
-    PROMPT=${PROMPT%%"%{$fg[cyan]%}"}
-    zle reset-prompt
-    zle -R
-}
-
 zle -N zle-line-init
-zle -N zle-line-finish
 zle -N zle-keymap-select
 
 # history
