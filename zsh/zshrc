@@ -17,7 +17,7 @@ source scripts/git-completion.zsh 2>/dev/null
 # Helper for working with json
 source scripts/pyjson.zsh
 
-# turn on correction 
+# turn on correction
 setopt correctall
 
 # Completion
@@ -29,18 +29,17 @@ compinit
 autoload -U select-word-style
 select-word-style bash
 
-
 # Git file completion is super slow; this should fix it
 # http://stackoverflow.com/questions/9810327/
-__git_files () { 
-    _wanted files expl 'local files' _files     
+__git_files () {
+    _wanted files expl 'local files' _files
 }
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' max-errors 3
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:|=**' 'r:[^A-Z0-9]||[A-Z0-9]=** r:|=*' 
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:|=**' 'r:[^A-Z0-9]||[A-Z0-9]=** r:|=*'
 
-# 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+# 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 zstyle :compinstall filename '/Users/achal/.zshrc'
 zstyle ':completion:*' menu select=2
 
@@ -199,11 +198,11 @@ fi
 # load any specific dircolors if necessary
 [[ -e ~/.dircolors ]] && eval "$(dircolors ~/.dircolors)"
 
-# FIX FOR ZSH HISTORY CURSOR 
-# This should work exactly as bash's history-search-[back|for]ward
-#   i.e. if you have an empty line and hit <Up>, your cursor will go to the end of line
-#        if you have some letters and hit <Up>, your cursor will stay where it was and 
-#        zsh will fill the rest of the line with the history search.
+# FIX FOR ZSH HISTORY CURSOR
+# This should work exactly as bash's history-search-[back|for]ward:
+#   i.e. if you have an empty line and hit <Up>, your cursor will go to the end
+#   of line if you have some letters and hit <Up>, your cursor will stay where
+#   it was and zsh will fill the rest of the line with the history search.
 #
 # Much of this function taken from http://www.zsh.org/mla/users/1999/msg00555.html
 function history-search-end {
