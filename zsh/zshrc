@@ -129,13 +129,13 @@ elif [[ `uname` == "Darwin" ]] || # Darwin with GNU ls
      [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
      [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
-    alias ls='ls --color=always -p'
+    alias ls='ls --color=always -p -v'
 fi
 
 alias c='cd'
 alias grep='grep --color=tty'
-alias l='ls -p'
-alias la='ls -Ap'
+alias l='ls'
+alias la='ls -A'
 alias ll='ls -Alhp'
 alias g='git'
 alias py='python'

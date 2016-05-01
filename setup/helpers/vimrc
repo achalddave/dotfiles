@@ -4,7 +4,7 @@ endif
 
 let oldcwd=getcwd()
 cd $ROOT/vim/
-source $ROOT/vim/.vimrc
+source $ROOT/vim/vimrc
 cd `=oldcwd`
 
 if filereadable(expand("~/.vimrc_after"))
