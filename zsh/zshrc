@@ -1,13 +1,26 @@
+# Get directory that this script resides in.
+# <http://unix.stackexchange.com/a/136565/146303>
+zshrc_dir="${0:a:h}"
+
 # Available configurations; set from ~/.zshrc_before
 # has_256 (default True)
 has_256=${has_256:-1}
 
-# load scripts (I could load them all at once, but having them be separate
-# lines will make me know which scripts I have, since I'll never actually go to
-# the zsh_scripts folder).
-if [ "$has_256" -eq 1 ] ; then
-    # Most Windows terminals don't support 256 colors
-    source scripts/spectrum.zsh
+# Setup completion. This needs to happen before zgen is sourced.
+autoload -Uz compinit
+compinit
+
+
+# Load zgen.
+export ZGEN_DIR="${zshrc_dir}/.zgen"
+source zgen/zgen.zsh
+
+# If the init scipt doesn't exist, generate the init script.
+if ! zgen saved; then
+    if [ "$has_256" -eq 1 ] ; then
+        zgen load robbyrussell/oh-my-zsh lib/spectrum.zsh
+    fi
+    zgen save
 fi
 
 # Helper for working with json
@@ -16,12 +29,7 @@ source scripts/pyjson.zsh
 # turn on correction
 setopt correctall
 
-# Completion
-autoload -Uz compinit
-compinit
-
-# Bash style word selection
-#   e.g. ctrl-w should kill backwards up to a slash
+# Bash style word selection (e.g. ctrl-w should kill backwards up to a slash)
 autoload -U select-word-style
 select-word-style bash
 
