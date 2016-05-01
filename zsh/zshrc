@@ -20,6 +20,7 @@ if ! zgen saved; then
     if [ "$has_256" -eq 1 ] ; then
         zgen load robbyrussell/oh-my-zsh lib/spectrum.zsh
     fi
+    zgen load zsh-users/zsh-syntax-highlighting
     zgen save
 fi
 
