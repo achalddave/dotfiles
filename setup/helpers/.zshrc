@@ -1,7 +1,7 @@
 [ -e ~/.zshrc_before ] && source ~/.zshrc_before
 
-cd $ROOT/zsh
+pushd $ROOT/zsh > /dev/null
 source .zshrc
-cd - > /dev/null
+popd > /dev/null
 
 [ -e ~/.zshrc_after ] && source ~/.zshrc_after

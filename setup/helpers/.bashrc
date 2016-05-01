@@ -1,8 +1,8 @@
 [ -e ~/.bashrc_before ] && source ~/.bashrc_before
 
-cd $ROOT/bash
+pushd $ROOT/bash > /dev/null
 source .bashrc
-cd - >/dev/null
+popd > /dev/null
 
 [ -e ~/.bashrc_after ] && source ~/.bashrc_after
 

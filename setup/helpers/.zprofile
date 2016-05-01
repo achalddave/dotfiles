@@ -1,7 +1,7 @@
 [ -e ~/.zprofile_before ] && source ~/.zprofile_before
 
-cd $ROOT/zsh
+pushd $ROOT/zsh > /dev/null
 source .zprofile
-cd - >/dev/null
+popd > /dev/null
 
 [ -e ~/.zprofile_after ] && source ~/.zprofile_after

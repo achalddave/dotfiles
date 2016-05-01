@@ -1,7 +1,7 @@
 [ -e ~/.profile_before ] && source ~/.profile_before
 
-cd $ROOT/bash
+pushd $ROOT/bash > /dev/null
 source .profile
-cd - >/dev/null
+popd > /dev/null
 
 [ -e ~/.profile_after ] && source ~/.profile_after
