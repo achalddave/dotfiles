@@ -10,10 +10,6 @@ if [ "$has_256" -eq 1 ] ; then
     source scripts/spectrum.zsh
 fi
 
-# Use git's git completion, not zsh's (with zsh, git alias arguments don't get
-# tab completed for some reason)
-source scripts/git-completion.zsh 2>/dev/null
-
 # Helper for working with json
 source scripts/pyjson.zsh
 
