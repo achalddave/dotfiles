@@ -16,10 +16,6 @@ source scripts/pyjson.zsh
 # turn on correction
 setopt correctall
 
-# Bash style word selection (e.g. ctrl-w should kill backwards up to a slash)
-autoload -U select-word-style
-select-word-style bash
-
 # Git file completion is super slow; this should fix it
 # http://stackoverflow.com/questions/9810327/
 __git_files () {
@@ -58,12 +54,16 @@ bindkey -M vicmd ':' vi-repeat-find
 bindkey -M vicmd ';' execute-named-cmd
 
 
-# See http://www.zsh.org/mla/users/2009/msg00812.html.
-# Otherwise you can't backspace things you didn't just insert.
-bindkey "^W" backward-kill-word    # vi-backward-kill-word
-bindkey "^H" backward-delete-char  # vi-backward-delete-char
-bindkey "^U" kill-line             # vi-kill-line
-bindkey "^?" backward-delete-char  # vi-backward-delete-char
+# # See http://www.zsh.org/mla/users/2009/msg00812.html.
+# # Otherwise you can't backspace things you didn't just insert.
+bindkey "^W" backward-kill-word    # was vi-backward-kill-word
+bindkey "^H" backward-delete-char  # was vi-backward-delete-char
+bindkey "^U" kill-line             # was vi-kill-line
+bindkey "^?" backward-delete-char  # was vi-backward-delete-char
+
+# Bash style word selection (e.g. ctrl-w should kill backwards up to a slash)
+autoload -U select-word-style
+select-word-style bash
 
 bindkey "[A" history-beginning-search-backward-end
 bindkey "[B" history-beginning-search-forward-end
