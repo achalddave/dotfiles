@@ -10,21 +10,6 @@ has_256=${has_256:-1}
 autoload -Uz compinit
 compinit
 
-
-# Load zgen.
-export ZGEN_DIR="${zshrc_dir}/.zgen"
-source zgen/zgen.zsh
-
-# If the init scipt doesn't exist, generate the init script.
-if ! zgen saved; then
-    if [ "$has_256" -eq 1 ] ; then
-        zgen load robbyrussell/oh-my-zsh lib/spectrum.zsh
-    fi
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-autosuggestions
-    zgen save
-fi
-
 # Helper for working with json
 source scripts/pyjson.zsh
 
@@ -285,3 +270,22 @@ function up() {
 sum() {
     paste -sd+ - | bc
 }
+
+# Load zgen.
+# This needs to be done at the end of the zshrc: some plugins (e.g.
+# zsh-syntax-highlighting) need to be sourced after all 'custom widgets have
+# been created (i.e., after all `zle -N` calls and after running `compinit`)'.
+# Strange things happen if you don't do this, such as
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/67
+export ZGEN_DIR="${zshrc_dir}/.zgen"
+source zgen/zgen.zsh
+
+# If the init scipt doesn't exist, generate the init script.
+if ! zgen saved; then
+    if [ "$has_256" -eq 1 ] ; then
+        zgen load robbyrussell/oh-my-zsh lib/spectrum.zsh
+    fi
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-autosuggestions
+    zgen save
+fi
