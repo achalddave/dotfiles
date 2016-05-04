@@ -278,7 +278,11 @@ sum() {
 # Strange things happen if you don't do this, such as
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/67
 export ZGEN_DIR="${zshrc_dir}/.zgen"
-source zgen/zgen.zsh
+if ! where zgen >/dev/null; then
+    # Temporary hack due to
+    # https://github.com/zsh-users/zsh-autosuggestions/pull/150
+    source zgen/zgen.zsh
+fi
 
 # If the init scipt doesn't exist, generate the init script.
 if ! zgen saved; then
