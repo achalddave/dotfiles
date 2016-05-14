@@ -3,8 +3,9 @@ priority -50
 extends python
 
 snippet argparse "Argument Parsing" b
+# Use first line of file docstring as description if a file docstring exists.
 parser = argparse.ArgumentParser(
-	description=__doc__,
+	description=__doc__.split('\n')[0] if __doc__ else '',
 	formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('argument1')
 parser.add_argument('argument2', help='Argument 2')
