@@ -1,0 +1,5 @@
+#!/bin/bash
+# This could be a symlink, but then things would break on Windows.
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+${DIR}/diff-so-fancy-repo/diff-so-fancy
