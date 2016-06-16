@@ -427,8 +427,10 @@ set vb t_vb=
 set nu
 
 if has("autocmd")
-    au BufRead,BufNewFile *.md set formatoptions+=t
-    au BufRead,BufNewFile *.md set filetype=pandoc
+    au BufRead,BufNewFile *.md set formatoptions+=t filetype=pandoc
+    " Without "_" in iskeyword, highlighting of source code in markdown files
+    " has lots of ugly red 'error' highlights.
+    au BufRead,BufNewFile *.md setlocal iskeyword+=_
 end
 
 " Show as much as possible of last line on screen instead of `@'
