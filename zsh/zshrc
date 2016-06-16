@@ -72,7 +72,7 @@ bindkey -M vicmd 'j' history-beginning-search-forward-end
 
 # Show "[Normal]" vim mode indicator on the right side of the screen.
 function zle-line-init zle-keymap-select {
-    SUFFIX="%{$fg[cyan]%}[Normal]"
+    SUFFIX="%{$fg[cyan]%}[Normal]%{$fg[reset]%}"
     if [[ "$KEYMAP" == 'vicmd' ]] ; then
         RPROMPT="${RPS1}${SUFFIX}"
     else
