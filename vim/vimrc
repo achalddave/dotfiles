@@ -64,6 +64,7 @@ Plug 'scrooloose/syntastic'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/vim-asterisk'
+Plug 'inside/vim-search-pulse'
 
 " language specific
 Plug 'pangloss/vim-javascript'
@@ -187,6 +188,11 @@ nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
 " Pandoc
 let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python"]
 
+" incsearch / vim-search-pulse / vim-asterisk
+let g:vim_search_pulse_disable_auto_mappings = 1
+nmap n n<Plug>Pulse
+nmap N N<Plug>Pulse
+
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -198,10 +204,10 @@ map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
 
 " vim-asterisk
-map *  <Plug>(asterisk-z*)
-map g* <Plug>(asterisk-gz*)
-map #  <Plug>(asterisk-z#)
-map z# <Plug>(asterisk-gz#)
+map *  <Plug>(asterisk-z*)<Plug>Pulse
+map g* <Plug>(asterisk-gz*)<Plug>Pulse
+map #  <Plug>(asterisk-z#)<Plug>Pulse
+map z# <Plug>(asterisk-gz#)<Plug>Pulse
 
 "                                                                             }
 
