@@ -379,11 +379,11 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-colorscheme slate
 " always have status line
 set laststatus=2
 set ruler
 
+colorscheme slate
 " if we have enough colors
 if &t_Co >= 256 || has("gui_running")
     let g:jellybeans_overrides = {
