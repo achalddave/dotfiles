@@ -386,18 +386,13 @@ set ruler
 
 " if we have enough colors
 if &t_Co >= 256 || has("gui_running")
-    colorscheme Tomorrow-Night-Bright
-    if has("autocmd")
-        " Tomorrow doesn't highlight tex properly.
-        au FileType tex set syntax=plaintex
-    end
-
-    " so apparently bg/fg are reversed for inc search
-    hi IncSearch guibg=#0000ff
-    hi IncSearch guifg=#9999ee
-    hi Cursor guibg=#333399
-    hi Cursor guifg=#ffffff
-
+    let g:jellybeans_overrides = {
+    \    'ColorColumn': { 'guibg': '222222' },
+    \    'Search': { 'attr': 'reverse' },
+    \    'Incsearch': { 'attr': '' },
+    \    'Conceal': { 'guifg': '', 'ctermbg': '', 'ctermfg': '', 'guibg': '222222' }
+    \}
+    colorscheme jellybeans
 endif
 
 if has("gui_running")
