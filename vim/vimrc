@@ -183,6 +183,7 @@ let g:syntastic_mode_map = {
     \ "mode": "passive",
     \ "active_filetypes": [],
     \ "passive_filetypes": [] }
+let g:syntastic_lua_checkers = [ "luacheck" ]
 nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
 
 " Pandoc
