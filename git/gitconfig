@@ -42,8 +42,11 @@ What changed:\n============='
     attributesfile = ~/.gitattributes
     pager = "diff-so-fancy | less --tabs=4 -RFX"
 
+# diff-so-fancy has some issues with git add --patch. For example, it shows some
+# lines from the next or previous hunks. See
+# https://github.com/so-fancy/diff-so-fancy/pull/172 .
 [interactive]
-    diffFilter = "diff-so-fancy | less --tabs=4 -RFX"
+    diffFilter = "diff-highlight | less --tabs=4 -RFX"
 
 [diff]
     tool = vimdiff
