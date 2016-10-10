@@ -318,13 +318,6 @@ nnoremap kj <ESC>
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 
-" Word-wise Ctrl-Y Ctrl-E in insert mode
-" http://vim.wikia.com/wiki/Wordwise_Ctrl-Y_in_insert_mode
-" I actually don't fully understand this (well, mostly the '\\|.' in the end,
-" but it seems potentially useful.
-inoremap <expr> <c-y> matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
-inoremap <expr> <c-e> matchstr(getline(line('.')+1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
-
 " Paste mode
 set pastetoggle=<F3>
 "                                                                             }
