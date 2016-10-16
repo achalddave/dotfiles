@@ -24,4 +24,33 @@ logging.basicConfig(format='%(asctime)s.%(msecs).03d: %(message)s',
 					datefmt='%H:%M:%S')
 endsnippet
 
+snippet csvwritedict "Write with csv.DictWriter" b
+with open('filename.csv', 'w') as csvfile:
+	fieldnames = ['first_name', 'last_name']
+	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+	writer.writeheader()
+	writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})
+endsnippet
+
+snippet csvreaddict "Read with csv.DictWriter" b
+with open('filename.csv') as csvfile:
+	reader = csv.DictReader(csvfile)
+	for row in reader:
+		print(row['first_name'], row['last_name'])
+endsnippet
+
+snippet csvread "Read from csv" b
+with open('filename.csv', 'rb') as csvfile:
+	reader = csv.reader(csvfile, delimiter=',')
+	for row in reader:
+		print(row[0], row[1], row[2])
+endsnippet
+
+snippet csvwrite "Write csv" b
+import csv
+with open('filename.csv', 'wb') as csvfile:
+	spamwriter = csv.writer(csvfile, delimiter=',')
+	spamwriter.writerow(['Hello', 'there'])
+endsnippet
+
 # vim:ft=snippets:
