@@ -311,7 +311,7 @@ vnoremap gk k
 " Also, if I'm in insert mode, hit kj, and hit <i>, I want to be in the same
 " position; hence the extra <l>.
 inoremap kj <ESC>l
-noremap kj <ESC>
+nnoremap kj <ESC>
 
 " exchange this word with next word using gw
 noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
