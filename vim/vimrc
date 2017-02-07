@@ -85,6 +85,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'nanotech/jellybeans.vim'
 Plug 'achalddave/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 call glaive#Install() " Initialize Google plugins
