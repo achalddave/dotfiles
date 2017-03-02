@@ -362,6 +362,7 @@ noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 
 " Paste mode
 set pastetoggle=<F3>
+
 "                                                                             }
 
 " Commands                                                                    {
