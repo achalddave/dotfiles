@@ -244,6 +244,16 @@ map g* <Plug>(asterisk-gz*)<Plug>Pulse
 map #  <Plug>(asterisk-z#)<Plug>Pulse
 map z# <Plug>(asterisk-gz#)<Plug>Pulse
 
+" cscope
+nnoremap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+" nnoremap <leader>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
+" nnoremap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
 "                                                                             }
 
 " Indentation                                                                 {
