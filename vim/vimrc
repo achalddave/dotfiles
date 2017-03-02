@@ -392,6 +392,11 @@ if &t_Co >= 256 || has("gui_running")
 else
     colorscheme slate
 endif
+if $CONFIG_LIGHT_COLORS == '1'
+    set background=light
+else
+    set background=dark
+end
 
 if has("gui_running")
     call plug##load('guifontpp')
