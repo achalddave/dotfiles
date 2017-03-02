@@ -386,16 +386,11 @@ endif
 set laststatus=2
 set ruler
 
-colorscheme slate
 " if we have enough colors
 if &t_Co >= 256 || has("gui_running")
-    let g:jellybeans_overrides = {
-    \    'ColorColumn': { 'guibg': '222222' },
-    \    'Search': { 'attr': 'reverse' },
-    \    'Incsearch': { 'attr': '' },
-    \    'Conceal': { 'guifg': '', 'ctermbg': '', 'ctermfg': '', 'guibg': '222222' }
-    \}
-    colorscheme jellybeans
+    colorscheme PaperColor
+else
+    colorscheme slate
 endif
 
 if has("gui_running")
