@@ -378,6 +378,8 @@ if has("unix")
     cabbrev Wsudo :w !sudo tee > /dev/null %
 endif
 
+command! -nargs=* Gitc call Gitv_OpenGitCommand(<q-args>, 'new')
+
 "                                                                             }
 
 " Backup                                                                      {
