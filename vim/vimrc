@@ -556,8 +556,9 @@ if has("autocmd")
     " <http://sourceforge.net/p/vim-latex/mailman/message/19080857/>
     au Filetype latex,tex,plaintex set indentexpr=
     au Filetype matlab call MatlabSettings()
-    au BufRead,BufNewFile *.ejs setfiletype html
-    au BufRead,BufNewFile *.xaml setfiletype xml
+    au BufRead,BufNewFile *.ejs set filetype=html
+    au BufRead,BufNewFile *.xaml set filetype=xml
+    au BufRead,BufNewFile *.cfg set filetype=python
 endif
 
 " Use LaTeX flavor
