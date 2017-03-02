@@ -14,6 +14,7 @@
 " Basic                                                                       {
 " I just don't want to deal with moving this right now to a proper section
 set nocompatible
+let mapleader=","
 
 " Dotfiles can be anywhere, get correct location
 let vimroot=getcwd()
@@ -297,7 +298,6 @@ set formatoptions-=t  " Don't auto wrap based on text width.
 " Mappings                                                                    {
 " ========
 
-let mapleader=","
 set timeoutlen=150
 
 " Easy window navigation
