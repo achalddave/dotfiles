@@ -13,20 +13,24 @@ function light_highlight {
 }
 
 function load_default_highlight {
-    # Save the default highlight if it doesn't exist, and restore it in the
-    # future.
-    if [ ! -n "${DEFAULT_ZSH_HIGHLIGHT_STYLES+x}" ] ; then
+    if [ ! -n "${DEFAULT_ZSH_HIGHLIGHT_STYLES+x}" ] && [ -n "${ZSH_HIGHLIGHT_STYLES+x}" ] ; then
+        # Save the default highlight if it doesn't exist, and if the current
+        # highlight style is not empty.
         typeset -gA DEFAULT_ZSH_HIGHLIGHT_STYLES
         # Make a copy of the associative array:
-        #   http://stackoverflow.com/questions/19284296/
-        set -A DEFAULT_ZSH_HIGHLIGHT_STYLES ${(kv)ZSH_HIGHLIGHT_STYLES}
-    else
-        set -A ZSH_HIGHLIGHT_STYLES ${(kv)DEFAULT_ZSH_HIGHLIGHT_STYLES}
+        #   https://www.zsh.org/mla/workers/2005/msg01028.html
+        set -A DEFAULT_ZSH_HIGHLIGHT_STYLES
+        DEFAULT_ZSH_HIGHLIGHT_STYLES=("${(@kv)ZSH_HIGHLIGHT_STYLES}")
+    elif [ -n "${DEFAULT_ZSH_HIGHLIGHT_STYLES+x}" ] ; then
+        # Reset the default style.
+        set -A ZSH_HIGHLIGHT_STYLES
+        ZSH_HIGHLIGHT_STYLES=("${(@kv)DEFAULT_ZSH_HIGHLIGHT_STYLES}")
     fi
 }
 
 function light_highlight_256 {
     load_default_highlight
+    typeset -A ZSH_HIGHLIGHT_STYLES
     ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=cyan'
     ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
 }
