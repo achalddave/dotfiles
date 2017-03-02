@@ -549,7 +549,6 @@ set encoding=utf-8
 " Filetype specific                                                           {
 
 if has("autocmd")
-    let maplocalleader=","
     au Filetype latex,tex,plaintex call LatexMappings()
     " Turn off indentexpr for LaTeX, as it is extremely frustrating.
     " See, for example, the issue raised here (in 2008!)
@@ -575,6 +574,7 @@ function! MatlabSettings()
 endfunction
 
 function! LatexMappings()
+    let maplocalleader=","
     inoremap <buffer> fl \
     inoremap <buffer> fj {
     inoremap <buffer> fk }
