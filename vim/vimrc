@@ -399,7 +399,7 @@ else
 end
 
 if has("gui_running")
-    call plug##load('guifontpp')
+    call plug#load('guifontpp')
 
     " Default fonts suck
     if has("unix")
