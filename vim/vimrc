@@ -185,6 +185,7 @@ let g:syntastic_mode_map = {
     \ "active_filetypes": [],
     \ "passive_filetypes": [] }
 let g:syntastic_lua_checkers = [ "luacheck" ]
+let g:syntastic_matlab_checkers = [ "mlint" ]
 nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
 
 " Pandoc
