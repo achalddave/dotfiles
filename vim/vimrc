@@ -136,6 +136,39 @@ cnoremap <silent> <C-g> <C-c>:call ctrlp#init(ctrlp#commandline#id())<CR>
 " Gitv
 let g:Gitv_OpenPreviewOnLaunch=1
 
+" Fugitive
+" View staged changes.
+function! GitDiffStaged()
+    Git! diff --staged
+    set foldmethod=syntax
+endfunction
+command! Greview call GitDiffStaged()
+
+function! DetectForEmptyBuffer()
+  if expand('<amatch>') == '' && (!exists('b:git_detected_for_cwd') || b:git_detected_for_cwd !=# getcwd())
+    if exists('b:git_dir')
+      unlet b:git_dir
+    endif
+    call fugiive#detect(getcwd())
+    let b:git_detected_for_cwd = getcwd()
+  endif
+endfunction
+
+" Maintain fugitive status when opening a new tab.
+" Maintain the `git_dir` variable when opening a new tab, and then call
+" fugitive#detect. By maintaining `git_dir`, we avoid IO by the call to
+" fugitive#detect.
+" See also:
+"   https://github.com/tpope/vim-fugitive/pull/42
+"   https://github.com/tpope/vim-fugitive/issues/832
+function! NewTabWithGitDir()
+    let l:old_tab_git_dir = b:git_dir
+    tabnew
+    let b:git_dir = l:old_tab_git_dir
+    call fugitive#detect(getcwd())
+endfunction
+nnoremap <leader>t :call NewTabWithGitDir() <CR>
+
 " MATLAB Files Edition
 autocmd BufEnter *.m    compiler mlint
 
