@@ -1,0 +1,67 @@
+# vim: set syntax=zsh:
+
+function light_prompt_256 {
+    PROMPT=$'%{$FG[245]%}%* | %m'$'\n''%{$FG[232]%}%~%{$FG[028]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+}
+
+function light_prompt {
+    light_prompt_256  # TODO(achald): Use different colors!
+}
+
+function light_highlight {
+    light_highlight_256
+}
+
+function load_default_highlight {
+    # Save the default highlight if it doesn't exist, and restore it in the
+    # future.
+    if [ ! -n "${DEFAULT_ZSH_HIGHLIGHT_STYLES+x}" ] ; then
+        typeset -gA DEFAULT_ZSH_HIGHLIGHT_STYLES
+        # Make a copy of the associative array:
+        #   http://stackoverflow.com/questions/19284296/
+        set -A DEFAULT_ZSH_HIGHLIGHT_STYLES ${(kv)ZSH_HIGHLIGHT_STYLES}
+    else
+        set -A ZSH_HIGHLIGHT_STYLES ${(kv)DEFAULT_ZSH_HIGHLIGHT_STYLES}
+    fi
+}
+
+function light_highlight_256 {
+    load_default_highlight
+    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
+}
+
+function dark_prompt_256 {
+    PROMPT=$'%{$FG[243]%}%* | %m'$'\n''%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+}
+
+function dark_prompt {
+    PROMPT='%{$fg_bold[black]%}%m%{$fg_bold[white]%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
+}
+
+function dark_highlight_256 {
+    load_default_highlight
+}
+function dark_highlight {
+    dark_highlight_256
+}
+
+function light_colors {
+    CONFIG_LIGHT_COLORS=1
+    if [[ "$CONFIG_256_COLORS" == 1 ]] ; then
+        light_prompt_256
+        light_highlight_256
+    else
+        light_prompt
+        light_highlight_256
+    fi
+}
+
+function dark_colors {
+    CONFIG_LIGHT_COLORS=0
+    if [[ "$CONFIG_256_COLORS" == 1 ]] ; then
+        dark_prompt_256
+    else
+        dark_prompt
+    fi
+}

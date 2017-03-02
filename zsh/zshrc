@@ -2,9 +2,10 @@
 # <http://unix.stackexchange.com/a/136565/146303>
 zshrc_dir="${0:a:h}"
 
-# Available configurations; set from ~/.zshrc_before
-# has_256 (default True)
-has_256=${has_256:-1}
+# Available configurations; set from ~/.zshrc_before.
+# TODO(achald): Make this an associative array.
+CONFIG_256_COLORS=${CONFIG_256_COLORS:-1}
+CONFIG_LIGHT_COLORS=${CONFIG_LIGHT_COLORS:-0}
 
 # Setup completion. This needs to happen before zgen is sourced.
 autoload -Uz compinit
@@ -163,6 +164,7 @@ alias mv='mv -i'
 # prompt and colors
 autoload -Uz vcs_info
 autoload -U colors && colors
+source colors
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*' formats '(%b) '
@@ -170,10 +172,10 @@ zstyle ':vcs_info:git*' formats '(%b) '
 precmd() { vcs_info }
 
 setopt prompt_subst
-if [ "$has_256" -eq 1 ] ; then
-    PROMPT=$'%{$FG[243]%}%* | %m'$'\n''%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+if [[ "$CONFIG_LIGHT_COLORS" == 1 ]] ; then
+    light_colors
 else
-    PROMPT='%{$fg_bold[black]%}%m%{$fg_bold[white]%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
+    dark_colors
 fi
 
 if [[ "$TERM" == "screen" ]] ; then
