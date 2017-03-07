@@ -454,9 +454,6 @@ set vb t_vb=
 " i need line numbers
 set nu
 
-if has("autocmd")
-end
-
 " Show as much as possible of last line on screen instead of `@'
 set display=lastline
 
@@ -500,8 +497,11 @@ endif
 set ww+=<,>,[,]
 
 " stop highlighting the current line if not active
-autocmd WinLeave * set nocursorline
-autocmd WinEnter * if !&diff | set cursorline | endif
+augroup highlight_current_line
+    autocmd!
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter * if !&diff | set cursorline | endif
+augroup end
 set cursorline
 
 " Ask instead of erroring.
@@ -530,22 +530,24 @@ set encoding=utf-8
 
 " Filetype specific                                                           {
 
-autocmd BufEnter *.prototxt set syntax=yaml
-autocmd BufRead,BufNewFile *.cfg set filetype=python
-autocmd BufRead,BufNewFile *.ejs set filetype=html
-autocmd BufRead,BufNewFile *.md set formatoptions+=t filetype=pandoc
-" Without "_" in iskeyword, highlighting of source code in markdown files
-" has lots of ugly red 'error' highlights.
-autocmd BufRead,BufNewFile *.md setlocal iskeyword+=_
-autocmd BufRead,BufNewFile *.xaml set filetype=xml
-autocmd FileType bibtex,python setlocal expandtab ts=4 sts=4 sw=4
-autocmd FileType c,cpp setlocal expandtab ts=2 sts=2 sw=2
-" Python style guide recommends 79 characters, not 80.
-autocmd FileType python set colorcolumn=79 textwidth=79
-autocmd Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
-autocmd Filetype latex,tex,plaintex call LatexSettings()
-autocmd Filetype matlab call MatlabSettings()
-
+augroup file_settings
+    autocmd!
+    autocmd BufEnter *.prototxt set syntax=yaml
+    autocmd BufRead,BufNewFile *.cfg set filetype=python
+    autocmd BufRead,BufNewFile *.ejs set filetype=html
+    autocmd BufRead,BufNewFile *.md set formatoptions+=t filetype=pandoc
+    " Without "_" in iskeyword, highlighting of source code in markdown files
+    " has lots of ugly red 'error' highlights.
+    autocmd BufRead,BufNewFile *.md setlocal iskeyword+=_
+    autocmd BufRead,BufNewFile *.xaml set filetype=xml
+    autocmd FileType bibtex,python setlocal expandtab ts=4 sts=4 sw=4
+    autocmd FileType c,cpp setlocal expandtab ts=2 sts=2 sw=2
+    " Python style guide recommends 79 characters, not 80.
+    autocmd FileType python set colorcolumn=79 textwidth=79
+    autocmd Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
+    autocmd Filetype latex,tex,plaintex call LatexSettings()
+    autocmd Filetype matlab call MatlabSettings()
+augroup end
 
 " Use LaTeX flavor
 let g:tex_flavor="latex"
