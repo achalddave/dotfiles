@@ -567,7 +567,7 @@ function! MatlabSettings()
     nnoremap <buffer> <LocalLeader>m :exec(":e " . expand("<cword>") . ".m")<CR>
 endfunction
 
-function! LatexMappings()
+function! LatexSettings()
     let maplocalleader=","
     inoremap <buffer> fl \
     inoremap <buffer> fj {
