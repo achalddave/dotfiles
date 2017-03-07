@@ -411,17 +411,21 @@ endif
 set laststatus=2
 set ruler
 
-" if we have enough colors
 if &t_Co >= 256 || has("gui_running")
     colorscheme PaperColor
+    if $CONFIG_LIGHT_COLORS == '1'
+        set background=light
+        " The default normal color is not dark enough
+        augroup custom_colorscheme
+            autocmd!
+            autocmd Colorscheme hi Normal ctermfg=black
+        augroup end
+    else
+        set background=dark
+    end
 else
     colorscheme slate
 endif
-if $CONFIG_LIGHT_COLORS == '1'
-    set background=light
-else
-    set background=dark
-end
 
 if has("gui_running")
     call plug#load('guifontpp')
