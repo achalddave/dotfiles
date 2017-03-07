@@ -534,13 +534,11 @@ set encoding=utf-8
 
 " Filetype specific                                                           {
 
-if has("autocmd")
-    au Filetype latex,tex,plaintex call LatexMappings()
-    au Filetype matlab call MatlabSettings()
-    au BufRead,BufNewFile *.ejs set filetype=html
-    au BufRead,BufNewFile *.xaml set filetype=xml
-    au BufRead,BufNewFile *.cfg set filetype=python
-endif
+au Filetype latex,tex,plaintex call LatexMappings()
+au Filetype matlab call MatlabSettings()
+au BufRead,BufNewFile *.ejs set filetype=html
+au BufRead,BufNewFile *.xaml set filetype=xml
+au BufRead,BufNewFile *.cfg set filetype=python
 
 " tabs to spaces; 4 col tabs
 au FileType bibtex,python setlocal expandtab ts=4 sts=4 sw=4
