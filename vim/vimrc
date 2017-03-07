@@ -180,11 +180,8 @@ function! s:AddCodefmtEqualMapping() abort
     vnoremap <buffer> = :FormatLines<CR>
 endfunction
 
-autocmd BufEnter *.prototxt set syntax=yaml
 autocmd FileType python,c,cpp,proto,javascript call s:AddCodefmtEqualMapping()
 autocmd FileType python let b:codefmt_formatter = 'yapf'
-" Python style guide recommends 79 characters, not 80.
-autocmd FileType python set colorcolumn=79 textwidth=79
 
 " vimtex
 if system("uname") =~ "Darwin"
@@ -271,21 +268,13 @@ set ts=4 sts=4 sw=4 expandtab
 set list
 set listchars=tab:>~,trail:·
 
-if has("autocmd")
-    " tabs to spaces; 4 col tabs
-    au FileType bibtex,python setlocal expandtab ts=4 sts=4 sw=4
-    au FileType c,cpp setlocal expandtab ts=2 sts=2 sw=2
+function! SetWebdevOptions()
+    " 2 space tabs
+    setlocal expandtab ts=2 sts=2 sw=2
 
-    au Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
-
-    function! SetWebdevOptions()
-        " 2 space tabs
-        setlocal expandtab ts=2 sts=2 sw=2
-
-        " Match tags
-        runtime! macros/matchit.vim
-    endfunction
-endif
+    " Match tags
+    runtime! macros/matchit.vim
+endfunction
 
 set formatoptions+=ro " Automatically insert comment leader after <Enter>/o/O.
 set formatoptions-=t  " Don't auto wrap based on text width.
@@ -552,6 +541,15 @@ if has("autocmd")
     au BufRead,BufNewFile *.xaml set filetype=xml
     au BufRead,BufNewFile *.cfg set filetype=python
 endif
+
+" tabs to spaces; 4 col tabs
+au FileType bibtex,python setlocal expandtab ts=4 sts=4 sw=4
+au FileType c,cpp setlocal expandtab ts=2 sts=2 sw=2
+au Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
+
+autocmd BufEnter *.prototxt set syntax=yaml
+" Python style guide recommends 79 characters, not 80.
+autocmd FileType python set colorcolumn=79 textwidth=79
 
 " Use LaTeX flavor
 let g:tex_flavor="latex"
