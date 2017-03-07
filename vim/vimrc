@@ -434,10 +434,6 @@ if has("gui_running")
     elseif has ("win32")
         set guifont=Consolas:h10
     endif
-else
-    " vim can't change the background of a terminal, as far as I can tell no
-    " point changing the background of the text alone
-    hi Normal ctermbg=NONE
 endif
 
 " string like todos
