@@ -543,7 +543,7 @@ autocmd FileType c,cpp setlocal expandtab ts=2 sts=2 sw=2
 " Python style guide recommends 79 characters, not 80.
 autocmd FileType python set colorcolumn=79 textwidth=79
 autocmd Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
-autocmd Filetype latex,tex,plaintex call LatexMappings()
+autocmd Filetype latex,tex,plaintex call LatexSettings()
 autocmd Filetype matlab call MatlabSettings()
 
 
