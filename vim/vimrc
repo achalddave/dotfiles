@@ -180,8 +180,10 @@ function! s:AddCodefmtEqualMapping() abort
     vnoremap <buffer> = :FormatLines<CR>
 endfunction
 
-autocmd FileType python,c,cpp,proto,javascript call s:AddCodefmtEqualMapping()
-autocmd FileType python let b:codefmt_formatter = 'yapf'
+augroup codefmt_options
+    autocmd FileType python,c,cpp,proto,javascript call s:AddCodefmtEqualMapping()
+    autocmd FileType python let b:codefmt_formatter = 'yapf'
+augroup end
 
 " vimtex
 if system("uname") =~ "Darwin"
@@ -194,7 +196,6 @@ function! VimtexMappingUpdates()
     silent! unmap <buffer> {
     silent! unmap <buffer> }
 endfunction
-au Filetype latex,tex,plaintex call VimtexMappingUpdates()
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-b>"
@@ -603,4 +604,6 @@ function! LatexSettings()
         endif
     endif
     let g:surround_36 = "$\r$"
+
+    VimtexMappingUpdates()
 endfunction
