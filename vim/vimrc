@@ -455,10 +455,6 @@ set vb t_vb=
 set nu
 
 if has("autocmd")
-    au BufRead,BufNewFile *.md set formatoptions+=t filetype=pandoc
-    " Without "_" in iskeyword, highlighting of source code in markdown files
-    " has lots of ugly red 'error' highlights.
-    au BufRead,BufNewFile *.md setlocal iskeyword+=_
 end
 
 " Show as much as possible of last line on screen instead of `@'
@@ -534,20 +530,22 @@ set encoding=utf-8
 
 " Filetype specific                                                           {
 
-au Filetype latex,tex,plaintex call LatexMappings()
-au Filetype matlab call MatlabSettings()
-au BufRead,BufNewFile *.ejs set filetype=html
-au BufRead,BufNewFile *.xaml set filetype=xml
-au BufRead,BufNewFile *.cfg set filetype=python
-
-" tabs to spaces; 4 col tabs
-au FileType bibtex,python setlocal expandtab ts=4 sts=4 sw=4
-au FileType c,cpp setlocal expandtab ts=2 sts=2 sw=2
-au Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
-
 autocmd BufEnter *.prototxt set syntax=yaml
+autocmd BufRead,BufNewFile *.cfg set filetype=python
+autocmd BufRead,BufNewFile *.ejs set filetype=html
+autocmd BufRead,BufNewFile *.md set formatoptions+=t filetype=pandoc
+" Without "_" in iskeyword, highlighting of source code in markdown files
+" has lots of ugly red 'error' highlights.
+autocmd BufRead,BufNewFile *.md setlocal iskeyword+=_
+autocmd BufRead,BufNewFile *.xaml set filetype=xml
+autocmd FileType bibtex,python setlocal expandtab ts=4 sts=4 sw=4
+autocmd FileType c,cpp setlocal expandtab ts=2 sts=2 sw=2
 " Python style guide recommends 79 characters, not 80.
 autocmd FileType python set colorcolumn=79 textwidth=79
+autocmd Filetype html,css,javascript,ejs,xml,xbl,less call SetWebdevOptions()
+autocmd Filetype latex,tex,plaintex call LatexMappings()
+autocmd Filetype matlab call MatlabSettings()
+
 
 " Use LaTeX flavor
 let g:tex_flavor="latex"
