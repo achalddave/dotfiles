@@ -170,9 +170,6 @@ function! NewTabWithGitDir()
 endfunction
 nnoremap <leader>t :call NewTabWithGitDir() <CR>
 
-" MATLAB Files Edition
-autocmd BufEnter *.m    compiler mlint
-
 " Codefmt
 Glaive codefmt plugin[mappings]
 
@@ -550,10 +547,6 @@ set encoding=utf-8
 
 if has("autocmd")
     au Filetype latex,tex,plaintex call LatexMappings()
-    " Turn off indentexpr for LaTeX, as it is extremely frustrating.
-    " See, for example, the issue raised here (in 2008!)
-    " <http://sourceforge.net/p/vim-latex/mailman/message/19080857/>
-    au Filetype latex,tex,plaintex set indentexpr=
     au Filetype matlab call MatlabSettings()
     au BufRead,BufNewFile *.ejs set filetype=html
     au BufRead,BufNewFile *.xaml set filetype=xml
@@ -570,6 +563,7 @@ let g:tex_flavor="latex"
 " ================
 
 function! MatlabSettings()
+    let current_compiler='mlint'
     nnoremap <buffer> <LocalLeader>m :exec(":e " . expand("<cword>") . ".m")<CR>
 endfunction
 
@@ -578,6 +572,10 @@ function! LatexMappings()
     inoremap <buffer> fl \
     inoremap <buffer> fj {
     inoremap <buffer> fk }
+    " Turn off indentexpr for LaTeX, as it is extremely frustrating.
+    " See, for example, the issue raised here (in 2008!)
+    " <http://sourceforge.net/p/vim-latex/mailman/message/19080857/>
+    setlocal indentexpr=
 
     inoremap <buffer> fm \mathcal{
 
