@@ -50,7 +50,7 @@ function dark_highlight {
 }
 
 function light_colors {
-    CONFIG_LIGHT_COLORS=1
+    export CONFIG_LIGHT_COLORS=1
     if [[ "$CONFIG_256_COLORS" == 1 ]] ; then
         light_prompt_256
         light_highlight_256
@@ -61,7 +61,7 @@ function light_colors {
 }
 
 function dark_colors {
-    CONFIG_LIGHT_COLORS=0
+    export CONFIG_LIGHT_COLORS=0
     if [[ "$CONFIG_256_COLORS" == 1 ]] ; then
         dark_prompt_256
     else

@@ -563,7 +563,7 @@ let g:tex_flavor="latex"
 " ================
 
 function! MatlabSettings()
-    let current_compiler='mlint'
+    compiler mlint
     nnoremap <buffer> <LocalLeader>m :exec(":e " . expand("<cword>") . ".m")<CR>
 endfunction
 
