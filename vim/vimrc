@@ -350,7 +350,28 @@ noremap gw :s/\v(<\k*%#\k*>)(\_.{-})(<\k+>)/\3\2\1/<Return> :noh<Return>
 " Paste mode
 set pastetoggle=<F3>
 
-"                                                                             }
+" Skip over folds when using {/}
+" Courtesy http://superuser.com/a/1180075/173299
+function! s:SkipFold(direction) abort
+  let l:currentLine = line('.')
+  while foldclosed(l:currentLine) != -1
+    let l:currentLine = search('^$', (a:direction ? 'Wn' : 'Wnb'))
+    if l:currentLine == 0
+      if a:direction
+        call cursor(line('$'), strlen(getline(line('$'))))
+      else
+        call cursor(1, 1)
+      endif
+      break
+    endif
+    call cursor(l:currentLine, 0)
+  endwhile
+endfunction
+
+nnoremap <silent> } }:call <SID>SkipFold(1)<cr>
+nnoremap <silent> { {:call <SID>SkipFold(0)<cr>
+
+"                                                                           }}}
 
 " Commands                                                                  {{{
 " ========
