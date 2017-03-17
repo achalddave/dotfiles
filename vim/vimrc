@@ -1,17 +1,17 @@
-" Notes                                                                       {
-" vim: set foldmarker={,} foldmethod=marker:
+" Notes                                                                     {{{
+" vim: set foldmethod=marker:
 "
 " Folding method lifted from spf13.vim
 "
-" }
+" }}}
 
-" Tips                                                                        {
+" Tips                                                                      {{{
 " ====
 " * Overriding plugin mapping: use <buffer>
 "   (e.g. `:imap <buffer> <BS> <nop>` instead of `:imap <BS> <nop>`)
-"                                                                             }
+"                                                                           }}}
 
-" Basic                                                                       {
+" Basic                                                                     {{{
 " I just don't want to deal with moving this right now to a proper section
 set nocompatible
 let mapleader=","
@@ -19,10 +19,10 @@ let mapleader=","
 " Dotfiles can be anywhere, get correct location
 let vimroot=getcwd()
 
-"                                                                             }
+"                                                                           }}}
 let &rtp.=','.vimroot."/.vim"
 
-" vim-plug + Plugins                                                            {
+" vim-plug + Plugins                                                        {{{
 " ================
 call plug#begin(vimroot."/.vim/plugged")
 
@@ -90,9 +90,9 @@ Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 call glaive#Install() " Initialize Google plugins
 
-"                                                                             }
+"                                                                           }}}
 
-" Plugin Settings                                                             {
+" Plugin Settings                                                           {{{
 " ===============
 
 " Easy tagbar
@@ -250,9 +250,9 @@ nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
 " nnoremap <leader>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " nnoremap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-"                                                                             }
+"                                                                           }}}
 
-" Indentation                                                                 {
+" Indentation                                                               {{{
 " ===========
 
 set autoindent
@@ -280,9 +280,9 @@ endfunction
 set formatoptions+=ro " Automatically insert comment leader after <Enter>/o/O.
 set formatoptions-=t  " Don't auto wrap based on text width.
 
-"                                                                             }
+"                                                                           }}}
 
-" Mappings                                                                    {
+" Mappings                                                                  {{{
 " ========
 
 set timeoutlen=150
@@ -352,7 +352,7 @@ set pastetoggle=<F3>
 
 "                                                                             }
 
-" Commands                                                                    {
+" Commands                                                                  {{{
 " ========
 
 command! -range=% Strip :<line1>,<line2>s/\s\+$//g
@@ -367,9 +367,9 @@ endif
 
 command! -nargs=* Gitc call Gitv_OpenGitCommand(<q-args>, 'new')
 
-"                                                                             }
+"                                                                           }}}
 
-" Backup                                                                      {
+" Backup                                                                    {{{
 " ======
 
 set backup
@@ -392,9 +392,9 @@ endif
 execute "set backupdir=".mybackupdir
 execute "set directory=".myswpdir
 
-"                                                                             }
+"                                                                           }}}
 
-" Appearance                                                                  {
+" Appearance                                                                {{{
 " ==========
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -458,9 +458,9 @@ set nu
 " Show as much as possible of last line on screen instead of `@'
 set display=lastline
 
-"                                                                             }
+"                                                                           }}}
 
-" Other settings                                                              {
+" Other settings                                                            {{{
 " ==============
 
 " Use putty for SCP
@@ -527,9 +527,9 @@ set textwidth=80
 
 set encoding=utf-8
 
-"                                                                             }
+"                                                                           }}}
 
-" Filetype specific                                                           {
+" Filetype specific                                                         {{{
 
 augroup file_settings
     autocmd!
@@ -554,9 +554,9 @@ augroup end
 let g:tex_flavor="latex"
 
 
-"                                                                             }
+"                                                                           }}}
 
-" Helper functions                                                            {
+" Helper functions                                                          {{{
 " ================
 
 function! MatlabSettings()
