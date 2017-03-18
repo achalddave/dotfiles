@@ -444,6 +444,30 @@ if &t_Co >= 256 || has("gui_running")
     else
         set background=dark
     end
+    let g:PaperColor_Theme_Options = {
+      \   'language': {
+      \      'python': {
+      \        'highlight_builtins' : 1
+      \      },
+      \      'lua': {
+      \        'highlight_builtins' : 1
+      \      },
+      \      'matlab': {
+      \        'highlight_builtins' : 1
+      \      },
+      \      'cpp': {
+      \        'highlight_standard_library': 1
+      \      },
+      \      'c': {
+      \        'highlight_builtins' : 1
+      \      }
+      \   }
+      \ }
+    augroup colors
+        autocmd!
+        autocmd ColorScheme * hi! link diffAdded DiffAdd
+        autocmd ColorScheme * hi! link diffRemoved DiffDelete
+    augroup end
 else
     colorscheme slate
 endif
