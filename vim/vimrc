@@ -371,6 +371,13 @@ endfunction
 nnoremap <silent> } }:call <SID>SkipFold(1)<cr>
 nnoremap <silent> { {:call <SID>SkipFold(0)<cr>
 
+" Disable increment/decrement of numbers, which I've basically always done on
+" accident instead of on purpose.
+nnoremap <silent> <C-a> <Nop>
+vnoremap <silent> <C-a> <Nop>
+nnoremap <silent> <C-i> <Nop>
+vnoremap <silent> <C-i> <Nop>
+
 "                                                                           }}}
 
 " Commands                                                                  {{{
