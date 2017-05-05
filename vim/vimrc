@@ -440,7 +440,6 @@ set laststatus=2
 set ruler
 
 if &t_Co >= 256 || has("gui_running")
-    colorscheme PaperColor
     if $CONFIG_LIGHT_COLORS == '1'
         set background=light
         " The default normal color is not dark enough
@@ -474,7 +473,11 @@ if &t_Co >= 256 || has("gui_running")
         autocmd!
         autocmd ColorScheme * hi! link diffAdded DiffAdd
         autocmd ColorScheme * hi! link diffRemoved DiffDelete
+        autocmd ColorScheme * hi! link pythonBuiltin pythonStatement
+        autocmd ColorScheme * hi! link pythonException pythonStatement
+        " autocmd ColorScheme * hi! link pythonStatement pythonOperator
     augroup end
+    colorscheme PaperColor
 else
     colorscheme slate
 endif
@@ -491,10 +494,6 @@ if has("gui_running")
         set guifont=Consolas:h10
     endif
 endif
-
-" string like todos
-hi! Todo None
-hi! link Todo String
 
 " Echo the syntax group my cursor is over
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
