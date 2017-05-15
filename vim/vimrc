@@ -460,6 +460,7 @@ endif
 " always have status line
 set laststatus=2
 set ruler
+set fillchars=vert:\|,fold:\~
 
 if &t_Co >= 256 || has("gui_running")
     if $CONFIG_LIGHT_COLORS == '1'
