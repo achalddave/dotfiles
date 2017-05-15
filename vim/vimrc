@@ -634,7 +634,7 @@ function! MatlabSettings()
 endfunction
 
 function! LatexSettings()
-    let maplocalleader=","
+    let g:maplocalleader=","
     inoremap <buffer> fl \
     inoremap <buffer> fj {
     inoremap <buffer> fk }
@@ -649,15 +649,15 @@ function! LatexSettings()
     inoremap <buffer> } <nop>
     inoremap <buffer> \ <nop>
 
-    inoremap <buffer> <LocalLeader>tf \tfrac{
-    inoremap <buffer> <LocalLeader>f \frac{
-    inoremap <buffer> <LocalLeader>a \abs{}<Left>
-    inoremap <buffer> <LocalLeader>b \begin{}<CR>\end{}<Esc>k$i
-    inoremap <buffer> <LocalLeader>ba \begin{align*}<CR>\end{align*}<C-o>O
-    inoremap <buffer> <LocalLeader>be \begin{enumerate}<CR>\end{enumerate}<C-o>O
+    inoremap <buffer> <Leader>tf \tfrac{
+    inoremap <buffer> <Leader>f \frac{
+    inoremap <buffer> <Leader>a \abs{}<Left>
+    inoremap <buffer> <Leader>b \begin{}<CR>\end{}<Esc>k$i
+    inoremap <buffer> <Leader>ba \begin{align*}<CR>\end{align*}<C-o>O
+    inoremap <buffer> <Leader>be \begin{enumerate}<CR>\end{enumerate}<C-o>O
 
-    inoremap <buffer> <LocalLeader>l \left
-    inoremap <buffer> <LocalLeader>r \right
+    inoremap <buffer> <Leader>l \left
+    inoremap <buffer> <Leader>r \right
 
     " compile latex file, then run it (%:r = filename without .tex extensions)
     if has("win32")
@@ -674,5 +674,5 @@ function! LatexSettings()
     endif
     let g:surround_36 = "$\r$"
 
-    VimtexMappingUpdates()
+    call VimtexMappingUpdates()
 endfunction
