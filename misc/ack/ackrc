@@ -1,3 +1,4 @@
 # Colors
 --color-filename=bold green
 --color-match=bold red
+--color-lineno=green
