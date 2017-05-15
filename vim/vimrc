@@ -81,6 +81,7 @@ Plug 'JuliaLang/julia-vim'
 Plug 'briancollins/vim-jst'
 Plug 'rust-lang/rust.vim'
 Plug 'uarun/vim-protobuf'
+Plug 'tbastos/vim-lua'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
