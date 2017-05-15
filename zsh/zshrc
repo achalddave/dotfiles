@@ -72,13 +72,35 @@ bindkey -M vicmd 'k' history-beginning-search-backward-end
 bindkey -M vicmd 'j' history-beginning-search-forward-end
 
 # Show "[Normal]" vim mode indicator on the right side of the screen.
+
+LINE='\E]50;CursorShape=1\x7' # Line Cursor
+BAR='\E]50;CursorShape=2\x7' # Bar Cursor
+
+print-ins () {
+    if [ $TERM = screen-256color ]; then
+        print -n -- "\EPtmux;\E$LINE\E\\"
+    else
+        print -n -- $LINE
+    fi
+}
+
+print-cmd () {
+    if [ $TERM = screen-256color ]; then
+        print -n -- "\EPtmux;\E$BLOCK\E\\"
+    else
+        print -n -- $BLOCK
+    fi
+}
+
 function zle-line-init zle-keymap-select {
     SUFFIX="%{$fg[cyan]%}[Normal]%{$fg[reset]%}"
     if [[ "$KEYMAP" == 'vicmd' ]] ; then
         RPROMPT="${RPS1}${SUFFIX}"
+        print-cmd
     else
         # Remove suffix from end of line.
         RPS1=${RPS1%%${SUFFIX}}
+        print-ins
     fi
     zle reset-prompt
     zle -R
