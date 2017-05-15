@@ -339,8 +339,8 @@ nnoremap <leader>O O<Esc>
 
 
 " Use smooth scroll function from the plugin
-nnoremap <silent> <C-d> :call SmoothScroll("d", 2, 2)<CR>
-nnoremap <silent> <C-u> :call SmoothScroll("u", 2, 2)<CR>
+nnoremap <silent> <C-d> 10j
+nnoremap <silent> <C-u> 10k
 
 " toggle highlighting
 nnoremap <silent> <space> :noh<CR><space>
