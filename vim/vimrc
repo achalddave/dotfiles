@@ -397,8 +397,8 @@ nnoremap <silent> { {:call <SID>SkipFold(0)<cr>
 " accident instead of on purpose.
 nnoremap <silent> <C-a> <Nop>
 vnoremap <silent> <C-a> <Nop>
-nnoremap <silent> <C-i> <Nop>
-vnoremap <silent> <C-i> <Nop>
+nnoremap <silent> <C-x> <Nop>
+vnoremap <silent> <C-x> <Nop>
 
 "                                                                           }}}
 
