@@ -240,6 +240,9 @@ let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python"]
 
 " incsearch / vim-search-pulse / vim-asterisk
 let g:vim_search_pulse_disable_auto_mappings = 1
+" Pulse the pattern. Temporarily enabling this (instead of pulsing the line) due
+" to <https://github.com/inside/vim-search-pulse/issues/19>.
+let g:vim_search_pulse_mode = 'pattern'
 nmap n n<Plug>Pulse
 nmap N N<Plug>Pulse
 
