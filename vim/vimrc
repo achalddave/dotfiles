@@ -32,7 +32,7 @@ Plug 'google/maktaba' " Required for Google plugins
 Plug 'google/glaive' " Required for Google plugins
 
 Plug 'lervag/vimtex'
-Plug 'Tab-Name'
+Plug 'vim-scripts/Tab-Name'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
