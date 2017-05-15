@@ -74,7 +74,7 @@ bindkey -M vicmd 'j' history-beginning-search-forward-end
 # Show "[Normal]" vim mode indicator on the right side of the screen.
 
 LINE='\E]50;CursorShape=1\x7' # Line Cursor
-BAR='\E]50;CursorShape=2\x7' # Bar Cursor
+BLOCK='\E]50;CursorShape=0\x7' # Block Cursor
 
 print-ins () {
     if [ $TERM = screen-256color ]; then
