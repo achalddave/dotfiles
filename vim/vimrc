@@ -468,7 +468,7 @@ if &t_Co >= 256 || has("gui_running")
         " The default normal color is not dark enough
         augroup colors_light
             autocmd!
-            autocmd Colorscheme hi Normal ctermfg=black
+            autocmd Colorscheme * hi Normal ctermfg=black
         augroup end
     else
         set background=dark
@@ -494,6 +494,7 @@ if &t_Co >= 256 || has("gui_running")
       \ }
     augroup colors
         autocmd!
+        autocmd Colorscheme * hi! Folded ctermfg=12 ctermbg=236
         autocmd ColorScheme * hi! link diffAdded DiffAdd
         autocmd ColorScheme * hi! link diffRemoved DiffDelete
         autocmd ColorScheme * hi! link pythonBuiltin pythonStatement
