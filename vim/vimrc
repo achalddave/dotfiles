@@ -461,7 +461,7 @@ if &t_Co >= 256 || has("gui_running")
     if $CONFIG_LIGHT_COLORS == '1'
         set background=light
         " The default normal color is not dark enough
-        augroup custom_colorscheme
+        augroup colors_light
             autocmd!
             autocmd Colorscheme hi Normal ctermfg=black
         augroup end
