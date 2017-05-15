@@ -15,6 +15,7 @@
 " I just don't want to deal with moving this right now to a proper section
 set nocompatible
 let mapleader=","
+let maplocalleader=","
 
 " Dotfiles can be anywhere, get correct location
 let vimroot=getcwd()
