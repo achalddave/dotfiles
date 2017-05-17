@@ -32,7 +32,6 @@ Plug 'xolox/vim-misc' " Required for vim-session
 Plug 'google/maktaba' " Required for Google plugins
 Plug 'google/glaive' " Required for Google plugins
 
-Plug 'lervag/vimtex'
 Plug 'vim-scripts/Tab-Name'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
@@ -69,6 +68,7 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'inside/vim-search-pulse'
 
 " language specific
+Plug 'lervag/vimtex'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/mips.vim'
 Plug 'othree/html5.vim'
