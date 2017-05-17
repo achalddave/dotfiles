@@ -1,7 +1,19 @@
 # vim: set syntax=zsh:
 
+function get_gpus() {
+    if [ -n "${CUDA_VISIBLE_DEVICES+x}" ]  && \
+            [[ "${#CUDA_VISIBLE_DEVICES}" > 0 ]] ; then
+        out=" | [GPU"
+        if [[ "${#CUDA_VISIBLE_DEVICES}" > 1 ]] ; then
+            out="${out}S"
+        fi
+        out="${out} ${CUDA_VISIBLE_DEVICES:gs/,/ }]"
+        echo $out
+    fi
+}
+
 function light_prompt_256 {
-    PROMPT=$'%{$FG[245]%}%* | %m'$'\n''%{$FG[232]%}%~%{$FG[028]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+    PROMPT=$'%{$FG[245]%}%* | %m$(get_gpus)'$'\n''%{$FG[232]%}%~%{$FG[028]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 }
 
 function light_prompt {
@@ -38,11 +50,12 @@ function light_highlight_256 {
 }
 
 function dark_prompt_256 {
-    PROMPT=$'%{$FG[243]%}%* | %m'$'\n''%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+    PROMPT=$'%{$FG[243]%}%* | %m$(get_gpus)'$'\n''%{$FG[255]%}%~%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 }
 
 function dark_prompt {
-    PROMPT='%{$fg_bold[black]%}%m%{$fg_bold[white]%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
+    gpus=`get_gpus`
+    PROMPT='%{$fg_bold[black]%} | %m$(get_gpus)'$'\n''%{$fg_bold[white]%}:%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
 }
 
 function dark_highlight_256 {
