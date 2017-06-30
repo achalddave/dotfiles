@@ -489,16 +489,25 @@ endif
 " always have status line
 set laststatus=2
 set ruler
+
 set fillchars=vert:\|,fold:\~
 
 if &t_Co >= 256 || has("gui_running")
+    function! ColorschemeChange()
+        let s:is_dark=(&background == 'dark')
+        if s:is_dark
+            augroup custom_colors_light_dark
+                autocmd!
+            augroup end
+            " The default normal text color is not dark enough
+            augroup custom_colors_light_dark
+                autocmd!
+                autocmd Colorscheme * hi Normal ctermfg=black
+            augroup end
+        endif
+    endfunction
     if $CONFIG_LIGHT_COLORS == '1'
         set background=light
-        " The default normal color is not dark enough
-        augroup colors_light
-            autocmd!
-            autocmd Colorscheme * hi Normal ctermfg=black
-        augroup end
     else
         set background=dark
     end
@@ -529,6 +538,7 @@ if &t_Co >= 256 || has("gui_running")
         autocmd ColorScheme * hi! link pythonBuiltin pythonStatement
         autocmd ColorScheme * hi! link pythonException pythonStatement
         " autocmd ColorScheme * hi! link pythonStatement pythonOperator
+        autocmd ColorScheme * call ColorschemeChange()
     augroup end
     colorscheme PaperColor
 else
