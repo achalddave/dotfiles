@@ -643,13 +643,13 @@ set encoding=utf-8
 
 set grepprg=ack\ -k
 
-" Open quick fix window if there are things in it.
+" Open quick fix window after grep
 augroup quickfix_open
     autocmd!
-    autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost l*    lwindow
+    autocmd QuickFixCmdPost grep cwindow
 augroup END
-"                                                                           }}}
+
+"                                                                          }}}
 
 " Filetype specific                                                         {{{
 
