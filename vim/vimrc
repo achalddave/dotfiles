@@ -66,6 +66,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'inside/vim-search-pulse'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " language specific
 Plug 'lervag/vimtex'
@@ -271,6 +273,33 @@ nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
 " nnoremap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 " nnoremap <leader>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " nnoremap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" vim-airline
+let g:airline_theme='dark'
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline_section_y=''  " Don't show file format (e.g. utf-8[unix])
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.maxlinenr=''
+
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+    if g:airline_theme != 'dark'
+        return
+    endif
+    if &background == 'dark'
+        let s:IA = [ '' , '' , 250, 237, '' ]
+    else
+        let s:IA = [ '' , '' , 238, 252, '' ]
+    endif
+    for colors in values(a:palette.inactive)
+        let colors[2] = s:IA[2]
+        let colors[3] = s:IA[3]
+    endfor
+    let a:palette.inactive_modified['airline_c'] = s:IA
+endfunction
+
 
 "                                                                           }}}
 
