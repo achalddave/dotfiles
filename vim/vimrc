@@ -61,11 +61,11 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 Plug 'achalddave/guifontpp.vim', { 'on': [] } " Only load if gui running
-Plug 'scrooloose/syntastic'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'inside/vim-search-pulse'
+Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -223,19 +223,13 @@ let g:UltiSnipsExpandTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0 " Don't auto open/close location list
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs=0
-let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": [] }
-let g:syntastic_lua_checkers = [ "luacheck" ]
-let g:syntastic_matlab_checkers = [ "mlint" ]
-nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
+" Neomake
+let g:neomake_matlab_mlint_maker = {}
+let g:neomake_matlab_enabled_makers = [ "mlint" ]
+augroup neomake_options
+    autocmd!
+    autocmd! BufWritePost * Neomake
+augroup end
 
 " Pandoc
 let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python"]
