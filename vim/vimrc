@@ -499,6 +499,7 @@ if &t_Co >= 256 || has("gui_running")
             augroup custom_colors_light_dark
                 autocmd!
             augroup end
+        else
             " The default normal text color is not dark enough
             augroup custom_colors_light_dark
                 autocmd!
