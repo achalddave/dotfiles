@@ -221,6 +221,8 @@ let g:ycm_semantic_triggers.tex = [
     \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
     \ 're!\\[A-Za-z]*',
     \ ]
+" <F8> prints the type of the identifier under the cursor.
+nnoremap <silent> <F8> :YcmCompleter GetType<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-b>"
