@@ -167,12 +167,16 @@ endfunction
 "   https://github.com/tpope/vim-fugitive/pull/42
 "   https://github.com/tpope/vim-fugitive/issues/832
 function! NewTabWithGitDir()
-    let l:old_tab_git_dir = b:git_dir
+    if !exists('b:git_dir')
+        let l:old_tab_git_dir = b:git_dir
+    endif
     tabnew
-    let b:git_dir = l:old_tab_git_dir
-    call fugitive#detect(getcwd())
+    if exists('l:old_tab_git_dir')
+        let b:git_dir = l:old_tab_git_dir
+        call fugitive#detect(getcwd())
+    endif
 endfunction
-nnoremap <leader>t :call NewTabWithGitDir() <CR>
+nnoremap <silent> <leader>t :call NewTabWithGitDir() <CR>
 
 " Codefmt
 Glaive codefmt plugin[mappings]
