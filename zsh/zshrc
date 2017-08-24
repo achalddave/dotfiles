@@ -14,6 +14,9 @@ compinit
 # Helper for working with json
 source scripts/pyjson.zsh
 
+# For colors
+source scripts/spectrum.zsh
+
 # turn on correction
 setopt correctall
 
