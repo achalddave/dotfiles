@@ -316,7 +316,7 @@ function up() {
 
 # Usage:
 #   echo -n "1\n2" | sum
-sum() {
+function sum() {
     paste -sd+ - | bc
 }
 
