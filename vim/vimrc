@@ -611,6 +611,8 @@ set incsearch
 
 set history=1000
 
+set modeline
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
