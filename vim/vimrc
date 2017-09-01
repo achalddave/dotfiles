@@ -498,12 +498,14 @@ if &t_Co >= 256 || has("gui_running")
         if s:is_dark
             augroup custom_colors_light_dark
                 autocmd!
+                autocmd Colorscheme * hi! Folded ctermfg=12 ctermbg=236
             augroup end
         else
             " The default normal text color is not dark enough
             augroup custom_colors_light_dark
                 autocmd!
                 autocmd Colorscheme * hi Normal ctermfg=black
+                autocmd Colorscheme * hi! Folded ctermfg=4 ctermbg=250
             augroup end
         endif
     endfunction
@@ -533,7 +535,6 @@ if &t_Co >= 256 || has("gui_running")
       \ }
     augroup colors
         autocmd!
-        autocmd Colorscheme * hi! Folded ctermfg=12 ctermbg=236
         autocmd ColorScheme * hi! link diffAdded DiffAdd
         autocmd ColorScheme * hi! link diffRemoved DiffDelete
         autocmd ColorScheme * hi! link pythonBuiltin pythonStatement
