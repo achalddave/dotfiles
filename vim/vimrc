@@ -662,7 +662,11 @@ augroup quickfix_open
     autocmd QuickFixCmdPost grep cwindow
 augroup END
 
-"                                                                          }}}
+if has("nvim")
+    set inccommand=split
+endif
+
+"                                                                           }}}
 
 " Filetype specific                                                         {{{
 
