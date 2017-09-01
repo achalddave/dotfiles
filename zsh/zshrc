@@ -320,6 +320,15 @@ function sum() {
     paste -sd+ - | bc
 }
 
+function cd() {
+    # If first argument is a file, cd to the directory containing the file.
+    if [[ -a "$1" ]] && [[ ! -d "$1" ]] ; then
+        builtin cd $(dirname $1) ${@:2}
+    else
+        builtin cd $@
+    fi
+}
+
 # Load zgen.
 # This needs to be done at the end of the zshrc: some plugins (e.g.
 # zsh-syntax-highlighting) need to be sourced after all 'custom widgets have
