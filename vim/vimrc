@@ -68,6 +68,7 @@ Plug 'inside/vim-search-pulse'
 Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Konfekt/FastFold'
 
 " language specific
 Plug 'lervag/vimtex'
@@ -84,6 +85,7 @@ Plug 'briancollins/vim-jst'
 Plug 'rust-lang/rust.vim'
 Plug 'uarun/vim-protobuf'
 Plug 'tbastos/vim-lua'
+Plug 'tmhedberg/SimpylFold'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
