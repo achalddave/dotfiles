@@ -296,16 +296,22 @@ function swap() {
 
 # Go up k times
 function up() {
-    if [[ "$#" -lt 1 ]] ; then
+    if [[ "$#" > 1 ]] ; then
         echo "Usage: up [num_directories]"
         return 1
     fi
+    num_up=1
+    if [[ "$#" == 1 ]] ; then
+        num_up="$1"
+    fi
     # We could cd .. multiple times, but this pollutes the directory stack.
     dir_path=''
-    for i in $(seq $1) ; do
+    for i in $(seq ${num_up}) ; do
         dir_path="../${dir_path}"
     done
-    cd $dir_path
+    command="cd $dir_path"
+    echo ${command}
+    eval ${command}
 }
 
 # Usage:
