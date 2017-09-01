@@ -20,11 +20,14 @@ source scripts/spectrum.zsh
 # turn on correction
 setopt correctall
 
-# Git file completion is super slow; this should fix it
-# http://stackoverflow.com/questions/9810327/
-__git_files () {
-    _wanted files expl 'local files' _files
-}
+if [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
+   [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]] ; then
+    # Git file completion is super slow on Windows; this should fix it
+    # http://stackoverflow.com/questions/9810327/
+    __git_files () {
+        _wanted files expl 'local files' _files
+    }
+fi
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' max-errors 3
