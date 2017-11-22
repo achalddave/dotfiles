@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import argparse
 import json
 import inspect
@@ -12,8 +14,8 @@ def load_json(json_file):
 
 if __name__ == '__main__':
     data = load_json(args.json_file)
-    print '\n'
-    print inspect.getsource(load_json)
-    print '\n###'
-    print 'Loaded JSON in variable `data`.'
-    print '###'
+    print('\n')
+    print(inspect.getsource(load_json))
+    print('\n###')
+    print('Loaded JSON in variable `data`.')
+    print('###')
