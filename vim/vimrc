@@ -209,6 +209,7 @@ function! VimtexMappingUpdates()
     silent! unmap <buffer> }
 endfunction
 
+" YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
