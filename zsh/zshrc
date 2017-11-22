@@ -62,7 +62,7 @@ bindkey -M vicmd ';' execute-named-cmd
 
 
 # Save command to history, start new prompt with current command
-function add-to-history() { print -S $BUFFER }
+function add-to-history() { print -s -r -- "${PREBUFFER}${BUFFER}" ; }
 zle -N add-to-history
 bindkey '^x' add-to-history
 
