@@ -282,7 +282,12 @@ nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
 " vim-airline
 let g:airline_theme='dark'
 let g:airline#extensions#bufferline#enabled = 1
+let g:airline_section_a='%{airline#util#append(airline#parts#crypt(),0)}%{airline#util#append(airline#parts#paste(),0)}%{airline#util#append(airline#extensions#keymap#status(),0)}%{airline#util#append(airline#parts#spell(),0)}%{airline#util#append("",0)}%{airline#util#append("",0)}%{airline#util#append(airline#parts#iminsert(),0)}'
+let g:airline_section_b= '' " Don't show the branch name.
+" Don't show file type
+let g:airline_section_x='%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}'
 let g:airline_section_y=''  " Don't show file format (e.g. utf-8[unix])
+let g:airline_section_z=''  " Don't show line number, percentage, etc.
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -304,6 +309,17 @@ function! AirlineThemePatch(palette)
     endfor
     let a:palette.inactive_modified['airline_c'] = s:IA
 endfunction
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#close_symbol = '×'
+let g:airline#extensions#tabline#show_close_button = 0
 
 autocmd FileType python BracelessEnable +indent
 
