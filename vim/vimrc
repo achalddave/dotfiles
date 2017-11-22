@@ -680,7 +680,7 @@ augroup quickfix_open
 augroup END
 
 if has("nvim")
-    set inccommand=split
+    set inccommand=nosplit
 endif
 
 "                                                                           }}}
