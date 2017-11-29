@@ -59,7 +59,7 @@ What changed:\n============='
     tool = vimdiff
 
 [push]
-    default = current
+    default = upstream
 
 [github]
     user = achalddave
