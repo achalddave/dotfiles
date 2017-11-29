@@ -241,6 +241,7 @@ augroup neomake_options
     autocmd!
     autocmd! BufWritePost * Neomake
 augroup end
+nnoremap <F7> :Neomake<CR>
 
 " Pandoc
 let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh", "python"]
