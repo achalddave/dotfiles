@@ -171,7 +171,7 @@ endfunction
 "   https://github.com/tpope/vim-fugitive/pull/42
 "   https://github.com/tpope/vim-fugitive/issues/832
 function! NewTabWithGitDir()
-    if !exists('b:git_dir')
+    if exists('b:git_dir')
         let l:old_tab_git_dir = b:git_dir
     endif
     tabnew
