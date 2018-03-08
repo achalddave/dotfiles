@@ -233,6 +233,10 @@ let g:ycm_semantic_triggers.tex = [
     \ ]
 " <F8> prints the type of the identifier under the cursor.
 nnoremap <silent> <F8> :YcmCompleter GetType<CR>
+augroup youcompleteme_options
+    autocmd!
+    autocmd FileType python nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+augroup end
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-b>"
