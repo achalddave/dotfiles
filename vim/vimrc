@@ -246,6 +246,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Neomake
 let g:neomake_matlab_mlint_maker = {}
 let g:neomake_matlab_enabled_makers = [ "mlint" ]
+let g:neomake_python_enabled_makers = ['python', 'frosted', 'pep8', 'flake8']
 augroup neomake_options
     autocmd!
     autocmd! BufWritePost * Neomake
