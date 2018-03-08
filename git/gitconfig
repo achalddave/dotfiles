@@ -5,6 +5,9 @@
 [color]
     ui = auto
 
+[color "status"]
+    untracked = 245  # gray color
+
 [alias]
     # lazy
     br  = branch
