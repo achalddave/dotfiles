@@ -148,11 +148,15 @@ let g:Gitv_OpenPreviewOnLaunch=1
 
 " Fugitive
 " View staged changes.
-function! GitDiffStaged()
+function! GitDiffStaged(new_tab)
+    if a:new_tab
+        call NewTabWithGitDir()
+    endif
     Git! diff --staged
     set foldmethod=syntax
 endfunction
-command! Greview call GitDiffStaged()
+" Open a new tab if command is run with a bang.
+command! -bang Greview call GitDiffStaged(<bang>0)
 
 function! DetectForEmptyBuffer()
   if expand('<amatch>') == '' && (!exists('b:git_detected_for_cwd') || b:git_detected_for_cwd !=# getcwd())
