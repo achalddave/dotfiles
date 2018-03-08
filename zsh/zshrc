@@ -179,14 +179,9 @@ function sa () {
     ssh-add
 }
 
-function sockd () {
-    echo $SSH_AUTH_SOCK > "/tmp/achal-ssh-sock-$(date +%3N)"
-    echo $DISPLAY > "/tmp/achal-display-$(date +%3N)"
-}
-
-function socku () {
-    export SSH_AUTH_SOCK=$(cat $(/bin/ls -dt /tmp/achal-ssh-sock-* | head -1))
-    export DISPLAY=$(cat $(/bin/ls -dt /tmp/achal-display-* | head -1))
+function fixenv() {
+    eval $(tmux showenv -s DISPLAY)
+    eval $(tmux showenv -s SSH_AUTH_SOCK)
 }
 
 # directory laziness
