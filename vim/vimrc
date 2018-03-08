@@ -88,6 +88,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'tbastos/vim-lua'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tweekmonster/braceless.vim'
+Plug 'vim-python/python-syntax'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
