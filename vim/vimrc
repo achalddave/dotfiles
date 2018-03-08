@@ -333,6 +333,9 @@ let g:airline#extensions#tabline#show_close_button = 0
 
 autocmd FileType python BracelessEnable +indent
 
+" python-syntax
+let g:python_highlight_all=1
+
 "                                                                           }}}
 
 " Indentation                                                               {{{
@@ -570,7 +573,11 @@ if &t_Co >= 256 || has("gui_running")
         autocmd ColorScheme * hi! link diffAdded DiffAdd
         autocmd ColorScheme * hi! link diffRemoved DiffDelete
         autocmd ColorScheme * hi! link pythonBuiltin pythonStatement
+        autocmd ColorScheme * hi! link pythonBuiltinFunc pythonStatement
+        autocmd ColorScheme * hi! link pythonBuiltinObj pythonStatement
         autocmd ColorScheme * hi! link pythonException pythonStatement
+        autocmd ColorScheme * hi! link pythonBoolean pythonStatement
+        autocmd ColorScheme * hi! link pythonImport pythonInclude
         " autocmd ColorScheme * hi! link pythonStatement pythonOperator
         autocmd ColorScheme * call ColorschemeChange()
     augroup end
