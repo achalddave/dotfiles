@@ -253,6 +253,14 @@ augroup neomake_options
     autocmd!
     autocmd! BufWritePost * Neomake
 augroup end
+function! MyneomakeCleanFile()
+  let buf = bufnr('%')
+  call neomake#highlights#ResetFile(buf)
+  call neomake#signs#ResetFile(buf)
+  call neomake#signs#CleanOldSigns(buf, 'file')
+  call neomake#statusline#ResetCountsForBuf(buf)
+endfunction
+com! NeomakeCleanFile call MyneomakeCleanFile()
 nnoremap <F7> :Neomake<CR>
 
 " Pandoc
