@@ -343,6 +343,7 @@ if ! zgen saved; then
         zgen load robbyrussell/oh-my-zsh lib/spectrum.zsh
         zgen load robbyrussell/oh-my-zsh plugins/colored-man-pages/colored-man-pages.plugin.zsh
     fi
+    zgen load robbyrussell/oh-my-zsh plugins/shrink-path/shrink-path.plugin.zsh
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-autosuggestions
     zgen save
