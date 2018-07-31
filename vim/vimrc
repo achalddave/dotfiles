@@ -304,7 +304,6 @@ nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
 let g:airline_theme='dark'
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline_section_a='%{airline#util#append(airline#parts#crypt(),0)}%{airline#util#append(airline#parts#paste(),0)}%{airline#util#append(airline#extensions#keymap#status(),0)}%{airline#util#append(airline#parts#spell(),0)}%{airline#util#append("",0)}%{airline#util#append("",0)}%{airline#util#append(airline#parts#iminsert(),0)}'
-let g:airline_section_b= '' " Don't show the branch name.
 " Don't show file type
 let g:airline_section_x='%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}'
 let g:airline_section_y=''  " Don't show file format (e.g. utf-8[unix])
