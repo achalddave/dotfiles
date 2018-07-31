@@ -320,15 +320,30 @@ function! AirlineThemePatch(palette)
         return
     endif
     if &background == 'dark'
-        let s:IA = [ '' , '' , 250, 237, '' ]
+        let l:IP = [ '' , '' , 255, 242, '' ]
+        let l:AP = [ '' , '' , 238, 252, '' ]
     else
-        let s:IA = [ '' , '' , 238, 252, '' ]
+        let l:IP = [ '' , '' , 238, 248, '' ]
+        let l:AP = [ '' , '' , 252, 238, '' ]
     endif
     for colors in values(a:palette.inactive)
-        let colors[2] = s:IA[2]
-        let colors[3] = s:IA[3]
+        let colors[2] = l:IP[2]
+        let colors[3] = l:IP[3]
     endfor
-    let a:palette.inactive_modified['airline_c'] = s:IA
+    for colors in values(a:palette.inactive_modified)
+        let colors[2] = l:IP[2]
+        let colors[3] = l:IP[3]
+    endfor
+    let a:palette.tabline = {}
+    let a:palette.tabline.airline_tabfill = copy(a:palette.normal.airline_c)
+    if &background == 'dark'
+        let a:palette.tabline.airline_tabfill[3] = 234
+    else
+        let a:palette.tabline.airline_tabfill[3] = 255
+    end
+
+    let a:palette.normal.airline_c[2] = l:AP[2]
+    let a:palette.normal.airline_c[3] = l:AP[3]
 endfunction
 " Just show the filename (no path) in the tab
 let g:airline#extensions#tabline#enabled = 1
