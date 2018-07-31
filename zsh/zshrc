@@ -332,6 +332,18 @@ function msg() {
     figlet -w ${COLUMNS} ${msg} | less
 }
 
+if command -v bat >/dev/null ; then
+    BAT_PATH=$(which bat)
+    function bat() {
+        if [ -t 1 ] ; then
+            $BAT_PATH --color always --style full --paging never $* \
+                | less --tabs 4 -RF
+        else
+            $BAT_PATH $*
+        fi
+    }
+fi
+
 # Load zgen.
 # This needs to be done at the end of the zshrc: some plugins (e.g.
 # zsh-syntax-highlighting) need to be sourced after all 'custom widgets have
