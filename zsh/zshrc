@@ -327,6 +327,11 @@ function cd() {
     fi
 }
 
+function msg() {
+    msg=$(echo "$*" | sed -e 's/ /    /g')
+    figlet -w ${COLUMNS} ${msg} | less
+}
+
 # Load zgen.
 # This needs to be done at the end of the zshrc: some plugins (e.g.
 # zsh-syntax-highlighting) need to be sourced after all 'custom widgets have
