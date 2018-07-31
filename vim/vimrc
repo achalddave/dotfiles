@@ -91,6 +91,7 @@ Plug 'tbastos/vim-lua'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tweekmonster/braceless.vim'
 Plug 'vim-python/python-syntax'
+Plug 'lepture/vim-jinja'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
