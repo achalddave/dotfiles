@@ -722,7 +722,14 @@ set textwidth=80
 
 set encoding=utf-8
 
-set grepprg=ack\ -k
+if executable('ack')
+    if executable('fd')
+        set grepprg=fd\ -t\ f\ \\\|\ ack\ -H\ -x\ $*
+    else
+        set grepprg=ack\ -H
+    endif
+endif
+command! -nargs=+ Grep execute 'Gcd | silent grep! <args>' | copen
 
 " Open quick fix window after grep
 augroup quickfix_open
