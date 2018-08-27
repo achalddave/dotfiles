@@ -144,6 +144,7 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtCurLeft()': ['<left>', '<c-^>'],
             \ 'PrtBS()': ['<c-h>', '<BS>']
             \ }
+" Use Ctrl-g while in command mode to search in command history
 cnoremap <silent> <C-g> <C-c>:call ctrlp#init(ctrlp#commandline#id())<CR>
 
 " Gitv
