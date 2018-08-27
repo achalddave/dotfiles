@@ -144,6 +144,12 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtCurLeft()': ['<left>', '<c-^>'],
             \ 'PrtBS()': ['<c-h>', '<BS>']
             \ }
+
+" Use fd for Ctrl p if it exists.
+if executable('fd')
+    let g:ctrlp_user_command = 'fd --type f --hidden --exclude ".git" --follow "" %s'
+endif
+
 " Open the file in the current pane even if it's open in another pane.
 let g:ctrlp_switch_buffer=0
 
