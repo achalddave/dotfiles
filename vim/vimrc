@@ -144,6 +144,9 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtCurLeft()': ['<left>', '<c-^>'],
             \ 'PrtBS()': ['<c-h>', '<BS>']
             \ }
+" Open the file in the current pane even if it's open in another pane.
+let g:ctrlp_switch_buffer=0
+
 " Use Ctrl-g while in command mode to search in command history
 cnoremap <silent> <C-g> <C-c>:call ctrlp#init(ctrlp#commandline#id())<CR>
 
@@ -362,6 +365,10 @@ autocmd FileType python BracelessEnable +indent
 
 " python-syntax
 let g:python_highlight_all=1
+
+" BufExplorer
+" Open buffer in current pane even if it is open in another frame.
+let g:bufExplorerFindActive=0 " Do not go to active window.
 
 "                                                                           }}}
 
