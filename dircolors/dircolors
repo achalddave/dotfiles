@@ -1,3 +1,4 @@
+# # vim: ft=dircolors
 # Configuration file for the color ls utility
 # Synchronized with coreutils 8.5 dircolors
 # This file goes in the /etc directory, and must be world readable.
