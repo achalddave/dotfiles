@@ -571,7 +571,11 @@ if &t_Co >= 256 || has("gui_running")
     function! ColorschemeChange()
         let s:is_dark=(&background == 'dark')
         if s:is_dark
-            hi! Folded ctermfg=12 ctermbg=236
+            hi! Folded ctermfg=141 ctermbg=234
+            hi! DiffText ctermfg=0 ctermbg=45
+            hi! DiffChange ctermfg=45 ctermbg=234
+            hi! DiffAdd ctermfg=10 ctermbg=234
+            hi! DiffDelete ctermfg=1 ctermbg=234
         else
             " The default normal text color is not dark enough
             hi! Normal ctermfg=black
