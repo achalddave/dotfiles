@@ -11,6 +11,25 @@ CONFIG_LIGHT_COLORS=${CONFIG_LIGHT_COLORS:-0}
 autoload -Uz compinit
 compinit
 
+# Load zgen.
+export ZGEN_DIR="${zshrc_dir}/.zgen"
+if ! where zgen >/dev/null; then
+    # Temporary hack due to
+    # https://github.com/zsh-users/zsh-autosuggestions/pull/150
+    source zgen/zgen.zsh
+fi
+
+# If the init scipt doesn't exist, generate the init script.
+if ! zgen saved; then
+    if [ "$has_256" -eq 1 ] ; then
+        zgen load robbyrussell/oh-my-zsh lib/spectrum.zsh
+        zgen load robbyrussell/oh-my-zsh plugins/colored-man-pages/colored-man-pages.plugin.zsh
+    fi
+    zgen load robbyrussell/oh-my-zsh plugins/shrink-path/shrink-path.plugin.zsh
+    zgen load zsh-users/zsh-autosuggestions
+    # zgen save is run at the end of this file.
+fi
+
 # Helper for working with json
 source scripts/pyjson.zsh
 
@@ -374,27 +393,12 @@ if command -v fd >/dev/null ; then
     }
 fi
 
-# Load zgen.
-# This needs to be done at the end of the zshrc: some plugins (e.g.
-# zsh-syntax-highlighting) need to be sourced after all 'custom widgets have
-# been created (i.e., after all `zle -N` calls and after running `compinit`)'.
-# Strange things happen if you don't do this, such as
-# https://github.com/zsh-users/zsh-syntax-highlighting/issues/67
-export ZGEN_DIR="${zshrc_dir}/.zgen"
-if ! where zgen >/dev/null; then
-    # Temporary hack due to
-    # https://github.com/zsh-users/zsh-autosuggestions/pull/150
-    source zgen/zgen.zsh
-fi
-
-# If the init scipt doesn't exist, generate the init script.
-if ! zgen saved; then
-    if [ "$has_256" -eq 1 ] ; then
-        zgen load robbyrussell/oh-my-zsh lib/spectrum.zsh
-        zgen load robbyrussell/oh-my-zsh plugins/colored-man-pages/colored-man-pages.plugin.zsh
-    fi
-    zgen load robbyrussell/oh-my-zsh plugins/shrink-path/shrink-path.plugin.zsh
+if ! zgen saved ; then
+    # This needs to be done at the end of the zshrc: zsh-syntax-highlighting
+    # need to be sourced after all 'custom widgets have been created (i.e.,
+    # after all `zle -N` calls and after running `compinit`)'.
+    # Strange things happen if you don't do this, such as
+    # https://github.com/zsh-users/zsh-syntax-highlighting/issues/67
     zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-autosuggestions
     zgen save
 fi
