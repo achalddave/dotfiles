@@ -367,7 +367,7 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#close_symbol = '�'
+let g:airline#extensions#tabline#close_symbol = 'x'
 let g:airline#extensions#tabline#show_close_button = 0
 
 autocmd FileType python BracelessEnable +indent
@@ -588,8 +588,7 @@ function! CustomFoldText(delim)
   " indent foldtext corresponding to foldlevel
   let indent = repeat(' ',shiftwidth())
   let foldLevelStr = repeat(indent, v:foldlevel-1)
-  " TODO(achald): We use "▸ " at the beginning, so remove 2 spaces from the
-  " foldlevel
+  " We use "▸ " at the beginning, so remove 2 spaces from the foldlevel
   if strwidth(foldLevelStr) > 2
       let foldLevelStr = strpart(foldLevelStr, 2)
   end
