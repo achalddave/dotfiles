@@ -43,6 +43,8 @@ What changed:\n============='
     brlist = !sh -c '_git_branch_list.sh "$@"' -
     stashgrep = !sh -c '_git_stash_grep.sh "$@"' -
 
+    vimdiff = !vim -p -c 'tabdo Gdiff' $(git diff --name-only)
+
 [core]
     editor = vim
     attributesfile = ~/.gitattributes
