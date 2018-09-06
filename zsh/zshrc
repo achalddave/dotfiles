@@ -155,7 +155,7 @@ elif [[ `uname` == "Darwin" ]] || # Darwin with GNU ls
      [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
      [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
 then
-    alias ls='ls --color=always -p -v'
+    alias ls='ls --color=always -p'
 fi
 
 alias c='cd'
