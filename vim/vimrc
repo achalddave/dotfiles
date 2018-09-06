@@ -571,17 +571,11 @@ if &t_Co >= 256 || has("gui_running")
     function! ColorschemeChange()
         let s:is_dark=(&background == 'dark')
         if s:is_dark
-            augroup custom_colors_light_dark
-                autocmd!
-                autocmd Colorscheme * hi! Folded ctermfg=12 ctermbg=236
-            augroup end
+            hi! Folded ctermfg=12 ctermbg=236
         else
             " The default normal text color is not dark enough
-            augroup custom_colors_light_dark
-                autocmd!
-                autocmd Colorscheme * hi Normal ctermfg=black
-                autocmd Colorscheme * hi! Folded ctermfg=4 ctermbg=250
-            augroup end
+            hi! Normal ctermfg=black
+            hi! Folded ctermfg=4 ctermbg=250
         endif
     endfunction
     if $CONFIG_LIGHT_COLORS == '1'
