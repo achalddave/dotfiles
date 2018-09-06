@@ -572,6 +572,10 @@ set fillchars=vert:\|,fold:\
 
 " Modification of
 " https://github.com/Konfekt/FoldText/blob/9292a6a7d71cdf6b00d8870457b4f70f9e21abf7/plugin/FoldText.vim
+" NOTE: If the foldtext symbol (▸) does not render properly in the vimrc or in
+" the actual folds, you may need to re-write the vimrc with a utf-8 encoding
+" `:w++ enc=utf-8`. If that doesn't work, google for things like "utf-8 vim
+" characters not showing up" and good luck!
 function! CustomFoldText(delim)
   " Get first non-blank line
   let fs = v:foldstart
