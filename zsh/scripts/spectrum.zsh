@@ -25,3 +25,15 @@ function spectrum_ls() {
     print -P -- "$code: %F{$code}Test%f"
   done
 }
+
+# Show all 256 colors in background, with an optional specific foreground color
+function spectrum_ls_bg() {
+    if [[ "$#" == 1 ]] ; then
+        fg=$1
+    else
+        fg=000
+    fi
+    for code in {000..255}; do
+        print -P -- "$code: %F{$fg}%K{$code}Test%k%f"
+    done
+}
