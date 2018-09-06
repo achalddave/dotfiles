@@ -354,6 +354,11 @@ if command -v bat >/dev/null ; then
     }
 fi
 
+# FZF settings
+# Use ~~ as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='~~'
+
+
 # Load zgen.
 # This needs to be done at the end of the zshrc: some plugins (e.g.
 # zsh-syntax-highlighting) need to be sourced after all 'custom widgets have
