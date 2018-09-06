@@ -67,10 +67,15 @@ git submodule update
 cd - >/dev/null
 
 # Install vim-plug
-echo -n "Installing vim-plug..."
-curl --silent -fLo $root_dir/vim/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim >/dev/null
-if [ "$?" -eq 0 ] ; then echo " Done!" ; else echo " Failed..." ; fi
+if [[ ! -e $root_dir/vim/.vim/autoload/plug.vim ]] ; then
+    echo -n "Installing vim-plug..."
+    curl --silent -fLo $root_dir/vim/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+        >/dev/null
+    if [ "$?" -eq 0 ] ; then echo " Done!" ; else echo " Failed..." ; fi
+else
+    echo "vim-plug already installed."
+fi
 
 # Return to correct folder
 cd $olddir
