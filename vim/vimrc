@@ -5,6 +5,9 @@
 "
 " }}}
 
+set encoding=utf-8
+scriptencoding utf-8
+
 " Tips                                                                      {{{
 " ====
 " * Overriding plugin mapping: use <buffer>
@@ -393,7 +396,7 @@ set ts=4 sts=4 sw=4 expandtab
 
 " Highlight tabs instead of spaces
 set list
-set listchars=tab:>~,trail:�
+set listchars=tab:>~,trail:·
 
 function! SetWebdevOptions()
     " 2 space tabs
@@ -565,7 +568,57 @@ endif
 set laststatus=2
 set ruler
 
-set fillchars=vert:\|,fold:\~
+set fillchars=vert:\|,fold:\ 
+
+" Modification of
+" https://github.com/Konfekt/FoldText/blob/9292a6a7d71cdf6b00d8870457b4f70f9e21abf7/plugin/FoldText.vim
+function! CustomFoldText(delim)
+  " Get first non-blank line
+  let fs = v:foldstart
+  while getline(fs) =~ '^\s*$' 
+      let fs = nextnonblank(fs + 1)
+  endwhile
+
+  if fs > v:foldend
+      let line = getline(v:foldstart)
+  else
+      let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+
+  " indent foldtext corresponding to foldlevel
+  let indent = repeat(' ',shiftwidth())
+  let foldLevelStr = repeat(indent, v:foldlevel-1)
+  " TODO(achald): We use "▸ " at the beginning, so remove 2 spaces from the
+  " foldlevel
+  if strwidth(foldLevelStr) > 2
+      let foldLevelStr = strpart(foldLevelStr, 2)
+  end
+  let foldLineHead = "▸ " . substitute(line, '^\s*', foldLevelStr, '')
+
+  " size foldtext according to window width
+  let w = winwidth(0) - &foldcolumn - (&number ? &numberwidth : 0)
+  let foldSize = 1 + v:foldend - v:foldstart
+
+
+  " build up foldtext
+  let foldLineTail = " " . foldSize . " lines "
+  let lengthTail = strwidth(foldLineTail)
+  let lengthHead = w - (lengthTail + indent)
+
+  if strwidth(foldLineHead) > lengthHead
+    let foldLineHead = strpart(foldLineHead, 0, lengthHead-2) . '..'
+  endif
+
+  let lengthMiddle = w - strwidth(foldLineHead.foldLineTail)
+
+  " truncate foldtext according to window width
+  let expansionString = repeat(a:delim, lengthMiddle)
+
+  return foldLineHead . expansionString . foldLineTail
+endfunction
+
+set foldtext=CustomFoldText('\ ')  " Overrides fold char
+
 
 if &t_Co >= 256 || has("gui_running")
     function! ColorschemeChange()
@@ -723,8 +776,6 @@ set shiftround
 
 " Text width 80, not 79 (which is the default).
 set textwidth=80
-
-set encoding=utf-8
 
 if executable('ack')
     if executable('fd')
