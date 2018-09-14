@@ -384,14 +384,32 @@ if command -v fd >/dev/null ; then
     # - The first argument to the function ($1) is the base path to start traversal
     # - See the source code (completion.{bash,zsh}) for the details.
     _fzf_compgen_path() {
-        fd --hidden --follow --exclude ".git" . "$1"
+        FD_ARGS="--hidden --follow --exclude '.git' . $1"
+        if [ -n "${fd_depth}" ] ; then
+            FD_ARGS="--max-depth ${fd_depth} ${FD_ARGS}"
+        fi
+        fd ${=FD_ARGS}
     }
 
     # Use fd to generate the list for directory completion
     _fzf_compgen_dir() {
-        fd --type d --hidden --follow --exclude ".git" . "$1"
+        FD_ARGS="--type d --hidden --follow --exclude '.git' . $1"
+        if [ -n "${fd_depth}" ] ; then
+            FD_ARGS="--max-depth ${fd_depth} ${FD_ARGS}"
+        fi
+        fd ${=FD_ARGS}
     }
 fi
+
+# Use Ctrl-N to get a depth 1 completion.
+# TODO(achald): Overwrite the tab completion and use triggers to depth 1
+# completion. The problem is that fzf-completion does a lot of internal stuff I
+# don't want to copy here.
+fzf-completion-depth-1() {
+    eval "fd_depth=1 fzf-completion"
+}
+zle     -N   fzf-completion-depth-1
+bindkey '^N' fzf-completion-depth-1
 
 if ! zgen saved ; then
     # This needs to be done at the end of the zshrc: zsh-syntax-highlighting
