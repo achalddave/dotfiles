@@ -363,7 +363,7 @@ function msg() {
 #   echo "Need to rerun these models: foo/bar, foo/baz" > README_$(now).txt
 alias now="date +'%m-%d-%y_%H:%M:%S'"
 
-if command -v bat >/dev/null ; then
+if command -v bat >/dev/null 2>&1 ; then
     BAT_PATH=$(which bat)
     function bat() {
         if [ -t 1 ] ; then
