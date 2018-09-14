@@ -413,6 +413,10 @@ fzf-completion-depth-1() {
 zle     -N   fzf-completion-depth-1
 bindkey '^N' fzf-completion-depth-1
 
+# autosuggestions settings
+# Use ^K to accept autosuggestion
+bindkey '^k' autosuggest-accept
+
 if ! zgen saved ; then
     # This needs to be done at the end of the zshrc: zsh-syntax-highlighting
     # need to be sourced after all 'custom widgets have been created (i.e.,
