@@ -428,6 +428,32 @@ fzf-completion-depth-1() {
 zle     -N   fzf-completion-depth-1
 bindkey '^N' fzf-completion-depth-1
 
+
+# Create a preview window that shows multiline commands.
+# The sed commands are a magic incantation that I arrived at via trial and
+# error. It turns out you need *8* backslashes for escaping magic
+# to end up being able to replace a single backslash. I assume there is an
+# easier way to do this, but this worked...
+# The first sed command replaces "\\n" with a "\" and a new line, unless the
+# preceding character is a backslash. This is for multi-line zsh commands with
+# a backslash at the end. E.g.:
+#   python do.py \
+#       --args hello
+# which gets converted into "python do.py \\n--args hello" in the history.
+#
+# The second command replaces "\n" with a new line, unless the preceding
+# character is a backslash. This is for implicitly multi-line zsh commands:
+#   for i in {1..10} ; do
+#       echo ${i}
+#   done
+# which gets converted into "for i in {1..10} ; do\n echo ${i}\n done"
+export FZF_CTRL_R_OPTS="--preview 'echo -E {} \
+    | sed -r -e \"s/([^\])\\\\\\\\\\\\\\\\n/\1\\\\\\\\\n/g\" \
+    | sed -r -e \"s/([^\])\\\\\\\\n/\1\n/g\" \
+    | fold -w ${COLUMNS} -s \
+    | (pygmentize -l zsh || cat)' \
+    --preview-window bottom"
+
 # autosuggestions settings
 # Use ^F to accept autosuggestion, like in fish.
 bindkey '^f' autosuggest-accept
