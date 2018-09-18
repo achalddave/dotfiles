@@ -429,5 +429,5 @@ zle     -N   fzf-completion-depth-1
 bindkey '^N' fzf-completion-depth-1
 
 # autosuggestions settings
-# Use ^K to accept autosuggestion
-bindkey '^k' autosuggest-accept
+# Use ^F to accept autosuggestion, like in fish.
+bindkey '^f' autosuggest-accept
