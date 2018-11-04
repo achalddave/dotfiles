@@ -24,12 +24,15 @@
     # pretty git log
     lg  = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
+    # short, pretty git log
+    l = log -10 --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
     # Use absolute dates
     lgd  = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset'
 
     # view changes, body of commits
     lga = log --stat \
---pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n%b'
 
     # lga + notes
     lgan = whatchanged --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cr) %C(bold blue)<%an>%Creset\n\
