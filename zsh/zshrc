@@ -101,24 +101,6 @@ print-cmd () {
     fi
 }
 
-# Show "[Normal]" vim mode indicator on the right side of the screen.
-function zle-line-init zle-keymap-select {
-    SUFFIX="%{$fg[cyan]%}[Normal]%{$fg[reset]%}"
-    if [[ "$KEYMAP" == 'vicmd' ]] ; then
-        RPROMPT="${RPS1}${SUFFIX}"
-        print-cmd
-    else
-        # Remove suffix from end of line.
-        RPS1=${RPS1%%${SUFFIX}}
-        print-ins
-    fi
-    zle reset-prompt
-    zle -R
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-
 # history
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000000
@@ -201,19 +183,10 @@ alias mv='mv -i'
 # prompt and colors
 autoload -Uz vcs_info
 autoload -U colors && colors
-source colors
-
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats '(%b) '
 
 precmd() { vcs_info }
 
 setopt prompt_subst
-if [[ "$CONFIG_LIGHT_COLORS" == 1 ]] ; then
-    light_colors
-else
-    dark_colors
-fi
 
 if [[ "$TERM" == "screen" ]] ; then
     export TERM=screen-256color-bce
@@ -375,9 +348,11 @@ if ! zgen saved; then
     fi
     zgen load robbyrussell/oh-my-zsh plugins/shrink-path/shrink-path.plugin.zsh
     zgen load zsh-users/zsh-autosuggestions
+    zgen load denysdovhan/spaceship-prompt spaceship
     # zgen save is run at the end of this file.
 fi
 
+source prompt
 
 if ! zgen saved ; then
     # This needs to be done at the end of the zshrc: zsh-syntax-highlighting
@@ -426,7 +401,6 @@ fzf-completion-depth-1() {
 }
 zle     -N   fzf-completion-depth-1
 bindkey '^N' fzf-completion-depth-1
-
 
 # Create a preview window that shows multiline commands.
 # The sed commands are a magic incantation that I arrived at via trial and

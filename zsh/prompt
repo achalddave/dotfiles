@@ -1,0 +1,89 @@
+# vim: set syntax=zsh:
+
+function get_gpus() {
+    if [ -n "${CUDA_VISIBLE_DEVICES+x}" ]  && \
+            [[ "${#CUDA_VISIBLE_DEVICES}" > 0 ]] ; then
+        out="[gpu"
+        if [[ "${#CUDA_VISIBLE_DEVICES}" > 1 ]] ; then
+            out="${out}s"
+        fi
+        out="${out} ${CUDA_VISIBLE_DEVICES:gs/,/ }]"
+        echo $out
+    fi
+}
+
+SPACESHIP_GPU_SHOW="${SPACESHIP_GPU_SHOW=true}"
+SPACESHIP_GPU_PREFIX="${SPACESHIP_GPU_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_GPU_SUFFIX="${SPACESHIP_GPU_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_GPU_SYMBOL="${SPACESHIP_GPU_SYMBOL=""}"
+SPACESHIP_GPU_COLOR="${SPACESHIP_GPU_COLOR="white"}"
+function spaceship_gpu() {
+    [[ $SPACESHIP_GPU_SHOW == false ]] && return
+    gpus=$(get_gpus)
+    [[ -z "${gpus}" ]] && return
+    # Display foobar section
+    spaceship::section \
+        "$SPACESHIP_GPU_COLOR" \
+        "$SPACESHIP_GPU_PREFIX" \
+        "$SPACESHIP_GPU_SYMBOL${gpus}" \
+        "$SPACESHIP_GPU_SUFFIX"
+}
+
+
+# Spaceship customization
+SPACESHIP_PROMPT_ORDER=(
+  # time          # Time stamps section
+  # user          # Username section
+  dir           # Current directory section
+  # host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  # package       # Package version
+  # node          # Node.js section
+  # ruby          # Ruby section
+  # elixir        # Elixir section
+  # xcode         # Xcode section
+  # swift         # Swift section
+  # golang        # Go section
+  # php           # PHP section
+  # rust          # Rust section
+  # haskell       # Haskell Stack section
+  # julia         # Julia section
+  # docker        # Docker section
+  # aws           # Amazon Web Services section
+  # venv          # virtualenv section
+  conda         # conda virtualenv section
+  # pyenv         # Pyenv section
+  # dotnet        # .NET section
+  # ember         # Ember.js section
+  # kubecontext   # Kubectl context section
+  # exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  # vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+SPACESHIP_RPROMPT_ORDER=(host time gpu exec_time vi_mode)
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=""
+SPACESHIP_PROMPT_DEFAULT_PREFIX=' '
+SPACESHIP_PROMPT_DEFAULT_SUFFIX=' '
+SPACESHIP_PROMPT_ADD_NEWLINE='false'
+SPACESHIP_TIME_SHOW='true'
+SPACESHIP_TIME_PREFIX='| '
+SPACESHIP_TIME_COLOR='white'
+SPACESHIP_GIT_BRANCH_PREFIX='('
+SPACESHIP_GIT_BRANCH_SUFFIX=')'
+SPACESHIP_GIT_PREFIX=''
+SPACESHIP_GIT_SUFFIX=' '
+SPACESHIP_GIT_STATUS_SHOW='false'
+SPACESHIP_CONDA_PREFIX=''
+SPACESHIP_VI_MODE_INSERT=''
+SPACESHIP_DIR_TRUNC='0'
+SPACESHIP_DIR_TRUNC_PREFIX='…/'
+SPACESHIP_DIR_PREFIX='| '
+SPACESHIP_DIR_COLOR='248'
+SPACESHIP_CHAR_SYMBOL='>'
+SPACESHIP_CHAR_SUFFIX=' '
+SPACESHIP_GPU_PREFIX=''
