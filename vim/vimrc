@@ -785,14 +785,11 @@ set shiftround
 " Text width 80, not 79 (which is the default).
 set textwidth=80
 
-if executable('ack')
-    if executable('fd')
-        set grepprg=fd\ -t\ f\ \\\|\ ack\ -H\ -x\ $*
-    else
-        set grepprg=ack\ -H
-    endif
+if executable('rg')
+    set grepprg=rg\ -H\ --vimgrep
 endif
-command! -nargs=+ Grep execute 'Gcd | silent grep! <args>' | copen
+command! -nargs=+ Grep execute "Gcd | silent grep! <args>" | copen
+nnoremap  <leader>/ :Grep "\b<cword>\b"<CR>
 
 " Open quick fix window after grep
 augroup quickfix_open
