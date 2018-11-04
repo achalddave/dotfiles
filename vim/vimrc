@@ -530,6 +530,11 @@ command! -nargs=* Gitc call Gitv_OpenGitCommand(<q-args>, 'new')
 " ======
 
 set backup
+" Force backups to be copied, rather than renaming the active file to the
+" backup file. If backupcopy is no or auto, it seems to cause some issues with
+" NFS, where another terminal on a different machine may hold the handle to
+" the backup file instead of the updated file.
+set backupcopy=yes
 " Adding "//" at the end asks Vim to use the absolute path of the file to avoid
 " filename collisions.
 if has("win32")
