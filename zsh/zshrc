@@ -82,8 +82,6 @@ bindkey "[B" history-beginning-search-forward-end
 bindkey -M vicmd 'k' history-beginning-search-backward-end
 bindkey -M vicmd 'j' history-beginning-search-forward-end
 
-# Show "[Normal]" vim mode indicator on the right side of the screen.
-
 LINE='\E]50;CursorShape=1\x7' # Line Cursor
 BLOCK='\E]50;CursorShape=0\x7' # Block Cursor
 
@@ -103,6 +101,7 @@ print-cmd () {
     fi
 }
 
+# Show "[Normal]" vim mode indicator on the right side of the screen.
 function zle-line-init zle-keymap-select {
     SUFFIX="%{$fg[cyan]%}[Normal]%{$fg[reset]%}"
     if [[ "$KEYMAP" == 'vicmd' ]] ; then
