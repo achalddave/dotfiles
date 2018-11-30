@@ -48,13 +48,13 @@ zstyle ':completion:*' menu select=2
 function vi-cmd-mode-forward-fn { zle vi-cmd-mode ; zle vi-forward-char }
 zle -N vi-cmd-mode-forward vi-cmd-mode-forward-fn
 
-bindkey -v
+bindkey -e
 KEYTIMEOUT=15
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^E' edit-command-line
-bindkey -M viins 'kj' vi-cmd-mode-forward # See comment above vi-cmd-mode-forward-fn.
-bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M emacs 'kj' vi-cmd-mode-forward # See comment above vi-cmd-mode-forward-fn.
+bindkey -M emacs '^R' history-incremental-search-backward
 bindkey -M vicmd 'u' undo
 bindkey -M vicmd '^R' redo
 bindkey -M vicmd ':' vi-repeat-find
