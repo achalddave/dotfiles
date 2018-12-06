@@ -73,9 +73,13 @@ if [[ ! -e $root_dir/vim/.vim/autoload/plug.vim ]] ; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
         >/dev/null
     if [ "$?" -eq 0 ] ; then echo " Done!" ; else echo " Failed..." ; fi
+    vim +PlugInstall +qall
 else
     echo "vim-plug already installed."
 fi
+
+# Install tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Return to correct folder
 cd $olddir
