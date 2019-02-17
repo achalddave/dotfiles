@@ -428,5 +428,7 @@ export FZF_CTRL_R_OPTS="--preview 'echo -E {} \
     --preview-window bottom"
 
 # autosuggestions settings
-# Use ^F to accept autosuggestion, like in fish.
-bindkey '^f' autosuggest-accept
+# Use ^F to accept autosuggestion, like in fish. We could use
+# autosuggest-accept, but this moves the cursor to the end, which I usually
+# don't want.
+bindkey '^f' history-beginning-search-backward-end
