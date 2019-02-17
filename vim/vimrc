@@ -75,6 +75,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Konfekt/FastFold'
 Plug 'kopischke/vim-fetch'
+Plug 'Yggdroot/indentLine'
+Plug 'jremmen/vim-ripgrep'
 
 " language specific
 Plug 'lervag/vimtex'
