@@ -254,7 +254,9 @@ nnoremap <silent> <F8> :YcmCompleter GetType<CR>
 augroup youcompleteme_options
     autocmd!
     autocmd FileType python nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    autocmd FileType python nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 augroup end
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-b>"
