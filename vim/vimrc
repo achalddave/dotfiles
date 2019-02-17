@@ -63,8 +63,8 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',
-            \ {'do': './install.py',
-            \ 'for': ['zsh', 'python', 'sh', 'bash', 'c++', 'c', 'javascript']}
+            \ {'do': './install.py --clang-completer',
+            \ 'for': ['zsh', 'python', 'sh', 'bash', 'cpp', 'c', 'javascript']}
 Plug 'achalddave/guifontpp.vim', { 'on': [] } " Only load if gui running
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
