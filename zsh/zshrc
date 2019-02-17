@@ -427,6 +427,18 @@ export FZF_CTRL_R_OPTS="--preview 'echo -E {} \
     | (pygmentize -l zsh || cat)' \
     --preview-window bottom"
 
+# function _fzf_complete_ls() {
+#     i=0
+#     # $prefix and $trigger are set by the caller. $prefix is the path up to the
+#     # $trigger, and $trigger should be the FZF_COMPLETION_TRIGGER.
+#     echo ${prefix}
+#     echo ${trigger}
+#     for arg in "$@"; do
+#         echo "$i: $var"
+#         ((i++))
+#     done
+# }
+
 # autosuggestions settings
 # Use ^F to accept autosuggestion, like in fish. We could use
 # autosuggest-accept, but this moves the cursor to the end, which I usually
