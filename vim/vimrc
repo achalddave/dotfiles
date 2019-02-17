@@ -789,9 +789,6 @@ set shiftround
 " Text width 80, not 79 (which is the default).
 set textwidth=80
 
-if executable('rg')
-    set grepprg=rg\ -H\ --vimgrep
-endif
 command! -nargs=+ Grep execute "Gcd | silent grep! <args>" | copen
 nnoremap  <leader>/ :Grep "\b<cword>\b"<CR>
 
