@@ -13,7 +13,7 @@ function get_gpus() {
 }
 
 function light_prompt_256 {
-    PROMPT=$'%{$FG[245]%}%* | %m$(get_gpus)'$'\n''%{$FG[232]%}%$(shrink_path -T -t -l)%{$FG[028]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+    PROMPT=$'%{$FG[245]%}%* | %m$(get_gpus)'$'\n''%{$FG[232]%}%$(shrink_path -f)%{$FG[028]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 }
 
 function light_prompt {
@@ -50,12 +50,12 @@ function light_highlight_256 {
 }
 
 function dark_prompt_256 {
-    PROMPT=$'%{$FG[243]%}%* | %m$(get_gpus)'$'\n''%{$FG[255]%}$(shrink_path -T -l -t)%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
+    PROMPT=$'%{$FG[243]%}%* | %m$(get_gpus)'$'\n''%{$FG[255]%}$(shrink_path -f)%{$FG[155]%} ${vcs_info_msg_0_}%{$FG[196]%}~%{$reset_color%} '
 }
 
 function dark_prompt {
     gpus=`get_gpus`
-    PROMPT='%{$fg_bold[black]%} | %m$(get_gpus)'$'\n''%{$fg_bold[white]%}:$(shrink_path -T -l -t) %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
+    PROMPT='%{$fg_bold[black]%} | %m$(get_gpus)'$'\n''%{$fg_bold[white]%}:$(shrink_path -f) %{$fg[green]%}${vcs_info_msg_0_}%{$fg[red]%}~%{$fg_bold[white]%} '
 }
 
 function dark_highlight_256 {
