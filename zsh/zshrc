@@ -101,6 +101,18 @@ print-cmd () {
     fi
 }
 
+function zle-line-init zle-keymap-select {
+    if [[ "$KEYMAP" == 'vicmd' ]] ; then
+        print-cmd
+    else
+        print-ins
+    fi
+    zle reset-prompt
+    zle -R
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # history
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000000
