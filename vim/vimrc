@@ -794,7 +794,7 @@ set shiftround
 set textwidth=80
 
 command! -nargs=+ Grep execute "Gcd | silent grep! <args>" | copen
-nnoremap  <leader>/ :Grep "\b<cword>\b"<CR>
+nnoremap  <leader>/ :Rg '\b<cword>\b'<CR>
 
 if has("nvim")
     set inccommand=nosplit
