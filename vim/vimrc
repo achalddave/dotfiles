@@ -383,6 +383,10 @@ let g:python_highlight_all=1
 " Open buffer in current pane even if it is open in another frame.
 let g:bufExplorerFindActive=0 " Do not go to active window.
 
+" vim-ripgrep
+let g:rg_derive_root = 1
+let g:rg_window_location='bottom'
+
 "                                                                           }}}
 
 " Indentation                                                               {{{
