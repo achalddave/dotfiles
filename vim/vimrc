@@ -386,7 +386,7 @@ let g:bufExplorerFindActive=0 " Do not go to active window.
 
 " vim-ripgrep
 let g:rg_derive_root = 1
-let g:rg_window_location='bottom'
+let g:rg_window_location='bot'
 
 "                                                                           }}}
 
@@ -652,6 +652,7 @@ if &t_Co >= 256 || has("gui_running")
             hi! Folded ctermfg=4 ctermbg=250
         endif
     endfunction
+
     if $CONFIG_LIGHT_COLORS == '1'
         set background=light
     else
