@@ -695,6 +695,13 @@ else
     colorscheme slate
 endif
 
+augroup update_todo
+    au!
+    au Syntax * syn match todoLikeCustom contained "\<\(TODO\|FIXME\|NOTE\)"
+                \ containedin=.*Comment,vimCommentTitle
+augroup END
+hi def link todoLikeCustom Todo
+
 if has("gui_running")
     call plug#load('guifontpp')
 
