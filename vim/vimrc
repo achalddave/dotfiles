@@ -77,6 +77,7 @@ Plug 'Konfekt/FastFold'
 Plug 'kopischke/vim-fetch'
 Plug 'Yggdroot/indentLine'
 Plug 'jremmen/vim-ripgrep'
+Plug 'yssl/QFEnter'
 
 " language specific
 Plug 'lervag/vimtex'
