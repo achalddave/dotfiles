@@ -802,7 +802,7 @@ set shiftround
 " Text width 80, not 79 (which is the default).
 set textwidth=80
 
-command! -nargs=+ Grep execute "Gcd | silent grep! <args>" | copen
+command! -nargs=+ Grep execute "Gcd | silent grep! -r <args> *" | copen
 nnoremap  <leader>/ :Rg '\b<cword>\b'<CR>
 
 if has("nvim")
