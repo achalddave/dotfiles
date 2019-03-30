@@ -59,6 +59,10 @@ bindkey -M vicmd 'u' undo
 bindkey -M vicmd '^R' redo
 bindkey -M vicmd ':' vi-repeat-find
 bindkey -M vicmd ';' execute-named-cmd
+# I have yet to figure out how to exit from "search mode", which is activated by
+# / and ?, so it's safer just to unbind them, given I never use "search mode".
+bindkey -r -M vicmd '/'
+bindkey -r -M vicmd '?'
 
 
 # Save command to history, start new prompt with current command
