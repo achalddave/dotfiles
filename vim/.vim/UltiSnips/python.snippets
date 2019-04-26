@@ -18,6 +18,39 @@ parser.add_argument('--argument3',
 args = parser.parse_args()
 endsnippet
 
+
+snippet script "Script template" bm
+import argparse
+import logging
+from pathlib import Path
+
+from script_utils.common import common_setup
+
+
+def main():
+	# Use first line of file docstring as description if it exists.
+	parser = argparse.ArgumentParser(
+		description=__doc__.split('\n')[0] if __doc__ else '',
+		formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+	parser.add_argument('argument1')
+	parser.add_argument('argument2', help='Argument 2')
+	parser.add_argument('--argument3',
+						type=int,
+						default=50,
+						help='argument3',
+						required=True)
+	parser.add_argument('--output-dir',
+						type=Path,
+						required=True)
+
+	args = parser.parse_args()
+	common_setup(__file__, args.output_dir, args)
+
+
+if __name__ == "__main__":
+	main()
+endsnippet
+
 snippet logging "Logging" b
 logging.getLogger().setLevel(logging.INFO)
 logging.basicConfig(format='%(asctime)s.%(msecs).03d: %(message)s',
