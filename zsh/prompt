@@ -1,5 +1,7 @@
 # vim: set syntax=zsh:
 
+zshrc_dir="${0:a:h}"
+
 function get_gpus() {
     if [ -n "${CUDA_VISIBLE_DEVICES+x}" ]  && \
             [[ "${#CUDA_VISIBLE_DEVICES}" > 0 ]] ; then
@@ -16,7 +18,7 @@ SPACESHIP_GPU_SHOW="${SPACESHIP_GPU_SHOW=true}"
 SPACESHIP_GPU_PREFIX="${SPACESHIP_GPU_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_GPU_SUFFIX="${SPACESHIP_GPU_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_GPU_SYMBOL="${SPACESHIP_GPU_SYMBOL=""}"
-SPACESHIP_GPU_COLOR="${SPACESHIP_GPU_COLOR="white"}"
+SPACESHIP_GPU_COLOR="${SPACESHIP_GPU_COLOR="gray"}"
 function spaceship_gpu() {
     [[ $SPACESHIP_GPU_SHOW == false ]] && return
     gpus=$(get_gpus)
@@ -73,7 +75,7 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX=' '
 SPACESHIP_PROMPT_ADD_NEWLINE='false'
 SPACESHIP_TIME_SHOW='true'
 # SPACESHIP_TIME_PREFIX='| '
-SPACESHIP_TIME_COLOR='white'
+SPACESHIP_TIME_COLOR='gray'
 SPACESHIP_GIT_BRANCH_PREFIX='('
 SPACESHIP_GIT_BRANCH_SUFFIX=')'
 SPACESHIP_GIT_PREFIX=''
@@ -84,7 +86,20 @@ SPACESHIP_VI_MODE_INSERT=''
 SPACESHIP_DIR_TRUNC='0'
 SPACESHIP_DIR_TRUNC_PREFIX='…/'
 SPACESHIP_DIR_PREFIX='| '
-SPACESHIP_DIR_COLOR='248'
 SPACESHIP_CHAR_SYMBOL='>'
 SPACESHIP_CHAR_SUFFIX=' '
 SPACESHIP_GPU_PREFIX=''
+
+function light_colors {
+    export CONFIG_LIGHT_COLORS=1
+    export SPACESHIP_DIR_COLOR='8'
+    # Create .use_light_colors in current directory
+    touch ${zshrc_dir}/.use_light_colors
+}
+
+function dark_colors {
+    export CONFIG_LIGHT_COLORS=0
+    export SPACESHIP_DIR_COLOR='248'
+    # Remove .use_light_colors in current directory
+    rm ${zshrc_dir}/.use_light_colors 2>/dev/null
+}
