@@ -468,3 +468,11 @@ export FZF_CTRL_R_OPTS="--height 100% --preview 'echo -E {} \
 # autosuggest-accept, but this moves the cursor to the end, which I usually
 # don't want.
 bindkey '^f' history-beginning-search-backward-end
+# Gray; looks good for light and dark colorschemes
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+
+# I'm terrified of passing the wrong command to fc and wiping my history, so use
+# a helper function instead.
+function loadhist() {
+    fc -R
+}
