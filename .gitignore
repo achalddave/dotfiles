@@ -4,5 +4,6 @@
 /vim/.vim/plugged
 /vim/sessions/*
 local/*
+zsh/.use_light_colors
 
 !/vim/.vim/bundle/vundle
