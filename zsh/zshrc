@@ -444,12 +444,12 @@ bindkey '^N' fzf-completion-depth-1
 #       echo ${i}
 #   done
 # which gets converted into "for i in {1..10} ; do\n echo ${i}\n done"
-export FZF_CTRL_R_OPTS="--preview 'echo -E {} \
-    | sed -r -e \"s/([^\])\\\\\\\\\\\\\\\\n/\1\\\\\\\\\n/g\" \
+export FZF_CTRL_R_OPTS="--height 100% --preview 'echo -E {} \
+    | sed -r -e \"s/([^\])\\\\\\\\\\\\\\\n/\1\\\\\\\\\n/g\" \
     | sed -r -e \"s/([^\])\\\\\\\\n/\1\n/g\" \
-    | fold -w ${COLUMNS} -s \
+    | fold -w ${COLUMNS} \
     | (pygmentize -l zsh || cat)' \
-    --preview-window bottom"
+    --preview-window bottom:80%"
 
 # function _fzf_complete_ls() {
 #     i=0
