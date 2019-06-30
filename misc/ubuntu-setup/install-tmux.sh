@@ -26,9 +26,9 @@ echo "Downloading files"
 # The libevent URL was updated to not require an SSL handshake (and to use a
 # more recent version).
 
-# wget -O ${LIBEVENT_SCRATCH}/libevent-${LIBEVENT_VERSION}.tar.gz ${LIBEVENT_URL}
-# wget -O ${NCURSES_SCRATCH}/ncurses-${NCURSES_VERSION}.tar.gz ${NCURSES_URL}
-# wget -O ${TMUX_SCRATCH}/tmux-${TMUX_VERSION}.tar.gz ${TMUX_URL}
+wget -O ${LIBEVENT_SCRATCH}/libevent-${LIBEVENT_VERSION}.tar.gz ${LIBEVENT_URL}
+wget -O ${NCURSES_SCRATCH}/ncurses-${NCURSES_VERSION}.tar.gz ${NCURSES_URL}
+wget -O ${TMUX_SCRATCH}/tmux-${TMUX_VERSION}.tar.gz ${TMUX_URL}
 
 ############
 # libevent #
@@ -68,7 +68,7 @@ echo "==="
 echo "Setting up tmux: ${TMUX_VERSION}"
 echo "==="
 cd ${TMUX_SCRATCH}
-# tar xzvf tmux-${TMUX_VERSION}.tar.gz --strip-components=1
+tar xzvf tmux-${TMUX_VERSION}.tar.gz --strip-components=1
 echo ${NCURSES_INCLUDE}
 export C_INCLUDE_PATH="${C_INCLUDE_PATH}:${NCURSES_INCLUDE}:${LIBEVENT_INCLUDE}"
 export CXX_INCLUDE_PATH="${CXX_INCLUDE_PATH}:${NCURSES_INCLUDE}:${LIBEVENT_INCLUDE}"
