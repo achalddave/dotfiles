@@ -10,13 +10,12 @@ TMUX_URL=https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${T
 TMUX_SCRATCH=${SCRATCH_DIR}/tmux-${TMUX_VERSION}
 
 LIBEVENT_VERSION=2.0.22
-LIBEVENT_URL=https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
-LIBEVENT_SCRATCH=${SCRATCH_DIR}/libevent-2.0.22
+LIBEVENT_URL=https://github.com/libevent/libevent/releases/download/release-${LIBEVENT_VERSION}-stable/libevent-${LIBEVENT_VERSION}-stable.tar.gz
+LIBEVENT_SCRATCH=${SCRATCH_DIR}/libevent-${LIBEVENT_VERSION}
 
-# If you change this, also change NCURSES_URL
-NCURSES_VERSION=5.9
-NCURSES_URL=ftp://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz
-NCURSES_SCRATCH=${SCRATCH_DIR}/ncurses-5.9
+NCURSES_VERSION=6.1
+NCURSES_URL=ftp://ftp.gnu.org/gnu/ncurses/ncurses-${NCURSES_VERSION}.tar.gz
+NCURSES_SCRATCH=${SCRATCH_DIR}/ncurses-${NCURSES_VERSION}
 
 mkdir -p ${LIBEVENT_SCRATCH}
 mkdir -p ${NCURSES_SCRATCH}
