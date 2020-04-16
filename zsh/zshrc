@@ -447,7 +447,7 @@ bindkey '^N' fzf-completion-depth-1
 export FZF_CTRL_R_OPTS="--height 100% --preview 'echo -E {} \
     | sed -r -e \"s/([^\])\\\\\\\\\\\\\\\n/\1\\\\\\\\\n/g\" \
     | sed -r -e \"s/([^\])\\\\\\\\n/\1\n/g\" \
-    | fold -w ${COLUMNS} \
+    | fold -w "'${COLUMNS}'" \
     | (pygmentize -l zsh || cat)' \
     --preview-window bottom:80%"
 
