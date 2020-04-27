@@ -46,18 +46,18 @@ What changed:\n============='
     brlist = !sh -c '_git_branch_list.sh "$@"' -
     stashgrep = !sh -c '_git_stash_grep.sh "$@"' -
 
-    vimdiff = !vim -p -c 'tabdo Gdiff' $(git diff --name-only)
+    vimdiff = !nvim -p -c 'tabdo Gdiff' $(git diff --name-only)
 
 [core]
     editor = vim
     attributesfile = ~/.gitattributes
-    pager = "diff-so-fancy | less --tabs=4 -RFX"
 
-# diff-so-fancy has some issues with git add --patch. For example, it shows some
-# lines from the next or previous hunks. See
-# https://github.com/so-fancy/diff-so-fancy/pull/172 .
+[pager]
+    diff = _git_pager.sh #  --plus-color=\"#012800\" --minus-color=\"#340001\" --theme="Monokai Extended"'
+    show = _git_pager.sh # diff-so-fancy | less --tabs=4 -RFX'
+
 [interactive]
-    diffFilter = "diff-highlight | less --tabs=4 -RFX"
+    diffFilter = _git_diff_filter.sh
 
 [diff]
     tool = vimdiff
