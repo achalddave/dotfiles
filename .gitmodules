@@ -3,4 +3,4 @@
 	url = https://github.com/tarjoilija/zgen.git
 [submodule "git/scripts/diff-so-fancy"]
 	path = git/scripts/diff-so-fancy-repo
-	url = git@github.com:so-fancy/diff-so-fancy.git
+	url = https://github.com/so-fancy/diff-so-fancy.git
