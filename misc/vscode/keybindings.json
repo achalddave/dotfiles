@@ -1,0 +1,28 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+k c",
+        "command": "workbench.action.toggleCenteredLayout"
+    },
+    {
+        "key": "cmd+k c",
+        "command": "-workbench.files.action.compareWithClipboard"
+    },
+    {
+        "key": "cmd+l",
+        "command": "settings.cycle.lineNumbers",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+m",
+        "command": "editor.action.toggleMinimap"
+    },
+    {
+        "key": "alt+d a",
+        "command": "cSpell.addWordToDictionary"
+    },
+    {
+        "key": "alt+d i",
+        "command": "cSpell.addIgnoreWord"
+    }
+]

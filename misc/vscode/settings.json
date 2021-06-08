@@ -1,0 +1,184 @@
+{
+    "remote.SSH.lockfilesInTmp": true,
+    "git.defaultCloneDirectory": "/tmp/vscode-git-clones",
+    "latex-workshop.intellisense.citation.type": "browser",
+    "terminal.integrated.macOptionClickForcesSelection": true,
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[latex]": {
+        "editor.rulers": []
+    },
+    "matlab.mlintpath": "/home/achald/local/bin/mlint",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "breadcrumbs.enabled": true,
+    "editor.rulers": [
+        88
+    ],
+    "python.linting.pylintArgs": [
+        "--generated-members=numpy.* ,torch.* ,cv2.* , cv.*"
+    ],
+    "vim.enableNeovim": false,
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.timeout": 150,
+    "vim.textwidth": 88,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["f", "l"],
+            "after": ["\\"],
+        },
+        {
+        "before": ["k", "j"],
+        "after": ["<Esc>", "l"]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+        "before": [";"],
+        "after": [":"]
+        },
+        {
+        "before": [":"],
+        "after": [";"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+        "before": ["<space>"],
+        "commands": [":nohl"],
+        "after": ["<space>"]
+        },
+        {
+        "before": [";"],
+        "after": [":"]
+        },
+        {
+        "before": [":"],
+        "after": [";"]
+        },
+        {
+        "before": ["L"],
+        "after": ["$"]
+        },
+        {
+        "before": ["H"],
+        "after": ["^"]
+        },
+        {
+        "before": ["<c-w>", "t"],
+        "commands": [":tabnew"]
+        },
+        {
+        "before": ["<leader>", "t"],
+        "commands": [":tabnew"]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.changeWordIncludesWhitespace": true,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": true,
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+    "editor.wordWrap": "bounded",
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideLineNumbers": false,
+    "terminal.integrated.rendererType": "dom",
+    "files.associations": {
+        "*.m": "matlab"
+    },
+    "editor.renderWhitespace": "none",
+    "gitlens.views.repositories.location": "gitlens",
+    "gitlens.views.fileHistory.location": "gitlens",
+    "gitlens.views.lineHistory.location": "gitlens",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.blame.heatmap.enabled": false,
+    "gitlens.blame.highlight.enabled": false,
+    "gitlens.hovers.enabled": false,
+    "gitlens.views.compare.enabled": true,
+    "gitlens.views.lineHistory.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "git.autofetch": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintEnabled": false,
+    "terminal.integrated.fontFamily": "Monaco",
+    "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.userWords": [
+        "dataset"
+    ],
+    "search.useGlobalIgnoreFiles": true,
+    "editor.wordWrapColumn": 120,
+    "python.insidersChannel": "off",
+    "python.dataScience.askForKernelRestart": false,
+    "latex-workshop.message.update.show": false,
+    "vim.cursorStylePerMode.insert": "line",
+    "python.dataScience.magicCommandsAsComments": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.inheritEnv": false,
+    "editor.fontWeight": "600",
+    "settings.cycle": [{
+        "id": "lineNumbers",
+        "values":[
+            {
+                "editor.lineNumbers": "off",
+                "editor.glyphMargin": false
+            },
+            {
+                "editor.lineNumbers": "on",
+                "editor.glyphMargin": true
+
+            }
+        ]
+    }
+],
+"editor.lineNumbers": "off",
+"editor.folding": true,
+"editor.glyphMargin": false,
+"git.untrackedChanges": "separate",
+"python.linting.mypyCategorySeverity.error": "Warning",
+"workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+},
+"python.languageServer": "Pylance",
+"editor.semanticTokenColorCustomizations": {
+    "[Quiet Light]": {
+        "rules": {
+            "variable:python": "#333333",
+        }
+    },
+    "[Default Dark+]": {
+        "rules": {
+            "variable:python": "#D4D4D4",
+        }
+    }
+},
+"[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+},
+"cSpell.enabled": true,
+}
