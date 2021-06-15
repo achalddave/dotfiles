@@ -476,3 +476,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
 function loadhist() {
     fc -R
 }
+
+export PATH=""`pwd`"/../git/scripts:$PATH"
