@@ -391,6 +391,7 @@ fi
 # FZF settings
 # Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='~~'
+export FZF_DEFAULT_OPTS='--bind ctrl-o:toggle-preview'
 
 # Use FZF with fd
 if command -v fd >/dev/null ; then
@@ -449,7 +450,7 @@ export FZF_CTRL_R_OPTS="--height 100% --preview 'echo -E {} \
     | sed -r -e \"s/([^\])\\\\\\\\n/\1\n/g\" \
     | fold -w "'${COLUMNS}'" \
     | (pygmentize -l zsh || cat)' \
-    --preview-window bottom:80%"
+    --preview-window bottom:80%:hidden"
 
 # function _fzf_complete_ls() {
 #     i=0
