@@ -10,9 +10,9 @@ CONFIG_256_COLORS=${CONFIG_256_COLORS:-1}
 # Create .use_light_colors file to use light colors; this can be done by calling
 # `light_colors` and `dark_colors` functions (defined in ./prompt).
 if [[ -e "${zshrc_dir}"/.use_light_colors ]] ; then
-    CONFIG_LIGHT_COLORS=1
+    export CONFIG_LIGHT_COLORS=1
 else
-    CONFIG_LIGHT_COLORS=0
+    export CONFIG_LIGHT_COLORS=0
 fi
 
 # Setup completion. This needs to happen before zgen is sourced.

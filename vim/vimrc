@@ -649,6 +649,7 @@ if &t_Co >= 256 || has("gui_running")
             " The default normal text color is not dark enough
             hi! Normal ctermfg=black
             hi! Folded ctermfg=4 ctermbg=250
+            let g:vim_search_pulse_color_list = [250, 251, 252, 253, 254]
         endif
     endfunction
 
