@@ -485,3 +485,38 @@ function loadhist() {
 }
 
 export PATH=""`pwd`"/../git/scripts:$PATH"
+
+function fwd() {
+    # Function for setting up port forwarding.
+    if [[ "$#" -eq 2 ]] ; then
+        host=$1
+        remote_port=$2
+        local_port=$2
+    elif [[ "$#" -eq 3 ]] ; then
+        host=$1
+        remote_port=$2
+        local_port=$3
+    else
+        echo "Usage:"
+        echo "  fwd <host> <port> [<local_port>]"
+        echo "Example: Forward remote port 8008 to local port 8008"
+        echo "  fwd user@remote 8008"
+        echo "Example: Forward remote port 8008 to local port 4444"
+        echo "  fwd user@remote 8008 4444"
+        return
+    fi
+    ssh -fNT -L${local_port}:localhost:${remote_port} ${host}
+    echo "Forwarded remote port ${remote_port} on ${host} to ${local_port}"
+}
+# Allows completing host names from ssh config. Not perfect, but works.
+compdef fwd=ssh
+
+function cdm() {
+    if [[ "$#" -ne 1 ]] ; then
+        echo "Usage: "
+        echo "$0 <directory>"
+        return
+    fi
+    mkdir -p $1
+    cd $1
+}
