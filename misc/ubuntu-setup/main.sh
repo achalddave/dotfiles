@@ -29,3 +29,5 @@ ln -s $(which fdfind) ~/.local/bin/fd
 
 touch ~/.zshenv
 echo 'DEBIAN_PREVENT_KEYBOARD_CHANGES=yes' >> ~/.zshenv
+
+./install_delta.sh

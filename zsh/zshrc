@@ -520,3 +520,6 @@ function cdm() {
     mkdir -p $1
     cd $1
 }
+
+mkdir -p ~/.local/bin
+export PATH="${PATH}:${HOME}/.local/bin"
