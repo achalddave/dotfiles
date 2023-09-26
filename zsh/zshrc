@@ -21,6 +21,8 @@ compinit
 
 # Helper for working with json
 source scripts/pyjson.zsh
+alias replace_all=$(readlink -e ./scripts/replace_all.sh)
+source scripts/sagemaker_list_jobs.zsh
 
 # For colors
 source scripts/spectrum.zsh
@@ -520,6 +522,8 @@ function cdm() {
     mkdir -p $1
     cd $1
 }
+
+export TQDM_DYNAMIC_NCOLS=1
 
 mkdir -p ~/.local/bin
 export PATH="${PATH}:${HOME}/.local/bin"
