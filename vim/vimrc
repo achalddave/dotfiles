@@ -217,7 +217,7 @@ endfunction
 
 augroup codefmt_options
     autocmd FileType python,c,cpp,proto,javascript call s:AddCodefmtEqualMapping()
-    autocmd FileType python let b:codefmt_formatter = 'yapf'
+    autocmd FileType python let b:codefmt_formatter = 'black'
 augroup end
 
 " vimtex
@@ -266,7 +266,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Neomake
 let g:neomake_matlab_mlint_maker = {}
 let g:neomake_matlab_enabled_makers = [ "mlint" ]
-let g:neomake_python_enabled_makers = ['python', 'frosted', 'pep8', 'flake8']
+let g:neomake_python_enabled_makers = ['python', 'flake8']
 augroup neomake_options
     autocmd!
     autocmd! BufWritePost * Neomake
