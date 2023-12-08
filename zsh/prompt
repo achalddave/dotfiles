@@ -18,17 +18,18 @@ SPACESHIP_GPU_SHOW="${SPACESHIP_GPU_SHOW=true}"
 SPACESHIP_GPU_PREFIX="${SPACESHIP_GPU_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_GPU_SUFFIX="${SPACESHIP_GPU_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_GPU_SYMBOL="${SPACESHIP_GPU_SYMBOL=""}"
-SPACESHIP_GPU_COLOR="${SPACESHIP_GPU_COLOR="gray"}"
+SPACESHIP_GPU_COLOR="${SPACESHIP_GPU_COLOR="8"}"
 function spaceship_gpu() {
     [[ $SPACESHIP_GPU_SHOW == false ]] && return
     gpus=$(get_gpus)
     [[ -z "${gpus}" ]] && return
-    # Display foobar section
-    spaceship::section \
-        "$SPACESHIP_GPU_COLOR" \
-        "$SPACESHIP_GPU_PREFIX" \
-        "$SPACESHIP_GPU_SYMBOL${gpus}" \
-        "$SPACESHIP_GPU_SUFFIX"
+    # Display gpu section
+    spaceship::section::v4 \
+        --color "$SPACESHIP_GPU_COLOR" \
+        --prefix "$SPACESHIP_GPU_PREFIX" \
+        --symbol "$SPACESHIP_GPU_SYMBOL" \
+        --suffix "$SPACESHIP_GPU_SUFFIX" \
+        "${gpus}"
 }
 
 
@@ -89,6 +90,8 @@ SPACESHIP_DIR_PREFIX='| '
 SPACESHIP_CHAR_SYMBOL='>'
 SPACESHIP_CHAR_SUFFIX=' '
 SPACESHIP_GPU_PREFIX=''
+# SPACESHIP_GIT_ASYNC=false
+SPACESHIP_PROMPT_ASYNC=false
 
 function light_colors {
     export CONFIG_LIGHT_COLORS=1
