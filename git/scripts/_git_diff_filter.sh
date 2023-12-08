@@ -1,8 +1,8 @@
 if type delta >/dev/null 2>&1 ; then
     if [ $CONFIG_LIGHT_COLORS -eq '1' ] ; then
-        delta --color-only --features="GitHub"
+        delta --color-only --syntax-theme="GitHub"
     else
-        delta --color-only --features="zenburn"
+        delta --color-only --syntax-theme="zenburn"
     fi
 else
     # 6/15/21: diff-highlight has been removed from the diff-so-fancy repo, so
