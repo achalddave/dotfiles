@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get update
 
 
@@ -31,3 +33,7 @@ touch ~/.zshenv
 echo 'DEBIAN_PREVENT_KEYBOARD_CHANGES=yes' >> ~/.zshenv
 
 ./install_delta.sh
+
+sudo apt-get install autojump
+[[ -e ~/.zshrc_before ]] || touch ~/.zshrc_before
+echo '. /usr/share/autojump/autojump.sh' >> ~/.zshrc_before
