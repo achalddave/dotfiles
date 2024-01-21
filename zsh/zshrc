@@ -492,6 +492,9 @@ export PATH=""`pwd`"/../git/scripts:$PATH"
 
 function fwd() {
     # Function for setting up port forwarding.
+    local host
+    local remote_port
+    local local_port
     if [[ "$#" -eq 2 ]] ; then
         host=$1
         remote_port=$2
@@ -509,8 +512,16 @@ function fwd() {
         echo "  fwd user@remote 8008 4444"
         return
     fi
+    # Kill existing forwarding processes
+    pids=$(ps aux | grep "ssh -fNT -L${local_port}:localhost:${remote_port}" | grep -v grep | awk '{print $2}')
+    if [ ! -z "$pids" ]; then
+        echo "Killing existing SSH forwarding processes: $pids"
+        kill $pids
+    fi
     ssh -fNT -L${local_port}:localhost:${remote_port} ${host}
     echo "Forwarded remote port ${remote_port} on ${host} to ${local_port}"
+    echo "Click link below to view:"
+    echo "http://localhost:${local_port}"
 }
 # Allows completing host names from ssh config. Not perfect, but works.
 compdef fwd=ssh
