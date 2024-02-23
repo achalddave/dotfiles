@@ -22,7 +22,9 @@ compinit
 # Helper for working with json
 source scripts/pyjson.zsh
 alias replace_all=$(readlink -e ./scripts/replace_all.sh)
+
 source scripts/sagemaker_list_jobs.zsh
+source scripts/s3_parallel_copy.sh
 
 # For colors
 source scripts/spectrum.zsh
