@@ -5,3 +5,7 @@ function s3_parallel_copy() {
     python ${script_dir}/s3_parallel_copy.py $@
 }
 
+function tailwatch() {
+    python ${script_dir}/tailwatch.py $@
+}
+
