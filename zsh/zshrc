@@ -349,7 +349,7 @@ function msg() {
 
 # Useful for creating files with a readable, spaceless date. E.g.
 #   echo "Need to rerun these models: foo/bar, foo/baz" > README_$(now).txt
-alias now="date +'%m%d%y_%H%M%S'"
+alias now="date +'%Y%m%d_%H%M%S'"
 
 if command -v bat >/dev/null 2>&1 ; then
     BAT_PATH=$(which bat)
