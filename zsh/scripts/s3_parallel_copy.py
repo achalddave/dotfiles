@@ -30,17 +30,26 @@ def s3_parallel_cp(source, dest, profile=None, num_processes=100, directories=Fa
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Copy files from a source S3 location to a destination S3 location in parallel.")
+    parser = argparse.ArgumentParser(
+        description="Copy files from a source S3 location to a destination S3 location in parallel."
+    )
     parser.add_argument("source", help="Source S3 bucket and path")
     parser.add_argument("dest", help="Destination S3 bucket and path")
     parser.add_argument("--profile", help="AWS CLI profile to use", default=None)
-    parser.add_argument("--num-processes", help="Number of parallel processes to use", type=int, default=100)
+    parser.add_argument(
+        "--num-processes",
+        help="Number of parallel processes to use",
+        type=int,
+        default=100,
+    )
     parser.add_argument("--directories", action="store_true")
 
     args = parser.parse_args()
 
-    s3_parallel_cp(args.source, args.dest, args.profile, args.num_processes, args.directories)
+    s3_parallel_cp(
+        args.source, args.dest, args.profile, args.num_processes, args.directories
+    )
+
 
 if __name__ == "__main__":
     main()
-
