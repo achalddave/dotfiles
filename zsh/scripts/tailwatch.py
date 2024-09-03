@@ -1,10 +1,9 @@
 """Watch the last K lines of a streaming input."""
 
 import argparse
-import time
 import sys
+import time
 from collections import deque
-
 
 reset_lines = 0
 

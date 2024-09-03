@@ -1,8 +1,7 @@
-from __future__ import print_function
 
 import argparse
-import json
 import inspect
+import json
 
 parser = argparse.ArgumentParser()
 parser.add_argument("json_file")
