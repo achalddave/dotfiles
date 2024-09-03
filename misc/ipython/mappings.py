@@ -7,7 +7,6 @@ ip = get_ipython()
 
 
 def switch_mode(event):
-    " Map 'kj' to Escape. "
     vi_state = event.cli.vi_state
     vi_state.input_mode = InputMode.NAVIGATION
 
@@ -17,6 +16,7 @@ if hasattr(ip, 'pt_app') and ip.pt_app:
     insert_mode = ViInsertMode()
 
     registry = ip.pt_app.key_bindings
+    # Map 'kj' to Escape.
     registry.add_binding(
         'k', 'j',
         filter=(HasFocus(DEFAULT_BUFFER)

@@ -20,6 +20,7 @@
     plr = pull --rebase
     ps  = push
     st  = status -sb
+    brr = branch --sort=-committerdate
 
     # pretty git log
     lg  = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'

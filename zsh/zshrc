@@ -4,24 +4,13 @@ zshrc_dir="${0:a:h}"
 
 fpath=(${zshrc_dir}/functions ${fpath})
 
-# Available configurations; set from ~/.zshrc_before.
-# TODO(achald): Make this an associative array.
-CONFIG_256_COLORS=${CONFIG_256_COLORS:-1}
-# Create .use_light_colors file to use light colors; this can be done by calling
-# `light_colors` and `dark_colors` functions (defined in ./prompt).
-if [[ -e "${zshrc_dir}"/.use_light_colors ]] ; then
-    export CONFIG_LIGHT_COLORS=1
-else
-    export CONFIG_LIGHT_COLORS=0
-fi
-
 # Setup completion. This needs to happen before zgen is sourced.
 autoload -Uz compinit
 compinit
 
 # Helper for working with json
 source scripts/pyjson.zsh
-alias replace_all=$(readlink -e ./scripts/replace_all.sh)
+alias replace_all=$(readlink -f ./scripts/replace_all.sh)
 
 source scripts/sagemaker_list_jobs.zsh
 source scripts/scripts.sh
@@ -32,15 +21,6 @@ source scripts/spectrum.zsh
 
 # turn on correction
 setopt correctall
-
-if [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
-   [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]] ; then
-    # Git file completion is super slow on Windows; this should fix it
-    # http://stackoverflow.com/questions/9810327/
-    __git_files () {
-        _wanted files expl 'local files' _files
-    }
-fi
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' max-errors 3
@@ -157,13 +137,11 @@ setopt pushdminus
 
 # laziness
 # colors!
-if [[ `uname` == "Darwin" ]] && ! ls --version | grep -q 'GNU'
+if [[ `uname` == "Darwin" ]]
 then
     alias ls='ls -G'
 elif [[ `uname` == "Darwin" ]] || # Darwin with GNU ls
-     [[ `uname` == "Linux" ]] ||
-     [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]] ||
-     [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]
+     [[ `uname` == "Linux" ]]
 then
     alias ls='ls --color=always -p'
 fi
@@ -388,6 +366,18 @@ if ! zgen saved; then
 fi
 
 source prompt
+
+# Available configurations; set from ~/.zshrc_before.
+# TODO(achald): Make this an associative array.
+CONFIG_256_COLORS=${CONFIG_256_COLORS:-1}
+# Create .use_light_colors file to use light colors; this can be done by calling
+# `light_colors` and `dark_colors` functions (defined in ./prompt).
+if [[ -e "${zshrc_dir}"/.use_light_colors ]] ; then
+    light_colors
+else
+    dark_colors
+fi
+
 
 if ! zgen saved ; then
     # This needs to be done at the end of the zshrc: zsh-syntax-highlighting
