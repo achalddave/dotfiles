@@ -60,7 +60,6 @@ Plug 'navicore/vissort.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'google/vim-codefmt'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',
             \ {'do': './install.py --clang-completer',
@@ -258,11 +257,6 @@ augroup youcompleteme_options
 augroup end
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
 " Neomake
 let g:neomake_matlab_mlint_maker = {}
 let g:neomake_matlab_enabled_makers = [ "mlint" ]
@@ -321,7 +315,7 @@ nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
 " vim-airline
 let g:airline_theme='dark'
 let g:airline#extensions#bufferline#enabled = 1
-let g:airline_section_a='%{airline#util#append(airline#parts#crypt(),0)}%{airline#util#append(airline#parts#paste(),0)}%{airline#util#append(airline#extensions#keymap#status(),0)}%{airline#util#append(airline#parts#spell(),0)}%{airline#util#append("",0)}%{airline#util#append("",0)}%{airline#util#append(airline#parts#iminsert(),0)}'
+let g:airline_section_a='%{airline#util#append(airline#parts#crypt(),0)}%{airline#util#append(airline#parts#paste(),0)}%{airline#util#append(airline#parts#spell(),0)}%{airline#util#append("",0)}%{airline#util#append("",0)}%{airline#util#append(airline#parts#iminsert(),0)}'
 " Don't show file type
 let g:airline_section_x='%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}'
 let g:airline_section_y=''  " Don't show file format (e.g. utf-8[unix])

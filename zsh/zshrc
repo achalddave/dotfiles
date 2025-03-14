@@ -183,7 +183,6 @@ alias cd.....='cd ../../../..'
 alias cd/='cd /'
 
 # safety
-setopt noclobber
 alias cp='cp -i'
 alias mv='mv -i'
 
@@ -446,12 +445,13 @@ bindkey '^N' fzf-completion-depth-1
 #       echo ${i}
 #   done
 # which gets converted into "for i in {1..10} ; do\n echo ${i}\n done"
-export FZF_CTRL_R_OPTS="--height 100% --preview 'echo -E {} \
-    | sed -r -e \"s/([^\])\\\\\\\\\\\\\\\n/\1\\\\\\\\\n/g\" \
-    | sed -r -e \"s/([^\])\\\\\\\\n/\1\n/g\" \
-    | fold -w "'${COLUMNS}'" \
-    | (pygmentize -l zsh || cat)' \
-    --preview-window bottom:80%:hidden"
+export FZF_CTRL_R_OPTS="--height 100% --preview 'echo -E {} | fold -w "'$COLUMNS'" | (pygmentize -l zsh || cat)' --preview-window bottom:80%:hidden"
+# export FZF_CTRL_R_OPTS="--height 100% --preview 'echo -E {} \
+#     | sed -r -e \"s/([^\])\\\\\\\\\\\\\\\n/\1\\\\\\\\\n/g\" \
+#     | sed -r -e \"s/([^\])\\\\\\\\n/\1\n/g\" \
+#     | fold -w "'${COLUMNS}'" \
+#     | (pygmentize -l zsh || cat)' \
+#     --preview-window bottom:80%:hidden"
 
 # function _fzf_complete_ls() {
 #     i=0

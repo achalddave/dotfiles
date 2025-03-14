@@ -12,7 +12,8 @@
     # lazy
     br  = branch
     ci  = commit
-    co  = checkout
+    co = !sh -c '_git_checkout.sh "$@"' -
+
     cpi = cherry-pick
     df  = diff
     dfs = diff --cached # staged changes
@@ -48,6 +49,8 @@ What changed:\n============='
     stashgrep = !sh -c '_git_stash_grep.sh "$@"' -
 
     vimdiff = !nvim -p -c 'tabdo Gdiff' $(git diff --name-only)
+    # List stashes from this branch
+    stb = !git stash list | grep $(git rev-parse --abbrev-ref HEAD)
 
 [core]
     editor = vim
@@ -72,6 +75,4 @@ What changed:\n============='
 
 [push]
     default = upstream
-
-[github]
-    user = achalddave
+    autoSetupRemote = true
